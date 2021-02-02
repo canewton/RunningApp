@@ -4,7 +4,7 @@ The project uses React Native and is written in Javascript. The pupose of this p
 
 # Getting Started
 
-1. Download Expo Client on your mobile phone.
+1. Download Expo Go on your mobile phone.
 2. Download Node.js on your computer. Link is here: https://nodejs.org/en/download/
 
 # Build and Test
