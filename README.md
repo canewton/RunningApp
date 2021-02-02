@@ -1,6 +1,6 @@
 # Introduction
 
-This project uses React Native and is written in Javascript. The purpose of the code is to create a running app for Android and Apple mobile phones that displays the amount of time it takes for an athlete to run a certain distance. To do this, the data that must be displayed is sent from a physical device that is attached to the athlete's shoe.
+The project uses React Native and is written in Javascript. The pupose of this project is to create a running app for track and field athletes that is available on Android and Apple mobile phones. The app would aid runners in their workouts by displaying the amount of time it takes for them to run a certain distance. Data regarding an athlete's workout is sent from a physical device, attached to the athlete's shoe, to this app.
 
 # Getting Started
 
