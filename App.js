@@ -1,21 +1,59 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() {
+import WorkoutList from './src/screens/WorkoutList';
+import LongtermProgress from './src/screens/LongtermProgress';
+import Challenges from './src/screens/Challenges';
+
+const Tab = createBottomTabNavigator();
+const ListStack = createStackNavigator();
+const ProgressStack = createStackNavigator();
+const ChallengeStack = createStackNavigator();
+
+const ListStackScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ListStack.Navigator>
+      <ListStack.Screen
+        name="Workout List"
+        component={WorkoutList}
+      />
+    </ListStack.Navigator>
   );
-} 
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const ProgressStackScreen = () => {
+  return (
+    <ProgressStack.Navigator>
+      <ProgressStack.Screen
+        name="Longterm Progress"
+        component={LongtermProgress}
+      />
+    </ProgressStack.Navigator>
+  );
+}
+
+const ChallengeStackScreen = () => {
+  return (
+    <ChallengeStack.Navigator>
+      <ChallengeStack.Screen
+        name="Challenges"
+        component={Challenges}
+      />
+    </ChallengeStack.Navigator>
+  );
+}
+
+export default () => {
+  return (
+    <NavigationContainer>{
+      <Tab.Navigator>
+        <Tab.Screen name="List" component={ListStackScreen} />
+        <Tab.Screen name="Progress" component={ProgressStackScreen} />
+        <Tab.Screen name="Challenges" component={ChallengeStackScreen} />
+      </Tab.Navigator>
+    }</NavigationContainer>
+  );
+}
