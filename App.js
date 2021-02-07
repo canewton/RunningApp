@@ -1,59 +1,70 @@
-import 'react-native-gesture-handler';
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import "react-native-gesture-handler";
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import WorkoutList from './src/screens/WorkoutList';
-import LongtermProgress from './src/screens/LongtermProgress';
-import Challenges from './src/screens/Challenges';
+import WorkoutListScreen from "./src/screens/WorkoutListScreen";
+import LongtermProgressScreen from "./src/screens/LongtermProgressScreen";
+import AchievementsScreen from "./src/screens/AchievementsScreen";
+import WorkoutDetailScreen from "./src/screens/WorkoutDetailScreen";
+import { Provider as WorkoutProvider } from "./src/context/WorkoutContext";
 
 const Tab = createBottomTabNavigator();
 const ListStack = createStackNavigator();
 const ProgressStack = createStackNavigator();
-const ChallengeStack = createStackNavigator();
+const AchievementsScreentack = createStackNavigator();
 
 const ListStackScreen = () => {
   return (
     <ListStack.Navigator>
+      <ListStack.Screen name="Workout List" component={WorkoutListScreen} />
       <ListStack.Screen
-        name="Workout List"
-        component={WorkoutList}
+        name="Workout Details"
+        component={WorkoutDetailScreen}
       />
     </ListStack.Navigator>
   );
-}
+};
 
 const ProgressStackScreen = () => {
   return (
     <ProgressStack.Navigator>
       <ProgressStack.Screen
         name="Longterm Progress"
-        component={LongtermProgress}
+        component={LongtermProgressScreen}
       />
     </ProgressStack.Navigator>
   );
-}
+};
 
-const ChallengeStackScreen = () => {
+const AchievementsStackScreen = () => {
   return (
-    <ChallengeStack.Navigator>
-      <ChallengeStack.Screen
-        name="Challenges"
-        component={Challenges}
+    <AchievementsScreentack.Navigator>
+      <AchievementsScreentack.Screen
+        name="AchievementsScreen"
+        component={AchievementsScreen}
       />
-    </ChallengeStack.Navigator>
+    </AchievementsScreentack.Navigator>
+  );
+};
+
+function BottomTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="List" component={ListStackScreen} />
+      <Tab.Screen name="Progress" component={ProgressStackScreen} />
+      <Tab.Screen name="Achievements" component={AchievementsStackScreen} />
+    </Tab.Navigator>
   );
 }
 
 export default () => {
   return (
-    <NavigationContainer>{
-      <Tab.Navigator>
-        <Tab.Screen name="List" component={ListStackScreen} />
-        <Tab.Screen name="Progress" component={ProgressStackScreen} />
-        <Tab.Screen name="Challenges" component={ChallengeStackScreen} />
-      </Tab.Navigator>
-    }</NavigationContainer>
+    <WorkoutProvider>
+      <NavigationContainer>
+        <BottomTabs />
+      </NavigationContainer>
+    </WorkoutProvider>
   );
-}
+};
