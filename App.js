@@ -20,9 +20,9 @@ const AchievementsScreentack = createStackNavigator();
 const Theme = {
   dark: false,
   colors: {
-    primary: "#B8B8FF",
-    background: "#FFEEDD",
-    card: "#9381FF",
+    primary: "rgb(255, 45, 85)",
+    background: "rgb(242, 242, 242)",
+    card: "rgb(255, 255, 255)",
     text: "rgb(28, 28, 30)",
     border: "#B8B8FF",
     notification: "rgb(255, 69, 58)",
