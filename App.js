@@ -9,6 +9,8 @@ import LongtermProgressScreen from "./src/screens/LongtermProgressScreen";
 import AchievementsScreen from "./src/screens/AchievementsScreen";
 import WorkoutDetailScreen from "./src/screens/WorkoutDetailScreen";
 import { Provider as WorkoutProvider } from "./src/context/WorkoutContext";
+import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 const ListStack = createStackNavigator();
@@ -64,9 +66,33 @@ const AchievementsStackScreen = () => {
 function BottomTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="List" component={ListStackScreen} />
-      <Tab.Screen name="Progress" component={ProgressStackScreen} />
-      <Tab.Screen name="Achievements" component={AchievementsStackScreen} />
+      <Tab.Screen
+        name="Workouts"
+        component={ListStackScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="list-sharp" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Progress"
+        component={ProgressStackScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome name="line-chart" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Achievements"
+        component={AchievementsStackScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="trophy-sharp" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
