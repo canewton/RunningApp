@@ -7,10 +7,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
+//import { useTheme } from "@react-navigation/native";
 
 const WorkoutListScreen = ({ navigation }) => {
-  console.log(WorkoutContext);
   const { state, addWorkout } = useContext(WorkoutContext);
+
+  //const { colors } = useTheme();
 
   return (
     <View>
@@ -20,8 +22,9 @@ const WorkoutListScreen = ({ navigation }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity>
-              <View>
-                <Text>{item.date}</Text>
+              <View style={styles.workout}>
+                <Text style={styles.time}>{item.data} seconds</Text>
+                <Text style={styles.date}>{item.date}</Text>
               </View>
             </TouchableOpacity>
           );
@@ -31,6 +34,24 @@ const WorkoutListScreen = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  workout: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 20,
+    paddingHorizontal: 10,
+    borderTopWidth: 1,
+    borderColor: "gray",
+    alignItems: "center",
+    backgroundColor: "#B8B8FF",
+  },
+  date: {
+    fontSize: 12,
+  },
+  time: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+});
 
 export default WorkoutListScreen;

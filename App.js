@@ -15,6 +15,18 @@ const ListStack = createStackNavigator();
 const ProgressStack = createStackNavigator();
 const AchievementsScreentack = createStackNavigator();
 
+const Theme = {
+  dark: false,
+  colors: {
+    primary: "#B8B8FF",
+    background: "#FFEEDD",
+    card: "#9381FF",
+    text: "rgb(28, 28, 30)",
+    border: "#B8B8FF",
+    notification: "rgb(255, 69, 58)",
+  },
+};
+
 const ListStackScreen = () => {
   return (
     <ListStack.Navigator>
@@ -62,7 +74,7 @@ function BottomTabs() {
 export default () => {
   return (
     <WorkoutProvider>
-      <NavigationContainer>
+      <NavigationContainer theme={Theme}>
         <BottomTabs />
       </NavigationContainer>
     </WorkoutProvider>
