@@ -30,7 +30,7 @@ const Theme = {
 const ListStackScreen = () => {
   return (
     <ListStack.Navigator>
-      <ListStack.Screen name="Workout List" component={WorkoutListScreen} />
+      <ListStack.Screen name="Workouts" component={WorkoutListScreen} />
       <ListStack.Screen
         name="Workout Details"
         component={WorkoutDetailScreen}
@@ -43,7 +43,7 @@ const ProgressStackScreen = () => {
   return (
     <ProgressStack.Navigator>
       <ProgressStack.Screen
-        name="Longterm Progress"
+        name="Progress"
         component={LongtermProgressScreen}
       />
     </ProgressStack.Navigator>
@@ -54,7 +54,7 @@ const AchievementsStackScreen = () => {
   return (
     <AchievementsScreentack.Navigator>
       <AchievementsScreentack.Screen
-        name="AchievementsScreen"
+        name="Achievements"
         component={AchievementsScreen}
       />
     </AchievementsScreentack.Navigator>
