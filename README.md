@@ -6,7 +6,7 @@ The project uses React Native and is written in Javascript. The pupose of this p
 
 1. Download Expo Go on your mobile phone.
 2. Download Node.js on your computer. Link is here: https://nodejs.org/en/download/
-3. In the you computer's terminal, go into the project directory containing this code.
+3. In your computer's terminal, go into the project directory containing this code.
 4. Run the following comands (one line at a time):
     > For mac:
         Mv RunningApp ~/
