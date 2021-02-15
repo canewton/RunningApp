@@ -13,6 +13,8 @@ const WorkoutDetailScreen = ({ route }) => {
       <View style={styles.header}>
         <Text style={styles.title}>Velocity</Text>
       </View>
+      <Text style={styles.text}>Top Speed:</Text>
+      <Text style={styles.text}>Top Speed Timestamp:</Text>
     </View>
   );
 };

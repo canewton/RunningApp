@@ -1,4 +1,4 @@
-import React, { Component, useContext, useState } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -43,7 +43,7 @@ const WorkoutList = ({ title, workouts }) => {
                     navigation.navigate("Workout Details", {
                       distance: item.distance,
                       data: item.data,
-                      date: item.date,
+                      date: item.date.toString(),
                     })
                   }
                 >
