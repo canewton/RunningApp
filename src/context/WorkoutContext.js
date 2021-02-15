@@ -45,7 +45,7 @@ export const { Context, Provider } = createDataContext(
     {
       date: new Date("1/1/2021"),
       distance: "100 meters",
-      data: "00:19.86",
+      data: "00:11.86",
       id: "4",
     },
     {
@@ -119,6 +119,36 @@ export const { Context, Provider } = createDataContext(
       distance: "1600 meters",
       data: "05:43.63",
       id: "16",
+    },
+    {
+      date: new Date("1/10/2021"),
+      distance: "200 meters",
+      data: "00:20.63",
+      id: "17",
+    },
+    {
+      date: new Date("1/10/2021"),
+      distance: "200 meters",
+      data: "00:20.68",
+      id: "18",
+    },
+    {
+      date: new Date("1/10/2021"),
+      distance: "100 meters",
+      data: "00:09.21",
+      id: "19",
+    },
+    {
+      date: new Date("1/10/2021"),
+      distance: "400 meters",
+      data: "00:50.89",
+      id: "20",
+    },
+    {
+      date: new Date("1/10/2021"),
+      distance: "100 meters",
+      data: "00:49.23",
+      id: "21",
     },
   ]
 );

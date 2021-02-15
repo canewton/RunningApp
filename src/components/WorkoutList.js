@@ -7,12 +7,15 @@ import {
   FlatList,
 } from "react-native";
 import Collapsible from "react-native-collapsible";
+import { useNavigation } from "@react-navigation/native";
 
-const WorkoutList = ({ title, workouts, navigation }) => {
+const WorkoutList = ({ title, workouts }) => {
   //don't show this list if there is no workouts in it
   if (!workouts.length) {
     return null;
   }
+
+  const navigation = useNavigation();
 
   const [collapsed, setCollapsed] = useState(false);
 
@@ -35,7 +38,15 @@ const WorkoutList = ({ title, workouts, navigation }) => {
             scrollEnabled={false}
             renderItem={({ item }) => {
               return (
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() =>
+                    navigation.navigate("Workout Details", {
+                      distance: item.distance,
+                      data: item.data,
+                      date: item.date,
+                    })
+                  }
+                >
                   <View style={styles.workout}>
                     <Text style={styles.time}>{item.data}</Text>
                     <Text style={styles.date}>

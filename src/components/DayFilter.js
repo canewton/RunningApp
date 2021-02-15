@@ -27,6 +27,7 @@ const DayFilter = (state) => {
     "Saturday",
     "Sunday",
   ];
+  //get today's date
   var date = new Date();
   var year = date.getFullYear();
   var month = date.getMonth();

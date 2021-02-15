@@ -22,7 +22,7 @@ const SettingsStack = createStackNavigator();
 const Theme = {
   dark: false,
   colors: {
-    primary: "#8fd14f",
+    primary: "rgb(0,0,0)",
     background: "rgb(255, 255, 255)",
     card: "#8fd14f",
     text: "rgb(28, 28, 30)",
