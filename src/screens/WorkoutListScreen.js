@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
-import { View, StyleSheet } from "react-native";
+import React, { useContext, useEffect } from "react";
+import { View, StyleSheet, LogBox } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 import DayFilter from "../components/DayFilter";
 import { ScrollView } from "react-native-gesture-handler";
 
 const WorkoutListScreen = ({ navigation }) => {
+  useEffect(() => {
+    LogBox.ignoreLogs(["VirtualizedLists should never be nested"]);
+  }, []);
+
   const { state, addWorkout } = useContext(WorkoutContext);
 
   return (

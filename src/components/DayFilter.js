@@ -37,12 +37,8 @@ const DayFilter = (state) => {
     return new Date(year, month + 1, 0).getDate();
   }
 
-  //convert the state object that was passed to the component into an array
-  //console.log(state);
   const workouts = Object.values(state)[0];
-  //console.log(workouts);
   const mostRecentWorkout = workouts[workouts.length - 1];
-  //console.log(mostRecentWorkout);
   const mostRecentWorkoutDate = mostRecentWorkout.date;
 
   const filterWorkoutsByDate = (date) => {
@@ -99,8 +95,8 @@ const DayFilter = (state) => {
           </View>
         </TouchableOpacity>
         <Text style={styles.text}>
-          Today, {weekdays[dateDisplayed.getDay()]},{" "}
-          {months[dateDisplayed.getMonth()]} {dateDisplayed.getDate()}
+          {months[dateDisplayed.getMonth()]} {dateDisplayed.getDate()},{" "}
+          {dateDisplayed.getFullYear()}
         </Text>
         <TouchableOpacity onPress={() => updateDateDisplayed("increase")}>
           <View style={styles.iconButton}>
@@ -110,35 +106,35 @@ const DayFilter = (state) => {
       </View>
       <WorkoutList
         title="100 meters"
-        children={filterWorkoutsByDistanceAndDate(
+        workouts={filterWorkoutsByDistanceAndDate(
           "100 meters",
           workoutsSortedByDate[dateIndex]
         )}
       />
       <WorkoutList
         title="200 meters"
-        children={filterWorkoutsByDistanceAndDate(
+        workouts={filterWorkoutsByDistanceAndDate(
           "200 meters",
           workoutsSortedByDate[dateIndex]
         )}
       />
       <WorkoutList
         title="400 meters"
-        children={filterWorkoutsByDistanceAndDate(
+        workouts={filterWorkoutsByDistanceAndDate(
           "400 meters",
           workoutsSortedByDate[dateIndex]
         )}
       />
       <WorkoutList
         title="800 meters"
-        children={filterWorkoutsByDistanceAndDate(
+        workouts={filterWorkoutsByDistanceAndDate(
           "800 meters",
           workoutsSortedByDate[dateIndex]
         )}
       />
       <WorkoutList
         title="1600 meters"
-        children={filterWorkoutsByDistanceAndDate(
+        workouts={filterWorkoutsByDistanceAndDate(
           "1600 meters",
           workoutsSortedByDate[dateIndex]
         )}

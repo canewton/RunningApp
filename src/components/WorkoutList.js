@@ -8,8 +8,13 @@ import {
 } from "react-native";
 import Collapsible from "react-native-collapsible";
 
-const WorkoutList = ({ title, children, navigation }) => {
-  const [collapsed, setCollapsed] = useState(true);
+const WorkoutList = ({ title, workouts, navigation }) => {
+  //don't show this list if there is no workouts in it
+  if (!workouts.length) {
+    return null;
+  }
+
+  const [collapsed, setCollapsed] = useState(false);
 
   const toggleExpanded = () => {
     setCollapsed(!collapsed);
@@ -25,7 +30,7 @@ const WorkoutList = ({ title, children, navigation }) => {
       <Collapsible collapsed={collapsed} align="center">
         <View style={styles.workoutList}>
           <FlatList
-            data={children}
+            data={workouts}
             keyExtractor={(index) => index.id}
             scrollEnabled={false}
             renderItem={({ item }) => {
