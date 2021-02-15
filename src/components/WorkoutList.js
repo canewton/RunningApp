@@ -33,7 +33,10 @@ const WorkoutList = ({ title, children, navigation }) => {
                 <TouchableOpacity>
                   <View style={styles.workout}>
                     <Text style={styles.time}>{item.data}</Text>
-                    <Text style={styles.date}>{item.date}</Text>
+                    <Text style={styles.date}>
+                      {item.date.getDate()}/{item.date.getMonth() + 1}/
+                      {item.date.getFullYear()}
+                    </Text>
                   </View>
                 </TouchableOpacity>
               );
@@ -77,12 +80,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 10,
     backgroundColor: "#12cdd4",
-  },
-  workout2: {
-    paddingVertical: 25,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    backgroundColor: "red",
-    borderColor: "white",
   },
   workoutList: {
     marginRight: 5,
