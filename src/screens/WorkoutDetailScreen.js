@@ -5,6 +5,7 @@ const WorkoutDetailScreen = ({ route }) => {
   const { distance, data, date } = route.params;
   return (
     <View>
+      <Text>odessa's edit</Text>
       <View style={styles.header}>
         <Text style={styles.title}>Distance</Text>
       </View>
