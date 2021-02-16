@@ -10,6 +10,8 @@ const LongtermProgressScreen = () => {
   return (
     <View>
       <Text>LongtermProgress Screen</Text>
+      <Text> AHHHHHHHHHHHHHHHHHHHHH</Text>
+      <Text> HELP!!!!!!!!!!!!!!!!!!!</Text>
     </View>
   );
 };
