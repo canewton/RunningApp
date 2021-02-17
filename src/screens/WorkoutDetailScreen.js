@@ -7,8 +7,6 @@ const WorkoutDetailScreen = ({ route }) => {
     <View>
       <View style={styles.header}>
         <Text style={styles.title}>Distance</Text>
-        <Text style={styles.text}>Luisa was here :) </Text>
-
       </View>
       <Text style={styles.text}>Distance: {distance}</Text>
       <Text style={styles.text}>Time: {data}</Text>
