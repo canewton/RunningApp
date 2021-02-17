@@ -24,8 +24,8 @@ The project uses React Native and is written in Javascript. The pupose of this p
 
 # Build and Test
 
-1. In the you computer's terminal, go into the project directory containing this code.
-2. Run npm start
+1. In the computer's terminal, go into the project directory containing this code.
+2. Run: npm start
 3. A new tab should appear in your browser with a QR code.
 4. Scan the QR code with your phone's camera. This should open the Expo Client app that you downloaded.
 5. The current version of the app should appear.
