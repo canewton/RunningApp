@@ -17,7 +17,7 @@ const WorkoutDetailScreen = ({ route }) => {
     datasets: [
       {
         data: [49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8],
-        color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
+        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
         strokeWidth: 2 // optional
       }
     ],
@@ -42,8 +42,9 @@ const WorkoutDetailScreen = ({ route }) => {
           height={256}
           verticalLabelRotation={30}
           chartConfig={chartConfig}
-          bezier
+          withDots={(false)}
         />
+
       </View>
       <Text style={styles.text}>Top Speed:</Text>
       <Text style={styles.text}>Top Speed Timestamp:</Text>
@@ -52,16 +53,17 @@ const WorkoutDetailScreen = ({ route }) => {
 };
 
 const chartConfig = {
-  backgroundGradientFrom: "#1E2923",
+  backgroundGradientFrom: "#FFFFF1",
   backgroundGradientFromOpacity: 0,
-  backgroundGradientTo: "#08130D",
+  backgroundGradientTo: "#FFFFF1",
   backgroundGradientToOpacity: 0.5,
-  color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+  color: (opacity = 1) => `rgba(0,0,0, ${opacity})`,
   strokeWidth: 2, // optional, default 3
   barPercentage: 0.5,
-  useShadowColorFromDataset: false // optional
+  useShadowColorFromDataset: true // optional
 };
-
+//#1E2923
+//#08130D
 const styles = StyleSheet.create({
   header: {
     backgroundColor: "#12cdd4",
