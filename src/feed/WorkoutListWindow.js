@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import WindowHeader from "../components/WindowHeader";
 
+//Create a component that gives the user a glimpse of the WorkoutListScreen contents
 const WorkoutListWindow = () => {
   return (
     <View>

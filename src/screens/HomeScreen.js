@@ -3,9 +3,13 @@ import { View, StyleSheet, TouchableOpacity } from "react-native";
 import WorkoutListWindow from "../feed/WorkoutListWindow";
 import WindowHeader from "../components/WindowHeader";
 
+//This screen is the first screen that the user sees
+//Get the navigation prop
 const HomeScreen = ({ navigation }) => {
   return (
     <View>
+      {/*Display all the windows that are in the feed folder
+      Make all the windows a button that navigates to the corresponding screen */}
       <TouchableOpacity onPress={() => navigation.navigate("Workouts")}>
         <View style={styles.button}>
           <WorkoutListWindow />

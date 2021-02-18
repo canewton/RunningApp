@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
+//make a component that formats the header of every window in the feed folder
 const WindowHeader = ({ title }) => {
   return (
     <View>
