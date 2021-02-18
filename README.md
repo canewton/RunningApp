@@ -9,14 +9,14 @@ The project uses React Native and is written in Javascript. The pupose of this p
 3.  In your computer's terminal, go into the project directory containing this code.
 4.  Run the following comands (one line at a time):
     > For mac:
-        Mv RunningApp ~/
-        cd ~/rn-starter
-        npm install
-        npm start
+        Mv RunningApp ~/ <br />
+        cd ~/rn-starter <br />
+        npm install <br />
+        npm start <br />
     > For windows:
-        npm install
-        Install the expo-cli tools by running “npm install expo-cli --global”
-        npm start
+        npm install <br />
+        Install the expo-cli tools by running “npm install expo-cli --global”  <br />
+        npm start <br />
 5.  A new tab should appear in your browser with a QR code.
 6.  Scan the QR code with your phone's camera. This should open the Expo Client app that you downloaded.
 7.  The current version of the app should appear.
