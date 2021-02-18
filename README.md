@@ -8,12 +8,12 @@ The project uses React Native and is written in Javascript. The pupose of this p
 2.  Download Node.js on your computer. Link is here: https://nodejs.org/en/download/
 3.  In your computer's terminal, go into the project directory containing this code.
 4.  Run the following comands (one line at a time):
-    > For mac:
+    > For mac: <br />
         Mv RunningApp ~/ <br />
         cd ~/rn-starter <br />
         npm install <br />
         npm start <br />
-    > For windows:
+    > For windows: <br />
         npm install <br />
         Install the expo-cli tools by running “npm install expo-cli --global”  <br />
         npm start <br />
