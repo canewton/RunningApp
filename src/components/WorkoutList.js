@@ -15,29 +15,41 @@ const WorkoutList = ({ title, workouts }) => {
     return null;
   }
 
+  //get the navigation prop to navigate between screen with this component
   const navigation = useNavigation();
 
+  //create a state variable that defines if the collapsible list is collapsed or not
   const [collapsed, setCollapsed] = useState(false);
 
+  //a function that collapses or expands the collapsible list
   const toggleExpanded = () => {
     setCollapsed(!collapsed);
   };
 
   return (
     <View>
+      {/*Make a button that expands and collapses the collapsible list*/}
       <TouchableOpacity onPress={toggleExpanded}>
         <View style={styles.header}>
           <Text style={styles.headerText}>{title}</Text>
         </View>
       </TouchableOpacity>
+      {/*Make a list that collapses and expands. Make the list start out as expanded.*/}
       <Collapsible collapsed={collapsed} align="center">
         <View style={styles.workoutList}>
+          {/*Pass the workout data into a flatlist component.
+          The flatlist will display every workout that is passed to it.
+          Disable scrolling for the flatlist since it is in a collapsible list*/}
           <FlatList
             data={workouts}
             keyExtractor={(index) => index.id}
             scrollEnabled={false}
             renderItem={({ item }) => {
               return (
+                //Make every workout a button that navigates to the Workout Details page,
+                //which displays the workout with more detail.
+                //Pass the distance, data, and date variables of the workout that
+                //was pressed to the Workout Details screen so that it can be diplayed there
                 <TouchableOpacity
                   onPress={() =>
                     navigation.navigate("Workout Details", {
@@ -47,6 +59,7 @@ const WorkoutList = ({ title, workouts }) => {
                     })
                   }
                 >
+                  {/*Display the date and time on the workout button*/}
                   <View style={styles.workout}>
                     <Text style={styles.time}>{item.data}</Text>
                     <Text style={styles.date}>

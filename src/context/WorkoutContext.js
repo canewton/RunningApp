@@ -147,7 +147,7 @@ export const { Context, Provider } = createDataContext(
     {
       date: new Date("1/10/2021"),
       distance: "100 meters",
-      data: "00:49.23",
+      data: "00:09.23",
       id: "21",
     },
   ]
