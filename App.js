@@ -10,20 +10,22 @@ import AchievementsScreen from "./src/screens/AchievementsScreen";
 import WorkoutDetailScreen from "./src/screens/WorkoutDetailScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
 import { Provider as WorkoutProvider } from "./src/context/WorkoutContext";
-import { Ionicons } from "@expo/vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
+import HomeScreen from "./src/screens/HomeScreen";
+//import { Ionicons } from "@expo/vector-icons";
+//import { FontAwesome } from "@expo/vector-icons";
 
-const Tab = createBottomTabNavigator();
+//const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 const ListStack = createStackNavigator();
 const ProgressStack = createStackNavigator();
-const AchievementsScreentack = createStackNavigator();
+const AchievementsStack = createStackNavigator();
 const SettingsStack = createStackNavigator();
 
 const Theme = {
   dark: false,
   colors: {
     primary: "rgb(0,0,0)",
-    background: "rgb(255, 255, 255)",
+    background: "rgb(242, 242, 242)",
     card: "#8fd14f",
     text: "rgb(28, 28, 30)",
     border: "rgb(28, 28, 30)",
@@ -75,44 +77,14 @@ const SettingsStackScreen = () => {
 
 function BottomTabs() {
   return (
-    <Tab.Navigator tabBarOptions={customTabBarStyle}>
-      <Tab.Screen
-        name="Workouts"
-        component={ListStackScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="list-sharp" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Progress"
-        component={ProgressStackScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="line-chart" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Achievements"
-        component={AchievementsStackScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="trophy-sharp" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Settings"
-        component={SettingsStackScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="settings-sharp" color={color} size={size} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
+    <Stack.Navigator tabBarOptions={customTabBarStyle}>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Workouts" component={WorkoutListScreen} />
+      <Stack.Screen name="Workout Details" component={WorkoutDetailScreen} />
+      <Stack.Screen name="Progress" component={LongtermProgressScreen} />
+      <Stack.Screen name="Achievements" component={AchievementsScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
+    </Stack.Navigator>
   );
 }
 
