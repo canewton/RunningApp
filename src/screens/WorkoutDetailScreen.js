@@ -22,7 +22,18 @@ const WorkoutDetailScreen = ({ route }) => {
       }
     ],
     legend: ["running data(dummy)"] // optional
+    
   };
+
+const dataNotGraph = [
+  49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8
+];
+
+var max_of_array = Math.max.apply(Math, (dataNotGraph) );
+
+
+
+// var max_of_array = Math.max.apply(Math, [49,49,49,49,50,50,51,51,52,52,53,53]);
 
   return (
     <View>
@@ -33,9 +44,8 @@ const WorkoutDetailScreen = ({ route }) => {
       <Text style={styles.text}>Time: {data}</Text>
       <View style={styles.header}>
         <Text style={styles.title}>Velocity</Text>
-
       </View>
-      <View>
+      <View >
       <LineChart
           data={datadumb}
           width={300}
@@ -44,9 +54,11 @@ const WorkoutDetailScreen = ({ route }) => {
           chartConfig={chartConfig}
           withDots={(false)}
         />
+        
+        <Text style={styles.text}>Your top speed was:{max_of_array} </Text>
 
       </View>
-      <Text style={styles.text}>Top Speed:</Text>
+     
       <Text style={styles.text}>Top Speed Timestamp:</Text>
     </View>
   );
