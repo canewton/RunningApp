@@ -9,6 +9,11 @@ import {
   StackedBarChart,
 } from "react-native-chart-kit";
 
+
+const dataNotGraph = [
+  49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8
+];
+
 const WorkoutDetailScreen = ({ route }) => {
   const { distance, data, date } = route.params;
 
@@ -16,7 +21,7 @@ const WorkoutDetailScreen = ({ route }) => {
     labels: [0,0,0,0,0,0,0,0,0,0,0,0],
     datasets: [
       {
-        data: [49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8],
+        data: [dataNotGraph],
         color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
         strokeWidth: 2 // optional
       }
@@ -25,9 +30,7 @@ const WorkoutDetailScreen = ({ route }) => {
     
   };
 
-const dataNotGraph = [
-  49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8
-];
+
 
 var max_of_array = Math.max.apply(Math, (dataNotGraph) );
 
