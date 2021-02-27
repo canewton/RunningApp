@@ -11,7 +11,7 @@ const AchievementsScreen = () => {
   // can we put an array in this bitch?
 
   return (
-    <View>
+    <View style={styles.name}> 
       <Acheivement
         title="Run 100 meters"
         // const goals = 
@@ -32,7 +32,16 @@ const AchievementsScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  name: {
+  paddingVertical: 10,
+  backgroundColor: "#8fd14f",
+  alignItems: "center",
+  flexDirection: "row",
+  borderBottomWidth: 1,
+  borderBottomColor: "gray",
+  marginBottom: 15,
+}});
 
 export default AchievementsScreen;
 

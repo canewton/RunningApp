@@ -11,7 +11,7 @@ import {
 const Acheivement = (props) => {
     return <View>
         <Text>{props.title}</Text>
-        <FlatList
+        {/* <FlatList
             keyExtractor={(goals) => goals.title}
             data = {goals}
             renderItem={({ item }) => {
@@ -19,11 +19,11 @@ const Acheivement = (props) => {
                 {item.title}: {item.requirements}
             </Text>
             }}
-        />
+        /> */}
     </View>
 }
 
-const StyleSheet=style.create({})
+//const StyleSheet=style.create({})
 
 
 export default Acheivement;
