@@ -11,37 +11,29 @@ const AchievementsScreen = () => {
   // can we put an array in this bitch?
 
   return (
-    <View style={styles.name}> 
+    <View> 
       <Acheivement
         title="Run 100 meters"
-        // const goals = 
-        //   {name: "gold", requirements: },
-        //   {name: "silver", requirements: },
-        //   {name: "bronze", requirements: },
-        // ]
+        const goals = {[
+          {medal: "gold"},
+          {medal: "silver" },
+          {medal: "bronze" },
+        ]}
+
       />
       <Acheivement
         title="Run 4 seasons"
-      //   const goals = [
-      //     {name: "gold", requirements: },
-      //     {name: "silver", requirements: },
-      //     {name: "bronze", requirements: },
-      //   ]
+        const goals = {[
+          {medal: "gold"},
+          {medal: "silver"},
+          {medal: "bronze"},
+        ]}
        />
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  name: {
-  paddingVertical: 10,
-  backgroundColor: "#8fd14f",
-  alignItems: "center",
-  flexDirection: "row",
-  borderBottomWidth: 1,
-  borderBottomColor: "gray",
-  marginBottom: 15,
-}});
+
 
 export default AchievementsScreen;
 
@@ -58,10 +50,12 @@ hello
 
 still todo
 progress bar
-all styling
+requirments styling
 comparing data
 individual functions
 
+ERROR:
+collapsable goals??
 
 done
 will format text of the passed in requirment 
