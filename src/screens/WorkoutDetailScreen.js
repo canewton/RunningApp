@@ -10,24 +10,23 @@ import {
 } from "react-native-chart-kit";
 
 
-const dataNotGraph = [
-  49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8
-];
+//const dataNotGraph = route.params.hard_data;
 
 const WorkoutDetailScreen = ({ route }) => {
-  const { distance, data, date } = route.params;
+  const { distance, data, date,hard_data } = route.params;
 
   const datadumb = {
     labels: [0,0,0,0,0,0,0,0,0,0,0,0],
     datasets: [
       {
-        data: [dataNotGraph],
+        data: hard_data,
         color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
         strokeWidth: 2 // optional
       }
     ],
     legend: ["running data(dummy)"] // optional
     
+
   };
 
 
