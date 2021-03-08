@@ -14,10 +14,9 @@ const WindowHeader = ({ title }) => {
 
 const styles = StyleSheet.create({
   header: {
-    paddingVertical: 10,
-    alignItems: "center",
-    flexDirection: "row",
-    marginBottom: 10,
+    paddingVertical: 12,
+    justifyContent: "center",
+    flexDirection: "column",
   },
   headerText: {
     marginLeft: 10,

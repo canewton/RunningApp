@@ -4,6 +4,9 @@ import WorkoutListWindow from "../feed/WorkoutListWindow";
 import WindowHeader from "../components/WindowHeader";
 import ConnectButton from "../components/ConnectButton";
 import { ScrollView } from "react-native-gesture-handler";
+import AchievementsWindow from "../feed/AchievementsWindow";
+import ProgressWindow from "../feed/ProgressWindow";
+import ProfileWindow from "../feed/ProfileWindow";
 
 //This screen is the first screen that the user sees
 //Get the navigation prop
@@ -21,17 +24,17 @@ const HomeScreen = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("Achievements")}>
           <View style={styles.button}>
-            <WindowHeader title="Recent Achievements" />
+            <AchievementsWindow />
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("Progress")}>
           <View style={styles.button}>
-            <WindowHeader title="Your Longterm Progress" />
+            <ProgressWindow />
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
           <View style={styles.button}>
-            <WindowHeader title="Profile" />
+            <ProfileWindow />
           </View>
         </TouchableOpacity>
       </ScrollView>
