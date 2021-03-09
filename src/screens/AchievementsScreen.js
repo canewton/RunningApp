@@ -8,25 +8,29 @@ const AchievementsScreen = () => {
   //blue color: #12cdd4
   const { state } = useContext(WorkoutContext);
 
-  // can we put an array in this bitch?
 
   return (
     <View> 
       <Acheivement
-        title="Run 100 meters"
+        title="To Do"
         const goals = {[
-          {medal: "gold"},
-          {medal: "silver" },
-          {medal: "bronze" },
+          {goalName: "Run ____ meters in total", Done: false},
+          {goalName: "Run for ___ days the week", Done: false},
+          {goalName: "Run for ____  miles in one day", Done: false},
+          {goalName: "Run for ___ seasons", Done: false},
+          {goalName: "Beat personal bests", Done: false},
+          {goalName: "Run ___ different distances", Done: false},
+          {goalName: "Run ___ times a week for a month", Done: false},
+          {goalName: "Run __ times a week for 6 months", Done: false},
+          {goalName: "Run 100 meters in ____ seconds", Done: false},
+          //when we get data need to sense if acheivment has been met and then set done to true 
+          //if done == true pass into completed acheivments component
         ]}
 
       />
       <Acheivement
-        title="Run 4 seasons"
+        title="completed"
         const goals = {[
-          {medal: "gold"},
-          {medal: "silver"},
-          {medal: "bronze"},
         ]}
        />
     </View>
