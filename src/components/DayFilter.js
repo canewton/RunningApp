@@ -37,7 +37,8 @@ const DayFilter = (state) => {
   function daysInMonth(month, year) {
     return new Date(year, month + 1, 0).getDate();
   }
-
+//important!!!!!!!!! 
+//array of each workout
   const workouts = Object.values(state)[0];
   const mostRecentWorkout = workouts[workouts.length - 1];
   const mostRecentWorkoutDate = mostRecentWorkout.date;

@@ -16,7 +16,7 @@ const WorkoutDetailScreen = ({ route }) => {
   const { distance, data, date,hard_data } = route.params;
 
   const datadumb = {
-    labels: [0,0,0,0,0,0,0,0,0,0,0,0],
+    labels: [0,0,0,0,0,0,0,0,], //filler, shall add real stuff later,
     datasets: [
       {
         data: hard_data,
@@ -31,7 +31,7 @@ const WorkoutDetailScreen = ({ route }) => {
 
 
 
-var max_of_array = Math.max.apply(Math, (dataNotGraph) );
+var max_of_array = Math.max.apply(Math, (hard_data) );
 
 
 

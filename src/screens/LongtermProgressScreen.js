@@ -12,11 +12,18 @@ import {
 
 const LongtermProgressScreen = () => {
 
+
+ 
+  
   
   //green color: #8fd14f
   //blue color: #12cdd4
-  const { state } = useContext(WorkoutContext);
+ 
 
+
+  //times and such
+  //how fast you completed the runs
+  //all times
   return (
     <View>
       <View style={styles.headerBlue}>
@@ -27,14 +34,16 @@ const LongtermProgressScreen = () => {
       <View style={styles.headerBlue}>
         <Text style={styles.title}>100 meters</Text>
       </View>
-      
-
+      <Text style={styles.text}>you have run a total of--  </Text>
 
       <View style={styles.headerBlue}>
         <Text style={styles.title}>200 meters</Text>
       </View>
+
       </View>
   );
+
+
 };
 
 
