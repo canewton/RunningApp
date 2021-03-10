@@ -1,7 +1,6 @@
 import "react-native-gesture-handler";
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import WorkoutListScreen from "./src/screens/WorkoutListScreen";
@@ -10,133 +9,55 @@ import AchievementsScreen from "./src/screens/AchievementsScreen";
 import WorkoutDetailScreen from "./src/screens/WorkoutDetailScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
 import { Provider as WorkoutProvider } from "./src/context/WorkoutContext";
-import { Ionicons } from "@expo/vector-icons";
-import { FontAwesome } from "@expo/vector-icons";
+import HomeScreen from "./src/screens/HomeScreen";
 
-const Tab = createBottomTabNavigator();
-const ListStack = createStackNavigator();
-const ProgressStack = createStackNavigator();
-const AchievementsScreentack = createStackNavigator();
-const SettingsStack = createStackNavigator();
+//create a stack navigator for navigating between screens
+const Stack = createStackNavigator();
 
+//edit the default theme to customize the background color and header color
 const Theme = {
   dark: false,
   colors: {
-    primary: "rgb(0,0,0)",
-    background: "rgb(255, 255, 255)",
+    //make the back button white
+    primary: "rgb(255,255,255)",
+    //make the background color white
+    background: "rgb(242, 242, 242)",
+    //make the header color green
     card: "#8fd14f",
-    text: "rgb(28, 28, 30)",
-    border: "rgb(28, 28, 30)",
-    notification: "rgb(255, 69, 58)",
+    //make the header text white
+    text: "rgb(255,255,255)",
   },
 };
 
-const ListStackScreen = () => {
+//Define which screens can be navigated to
+//Make the home screen the first screen that the user sees
+function RunningAppStack() {
   return (
-    <ListStack.Navigator>
-      <ListStack.Screen name="Workouts" component={WorkoutListScreen} />
-      <ListStack.Screen
-        name="Workout Details"
-        component={WorkoutDetailScreen}
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        /* options={{ headerShown: false }} */
       />
-    </ListStack.Navigator>
-  );
-};
-
-const ProgressStackScreen = () => {
-  return (
-    <ProgressStack.Navigator>
-      <ProgressStack.Screen
-        name="Progress"
-        component={LongtermProgressScreen}
-      />
-    </ProgressStack.Navigator>
-  );
-};
-
-const AchievementsStackScreen = () => {
-  return (
-    <AchievementsScreentack.Navigator>
-      <AchievementsScreentack.Screen
-        name="Achievements"
-        component={AchievementsScreen}
-      />
-    </AchievementsScreentack.Navigator>
-  );
-};
-
-const SettingsStackScreen = () => {
-  return (
-    <SettingsStack.Navigator>
-      <SettingsStack.Screen name="Settings" component={SettingsScreen} />
-    </SettingsStack.Navigator>
-  );
-};
-
-function BottomTabs() {
-  return (
-    <Tab.Navigator tabBarOptions={customTabBarStyle}>
-      <Tab.Screen
-        name="Workouts"
-        component={ListStackScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="list-sharp" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Progress"
-        component={ProgressStackScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="line-chart" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Achievements"
-        component={AchievementsStackScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="trophy-sharp" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Settings"
-        component={SettingsStackScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="settings-sharp" color={color} size={size} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
+      <Stack.Screen name="Workouts" component={WorkoutListScreen} />
+      <Stack.Screen name="Workout Details" component={WorkoutDetailScreen} />
+      <Stack.Screen name="Progress" component={LongtermProgressScreen} />
+      <Stack.Screen name="Achievements" component={AchievementsScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
+    </Stack.Navigator>
   );
 }
 
-const customTabBarStyle = {
-  activeTintColor: "#0091EA",
-  inactiveTintColor: "gray",
-  style: {
-    borderTopWidth: 0,
-    borderTopColor: "transparent",
-    backgroundColor: "white",
-    elevation: 0,
-    indicatorStyle: {
-      width: 0,
-      height: 0,
-      elevation: 0,
-    },
-  },
-};
-
 export default () => {
   return (
+    //Wrap the stack navigator with WorkoutProvider, making the stack be passed
+    //to WorkoutProvider as a prop
+    //This makes useContext(WorkoutProvider) work later on
+    //Also, wrap the stack with a navigation container, needed for navigating
+    //between screens to work. Make the theme the custom theme defined above
     <WorkoutProvider>
       <NavigationContainer theme={Theme}>
-        <BottomTabs />
+        <RunningAppStack />
       </NavigationContainer>
     </WorkoutProvider>
   );
