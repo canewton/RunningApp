@@ -56,6 +56,7 @@ const WorkoutList = ({ title, workouts }) => {
                       distance: item.distance,
                       data: item.data,
                       date: item.date.toString(),
+                      hard_data: item.hard_data
                     })
                   }
                 >

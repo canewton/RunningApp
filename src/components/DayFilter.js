@@ -37,7 +37,7 @@ const DayFilter = (state) => {
   var month = date.getMonth();
   var day = date.getDate();
   var weekday = date.getDay();
-
+  
   //State is currently an array wrapped in an object.
   //Create workouts which contains the array of workouts, not wrapped in an object.
   const workouts = Object.values(state)[0];
