@@ -34,7 +34,11 @@ const Theme = {
 function RunningAppStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        /* options={{ headerShown: false }} */
+      />
       <Stack.Screen name="Workouts" component={WorkoutListScreen} />
       <Stack.Screen name="Workout Details" component={WorkoutDetailScreen} />
       <Stack.Screen name="Progress" component={LongtermProgressScreen} />
