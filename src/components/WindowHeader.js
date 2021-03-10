@@ -14,13 +14,9 @@ const WindowHeader = ({ title }) => {
 
 const styles = StyleSheet.create({
   header: {
-    paddingVertical: 10,
-    backgroundColor: "#8fd14f",
-    alignItems: "center",
-    flexDirection: "row",
-    borderBottomWidth: 1,
-    borderBottomColor: "gray",
-    marginBottom: 15,
+    paddingVertical: 12,
+    justifyContent: "center",
+    flexDirection: "column",
   },
   headerText: {
     marginLeft: 10,
