@@ -18,6 +18,10 @@ const LongtermProgressScreen = () => {
   const { state } = useContext(WorkoutContext);
   const workouts = Object.values(state)[0];
   
+
+
+console.log(workouts[0]);
+
   // const hard_data_one  = Object.values(state)[workouts.length - 1];
   // let  hard_data_two  = Object.values(state)[workouts.length - 2];
   // let  hard_data_three  = Object.values(state)[workouts.length - 3];
@@ -53,9 +57,70 @@ const LongtermProgressScreen = () => {
   let  [hard_data_six, setCounter_six] = useState([0,0]);
   let  [hard_data_seven, setCounter_seven] = useState([0,0]);
 
-  
+  // super();
 
-  checkSwitch=(screen_counter)=>{
+  // this.state={
+ 
+  //   TextInput_Data : ''
+
+  // }
+
+
+
+  ONE=()=>{
+   
+      Alert.alert("ONE");
+   
+    }
+   
+    TWO=()=>{
+   
+      Alert.alert("TWO");
+   
+    }
+   
+    THREE=()=>{
+   
+      Alert.alert("THREE");
+   
+    }
+   
+    FOUR=()=>{
+   
+      Alert.alert("FOUR");
+   
+    }
+
+
+    checkSwitch=(param)=>{
+ 
+      switch(param) {
+   
+        case '1':
+          this.ONE();
+          break;
+        
+        case '2':
+          this.TWO();
+          break;
+   
+        case '3':
+          this.THREE();
+          break;
+   
+        case '4':
+          this.FOUR();
+          break;
+   
+        default:
+          Alert.alert("NUMBER NOT FOUND");
+      
+        }
+   
+    }
+//this.checkSwitch.bind(this, this.state.TextInput_Data)
+
+/*  checkSwitch=(screen_counter)=>{
 
 switch (screen_counter ) {
 
@@ -79,9 +144,15 @@ switch (screen_counter ) {
 }
   }
   
+
+  */
+const[screen_counter, setCounter] = useState(0);
+//1 = 100 meters
+//2 = 200 meters
+//3 = 400 meters
+//4 = 800 meters
+//5 1600 meters
 //
-
-
 
 
   let [lastSeven, yee] = useState(0)
@@ -115,12 +186,6 @@ switch (screen_counter ) {
 
 
 
-const[screen_counter, setCounter] = useState(0);
-//1 = 100 meters
-//2 = 200 meters
-//3 = 400 meters
-//4 = 800 meters
-//5 1600 meters
 
 
   //times and such
@@ -135,24 +200,26 @@ const[screen_counter, setCounter] = useState(0);
       <View buttonSwitch>
       <Button title="100 meters" 
         onPress={() => {
-            setCounter(1);
+            setCounter('1');
         }} />
         <Button title="200 meters" 
         onPress={() => {
-            setCounter(2);
+            setCounter('2');
         }} />
         <Button title="400 meters" 
         onPress={() => {
-            setCounter(3);
+            setCounter('3');
         }} />
         <Button title="800 meters" 
         onPress={() => {
-            setCounter(4);
+            setCounter('4');
         }} />
         <Button title="1600 meters" 
         onPress={() => {
-            setCounter(5);
+            setCounter('5');
         }} />
+
+
       </View>
       <Text> {screen_counter}</Text>
       <Text> {hard_data_one}</Text>
