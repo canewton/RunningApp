@@ -2,6 +2,11 @@ import React, { useContext } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 
+profileImage='../../assets/icon.png'
+friendNumber='#'
+rankNumber='#'
+profileName='First Last'
+
 const SettingsScreen = () => {
   //green color: #8fd14f
   //blue color: #12cdd4
@@ -12,17 +17,33 @@ const SettingsScreen = () => {
       <Text style={styles.title}>Profile</Text>
     </View>,
 
-    <View>
-      <Image source={require('../../assets/icon.png')}/>
-      <Text style={styles.text}>First Last</Text>
-      <Text style={styles.text}>  - 2 friends</Text>
-      <Text style={styles.text}>  - more profile info</Text>
+    <View >
+      <Image source={require(profileImage)}/>
+
+      <TouchableOpacity >
+        <View style={styles.text}>
+      <Change Photo />
+        </View>
+      </TouchableOpacity>,
+
+      <Text style={styles.header}>{profileName}</Text>
+
+      <TouchableOpacity >
+        <View style={styles.text}>
+      <Edit Profile />
+        </View>
+      </TouchableOpacity>,
+
+      <Text style={styles.text}>  - {friendNumber} Friends</Text>
+      <Text style={styles.text}>  - Rank {rankNumber}</Text>
 
     </View>,
-
+  
     <View style={styles.headerStyle}>
-      <Text style={styles.title}>Settings</Text>
+      <Text style={styles.title}>Top Runs</Text>
     </View>
+
+     
   );
 };
 
