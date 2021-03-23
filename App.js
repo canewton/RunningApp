@@ -10,9 +10,12 @@ import WorkoutDetailScreen from "./src/screens/WorkoutDetailScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
 import { Provider as WorkoutProvider } from "./src/context/WorkoutContext";
 import HomeScreen from "./src/screens/HomeScreen";
+import WorkoutRankingsScreen from "./src/screens/WorkoutRankingsScreen";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 //create a stack navigator for navigating between screens
 const Stack = createStackNavigator();
+const Tab = createMaterialTopTabNavigator();
 
 //edit the default theme to customize the background color and header color
 const Theme = {
@@ -29,6 +32,20 @@ const Theme = {
   },
 };
 
+//Make a function that references the workouts screen with a tabs at the top of the screen
+//disable swipe for the tabs and make them blue
+function WorkoutsScreen() {
+  return (
+    <Tab.Navigator
+      swipeEnabled={false}
+      tabBarOptions={{ style: { backgroundColor: "#12cdd4" } }}
+    >
+      <Tab.Screen name="Recent" component={WorkoutListScreen} />
+      <Tab.Screen name="Rankings" component={WorkoutRankingsScreen} />
+    </Tab.Navigator>
+  );
+}
+
 //Define which screens can be navigated to
 //Make the home screen the first screen that the user sees
 function RunningAppStack() {
@@ -39,7 +56,7 @@ function RunningAppStack() {
         component={HomeScreen}
         /* options={{ headerShown: false }} */
       />
-      <Stack.Screen name="Workouts" component={WorkoutListScreen} />
+      <Stack.Screen name="Workouts" component={WorkoutsScreen} />
       <Stack.Screen name="Workout Details" component={WorkoutDetailScreen} />
       <Stack.Screen name="Progress" component={LongtermProgressScreen} />
       <Stack.Screen name="Achievements" component={AchievementsScreen} />

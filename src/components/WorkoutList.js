@@ -54,18 +54,18 @@ const WorkoutList = ({ title, workouts }) => {
                   onPress={() =>
                     navigation.navigate("Workout Details", {
                       distance: item.distance,
-                      data: item.data,
+                      time: item.time,
                       date: item.date.toString(),
-                      hard_data: item.hard_data,
-                      time_data: item.time_data
+                      distance_data: item.distance_data,
+                      time_data: item.time_data,
                     })
                   }
                 >
                   {/*Display the date and time on the workout button*/}
                   <View style={styles.workout}>
-                    <Text style={styles.time}>{item.data}</Text>
+                    <Text style={styles.time}>{item.time}</Text>
                     <Text style={styles.date}>
-                      {item.date.getDate()}/{item.date.getMonth() + 1}/
+                      {item.date.getMonth() + 1}/{item.date.getDate()}/
                       {item.date.getFullYear()}
                     </Text>
                   </View>
