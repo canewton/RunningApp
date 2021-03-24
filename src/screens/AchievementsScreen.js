@@ -1,17 +1,53 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
-import Acheivement from "../components/Achievment";
+import AchievementHeader from "../components/AchievmentHeader";
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+  StackedBarChart,
+} from "react-native-chart-kit";
 
 const AchievementsScreen = () => {
   //green color: #8fd14f
   //blue color: #12cdd4
   const { state } = useContext(WorkoutContext);
 
+  const data = {
+    data: [.78]
+  };
+  
 
   return (
     <View> 
-      <Acheivement
+      <FontAwesome5 name="award" size={40} color="black" />
+      <ProgressChart
+  data={data}
+  width={480}
+  height={200}
+  strokeWidth={20}
+  radius={60}
+  chartConfig={{
+  backgroundGradientFrom: "white",
+  backgroundGradientTo: "white",
+    color: (opacity = 20) => `rgba(0, 0, 0, ${opacity})`,
+    style: {
+      borderRadius: 20
+    },
+  }}
+  hideLegend={false}
+  
+/>
+
+      <Ionicons name="md-trophy-sharp" size={40} color="brown" />
+      <Ionicons name="md-trophy-sharp" size={40} color="gold" />
+      <Ionicons name="md-trophy-sharp" size={40} color="silver" />
+      <AchievementHeader
         title="To Do"
         const goals = {[
           {goalName: "Run ____ meters in total", Done: false},
@@ -28,7 +64,7 @@ const AchievementsScreen = () => {
         ]}
 
       />
-      <Acheivement
+      <AchievementHeader
         title="completed"
         const goals = {[
         ]}
