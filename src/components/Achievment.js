@@ -9,15 +9,19 @@ import {
 import Collapsible from "react-native-collapsible";
 import { useNavigation } from "@react-navigation/native";
 
-const Achievment = ({goals}) => {
+const Achievment = ({achievement}) => {
+
+    const navigation = useNavigation();
+    console.log(achievement);
     return (
         <TouchableOpacity
-        onPress={() => navigation.navigate("Achievement Details")}
+        onPress={() => navigation.navigate("Achievement Details"), {goalName:achievement.goalName}}
         //style={styles.Achievmentdetails}
         >
-        <Text /* style={styles.Subtext}*/ >{}</Text>
+        <Text /* style={styles.Subtext}*/ >{achievement.goalName}</Text>
         </TouchableOpacity>
     )
 }
 
 export default Achievment;
+3

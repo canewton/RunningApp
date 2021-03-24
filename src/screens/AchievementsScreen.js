@@ -49,7 +49,7 @@ const AchievementsScreen = () => {
       <Ionicons name="md-trophy-sharp" size={40} color="silver" />
       <AchievementHeader
         title="To Do"
-        const goals = {[
+        goals = {[
           {goalName: "Run ____ meters in total", Done: false},
           {goalName: "Run for ___ days the week", Done: false},
           {goalName: "Run for ____  miles in one day", Done: false},
@@ -66,7 +66,7 @@ const AchievementsScreen = () => {
       />
       <AchievementHeader
         title="completed"
-        const goals = {[
+        goals = {[
         ]}
        />
     </View>

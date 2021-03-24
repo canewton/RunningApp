@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import Collapsible from "react-native-collapsible";
 import { useNavigation } from "@react-navigation/native";
+import Achievment from "../components/Achievment";
 
 const AchievementHeader = ({ title, goals,}) => {
   //create a state variable that defines if the collapsible list is collapsed or not
@@ -39,12 +40,13 @@ const AchievementHeader = ({ title, goals,}) => {
            
             renderItem={({ item }) => {
               return (
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("Achievement Details")}
-                  style={styles.Achievmentdetails}
-                >
-                  <Text style={styles.Subtext}>{item.goalName}</Text>
-                </TouchableOpacity>
+                <Achievment achievement={item} />
+                // <TouchableOpacity
+                //   onPress={() => navigation.navigate("Achievement Details")}
+                //   style={styles.Achievmentdetails}
+                // >
+                //   <Text style={styles.Subtext}>{item.goalName}</Text>
+                // </TouchableOpacity>
               );
             }}
           />
