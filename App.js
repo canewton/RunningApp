@@ -7,6 +7,7 @@ import WorkoutListScreen from "./src/screens/WorkoutListScreen";
 import LongtermProgressScreen from "./src/screens/LongtermProgressScreen";
 import AchievementsScreen from "./src/screens/AchievementsScreen";
 import WorkoutDetailScreen from "./src/screens/WorkoutDetailScreen";
+import AchievementDetailScreen from "./src/screens/AchievementDetailScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
 import { Provider as WorkoutProvider } from "./src/context/WorkoutContext";
 import HomeScreen from "./src/screens/HomeScreen";
@@ -60,6 +61,7 @@ function RunningAppStack() {
       <Stack.Screen name="Workout Details" component={WorkoutDetailScreen} />
       <Stack.Screen name="Progress" component={LongtermProgressScreen} />
       <Stack.Screen name="Achievements" component={AchievementsScreen} />
+      <Stack.Screen name="Achievement Details" component={AchievementDetailScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />
     </Stack.Navigator>
   );
