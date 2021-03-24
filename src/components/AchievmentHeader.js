@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,11 +9,13 @@ import {
 import Collapsible from "react-native-collapsible";
 import { useNavigation } from "@react-navigation/native";
 import Achievment from "../components/Achievment";
+import { Context as WorkoutContext } from "../context/WorkoutContext";
 
-const AchievementHeader = ({ title, goals,}) => {
+const AchievementHeader = ({ title, goals }) => {
+  const { state } = useContext(WorkoutContext);
   //create a state variable that defines if the collapsible list is collapsed or not
   const [collapsed, setCollapsed] = useState(true);
-  
+
   const navigation = useNavigation();
 
   //a function that collapses or expands the collapsible list
@@ -37,10 +39,9 @@ const AchievementHeader = ({ title, goals,}) => {
           <FlatList
             data={goals}
             keyExtractor={(goals) => goals.goalName}
-           
             renderItem={({ item }) => {
               return (
-                <Achievment achievement={item} />
+                <Achievment achievement={item} state={state} />
                 // <TouchableOpacity
                 //   onPress={() => navigation.navigate("Achievement Details")}
                 //   style={styles.Achievmentdetails}
