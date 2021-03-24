@@ -11,11 +11,13 @@ import {
   StackedBarChart,
 } from "react-native-chart-kit";
 
-const AchievmentDetailScreen = ({route}) => {
-  const{goalName}=route.params;
-  console.log(goalName);
-    return ( 
-      <View><Text> {goalName} </Text></View>
-    );
+const AchievmentDetailScreen = ({ route }) => {
+  const { goalName } = route.params;
+  console.log(route);
+  return (
+    <View>
+      <Text> {goalName} </Text>
+    </View>
+  );
 };
 export default AchievmentDetailScreen;
