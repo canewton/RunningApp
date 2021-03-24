@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import {
   View,
   Text,
@@ -6,19 +6,28 @@ import {
   FlatList,
   TouchableOpacity,
   Dimensions,
+  ScrollView,
 } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 import WorkoutRankings from "../components/WorkoutRankings";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const WorkoutRankingsScreen = () => {
   //get the data from workout context
   const { state } = useContext(WorkoutContext);
+
+  const [verticalScroll, setVerticalScroll] = useState(0);
+
+  const [horizontalScroll, setHorizontalScroll] = useState(0);
 
   //make a state variable that represents the distance of workouts that is displayed on the screen
   const [distanceDisplayed, setDistanceDisplayed] = useState("100 meters");
 
   //get the width of the screen in pixels
   const windowWidth = Dimensions.get("window").width;
+
+  //make a reference variable to store the flatlist in
+  var flatlistRef = useRef(null);
 
   //make a function that returns an array of workouts with the same distance
   const filterWorkoutsByDistance = (distance) => {
@@ -67,6 +76,11 @@ const WorkoutRankingsScreen = () => {
           data={tabs}
           keyExtractor={(index) => index.id}
           scrollEnabled={false}
+          ref={(ref) => (flatlistRef = ref)}
+          // use for store scrolled value
+          onScroll={(event) =>
+            setVerticalScroll(event.nativeEvent.contentOffset.y)
+          }
           renderItem={({ item }) => {
             return (
               <TouchableOpacity
@@ -100,11 +114,37 @@ const WorkoutRankingsScreen = () => {
     );
   };
 
+  const ScrollToTodaysWorkoutBox = () => {
+    return (
+      <View>
+        <View style={styles.scrollToWorkoutBox}>
+          <MaterialIcons name="leaderboard" size={150} color="#19B092" />
+          <Text style={styles.scrollToWorkoutText}>
+            Scroll To Today's Best Sprints:
+          </Text>
+          <TouchableOpacity onPress={() => autoScroll()}>
+            <View
+              style={{ height: 50, width: 50, backgroundColor: "blue" }}
+            ></View>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  };
+
+  function autoScroll() {
+    console.log(flatlistRef);
+    flatlistRef.scrollTo({ x: 0, y: 3, animated: true });
+  }
+
   //return the screen with the distance tabs on top and the ranking below it
   return (
     <View style={{ flex: 1 }}>
       <DistanceTabs />
-      <WorkoutRankings state={filterWorkoutsByDistance(distanceDisplayed)} />
+      <ScrollView>
+        <ScrollToTodaysWorkoutBox />
+        <WorkoutRankings state={filterWorkoutsByDistance(distanceDisplayed)} />
+      </ScrollView>
     </View>
   );
 };
@@ -117,6 +157,23 @@ const styles = StyleSheet.create({
   //stylize the distance tab when it is inactive
   unselectedDistance: {
     fontWeight: "300",
+  },
+  scrollToWorkoutBox: {
+    height: 175,
+    alignItems: "stretch",
+    margin: 10,
+    borderWidth: 5,
+    backgroundColor: "#12CDA3",
+    borderColor: "#19B092",
+    borderRadius: 10,
+    flexDirection: "row",
+    padding: 10,
+  },
+  scrollToWorkoutText: {
+    color: "white",
+    fontSize: 25,
+    fontWeight: "700",
+    flexShrink: 1,
   },
 });
 
