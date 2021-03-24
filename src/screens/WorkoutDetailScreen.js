@@ -33,6 +33,13 @@ const WorkoutDetailScreen = ({ route }) => {
   };
 
 
+  //sudo code for velocity-time graph
+  //1. for loop to call for lenght of hard_data .... doing
+  //2. use equation on this use i  and i-1 for t1 and t2 ..... not
+  //3. port into it's own array call velcoty_array ......not
+  //4. new graph for the viwer ..... not
+
+
 
 var max_of_array = Math.max.apply(Math, (hard_data) );
 var max_of_array_time = Math.max.apply(Math, (time_data) );
