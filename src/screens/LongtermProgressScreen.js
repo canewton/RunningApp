@@ -10,17 +10,12 @@ import {
   StackedBarChart,
 } from "react-native-chart-kit";
 import { ScrollView } from "react-native-gesture-handler";
+import { test } from "../components/sortForLongTermScreen";
 
 const LongtermProgressScreen = () => {
 
 
  
-  const { state } = useContext(WorkoutContext);
-  const workouts = Object.values(state)[0];
-  
-
-
-console.log(workouts[0]);
 
   // const hard_data_one  = Object.values(state)[workouts.length - 1];
   // let  hard_data_two  = Object.values(state)[workouts.length - 2];
@@ -49,13 +44,7 @@ console.log(workouts[0]);
 //100 meter data
 
 
-  let  [hard_data_one, setCounter_one] = useState([0,0]);
-  let  [hard_data_two, setCounter_two] = useState([0,0]);
-  let  [hard_data_three, setCounter_three] = useState([0,0]);
-  let  [hard_data_four, setCounter_four] = useState([0,0]);
-  let  [hard_data_five, setCounter_five] = useState([0,0]);
-  let  [hard_data_six, setCounter_six] = useState([0,0]);
-  let  [hard_data_seven, setCounter_seven] = useState([0,0]);
+  
 
   // super();
 
@@ -122,30 +111,10 @@ console.log(workouts[0]);
 
 /*  checkSwitch=(screen_counter)=>{
 
-switch (screen_counter ) {
-
-  case 1:
-  // hard_data_one  = [49.31,49.36,49.38,49.85,50.36,500.86,51.35,51.86,52.4,52.87,53.34,53.8];
-  // hard_data_two  = [49.31,49.36,49.38,49.85,50.36,500.86,51.35,51.86,52.4,52.87,53.34,53.8];
-  // hard_data_three  = [49.31,49.36,49.38,49.85,5000.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8];
-  // hard_data_four  = [49.31,49.36,490.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8];
-  // hard_data_five  = [49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8];
-  // hard_data_six  = [49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8];
-  // hard_data_seven = [49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8];
-  setCounter_one ([49.31,49.36,49.38,49.85,50.36,500.86,51.35,51.86,52.4,52.87,53.34,53.8]);
-  setCounter_two ([49.31,49.36,49.38,49.85,50.36,500.86,51.35,51.86,52.4,52.87,53.34,53.8]);
-  setCounter_three ([49.31,49.36,49.38,49.85,5000.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8]);
-  setCounter_four ([49.31,49.36,490.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8]);
-  setCounter_five ([49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8]);
-  setCounter_six ([49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8]);
-  setCounter_seven ([49.31,49.36,49.38,49.85,50.36,50.86,51.35,51.86,52.4,52.87,53.34,53.8]);
-  break;
-
-}
-  }
-  
-
   */
+
+  const test = this.props.navigation.getParam('test', 'some default value');
+
 const[screen_counter, setCounter] = useState(0);
 //1 = 100 meters
 //2 = 200 meters
@@ -162,13 +131,13 @@ const[screen_counter, setCounter] = useState(0);
     datasets: [
       {
         data: [
-          Math.max.apply(Math, (hard_data_one) ),
-          Math.max.apply(Math, (hard_data_two) ),
-          Math.max.apply(Math, (hard_data_three) ),
-          Math.max.apply(Math, (hard_data_four) ),
-          Math.max.apply(Math, (hard_data_five) ),
-          Math.max.apply(Math, (hard_data_six) ),
-          Math.max.apply(Math, (hard_data_seven) ),
+         // Math.max.apply(Math, (hard_data_one) ),
+        //  Math.max.apply(Math, (hard_data_two) ),
+         // Math.max.apply(Math, (hard_data_three) ),
+         // Math.max.apply(Math, (hard_data_four) ),
+         // Math.max.apply(Math, (hard_data_five) ),
+        //  Math.max.apply(Math, (hard_data_six) ),
+        //  Math.max.apply(Math, (hard_data_seven) ) ,
         ],
         color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
         strokeWidth: 2 // optional
@@ -177,6 +146,8 @@ const[screen_counter, setCounter] = useState(0);
     legend: ["your last seven runs"] // optional
     
     
+
+   
   };
 
   //Math.max.apply(Math, (hard_data_one) )
@@ -185,7 +156,7 @@ const[screen_counter, setCounter] = useState(0);
 
 
 
-
+//only use 100-800
 
 
   //times and such
@@ -214,15 +185,9 @@ const[screen_counter, setCounter] = useState(0);
         onPress={() => {
             setCounter('4');
         }} />
-        <Button title="1600 meters" 
-        onPress={() => {
-            setCounter('5');
-        }} />
-
-
       </View>
-      <Text> {screen_counter}</Text>
-      <Text> {hard_data_one}</Text>
+      
+      <Text> {test}</Text>
 
       <View style={styles.headerBlue}>
         <Text style={styles.title}>100 meters</Text>
@@ -235,8 +200,6 @@ const[screen_counter, setCounter] = useState(0);
           chartConfig={chartConfig}
           withDots={(false)}
         />
-
-      
 
       </View>
       </ScrollView>
