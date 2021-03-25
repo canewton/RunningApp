@@ -15,7 +15,11 @@ const AchievmentDetailScreen = ({route}) => {
   const{goalName}=route.params;
   console.log(goalName);
     return ( 
-      <View><Text> {goalName} </Text></View>
+      <View><Text> {goalName} </Text> 
+      <Text>To bronze:</Text>
+      <Text>To silver:</Text>
+      <Text>To gold:</Text>
+      </View>
     );
 };
 export default AchievmentDetailScreen;
