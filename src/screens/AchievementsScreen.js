@@ -1,43 +1,69 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
-import Acheivement from "../components/Achievment";
+import AchievementHeader from "../components/AchievmentHeader";
+import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+  StackedBarChart,
+} from "react-native-chart-kit";
 
 const AchievementsScreen = () => {
   //green color: #8fd14f
   //blue color: #12cdd4
-  const { state } = useContext(WorkoutContext);
 
+  const data = {
+    data: [0.78],
+  };
 
   return (
-    <View> 
-      <Acheivement
+    <View>
+      <FontAwesome5 name="award" size={40} color="black" />
+      <ProgressChart
+        data={data}
+        width={480}
+        height={200}
+        strokeWidth={20}
+        radius={60}
+        chartConfig={{
+          backgroundGradientFrom: "white",
+          backgroundGradientTo: "white",
+          color: (opacity = 0) => `rgba(0, 0, 255, ${opacity})`,
+          style: {
+            borderRadius: 20,
+          },
+        }}
+        hideLegend={false}
+      />
+
+      <Ionicons name="md-trophy-sharp" size={40} color="brown" />
+      <Ionicons name="md-trophy-sharp" size={40} color="gold" />
+      <Ionicons name="md-trophy-sharp" size={40} color="silver" />
+      <AchievementHeader
         title="To Do"
-        const goals = {[
-          {goalName: "Run ____ meters in total", Done: false},
-          {goalName: "Run for ___ days the week", Done: false},
-          {goalName: "Run for ____  miles in one day", Done: false},
-          {goalName: "Run for ___ seasons", Done: false},
-          {goalName: "Beat personal bests", Done: false},
-          {goalName: "Run ___ different distances", Done: false},
-          {goalName: "Run ___ times a week for a month", Done: false},
-          {goalName: "Run __ times a week for 6 months", Done: false},
-          {goalName: "Run 100 meters in ____ seconds", Done: false},
-          //when we get data need to sense if acheivment has been met and then set done to true 
+        goals={[
+          { goalName: "Run ____ meters in total", Done: false },
+          { goalName: "Run for ___ days the week", Done: false },
+          { goalName: "Run for ____  miles in one day", Done: false },
+          { goalName: "Run for ___ seasons", Done: false },
+          { goalName: "Beat personal bests", Done: false },
+          { goalName: "Run ___ different distances", Done: false },
+          { goalName: "Run ___ times a week for a month", Done: false },
+          { goalName: "Run __ times a week for 6 months", Done: false },
+          { goalName: "Run 100 meters in ____ seconds", Done: false },
+          //when we get data need to sense if acheivment has been met and then set done to true
           //if done == true pass into completed acheivments component
         ]}
-
       />
-      <Acheivement
-        title="completed"
-        const goals = {[
-        ]}
-       />
+      <AchievementHeader title="completed" goals={[]} />
     </View>
   );
 };
-
-
 
 export default AchievementsScreen;
 
