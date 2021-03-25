@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 
 profileImage='../../assets/icon.png'
@@ -62,9 +62,8 @@ const SettingsScreen = () => {
   );
 };
 
-
 const styles = StyleSheet.create({
-  headerStyle:{
+  headerStyle: {
     backgroundColor: "#008000",
     paddingVertical: 10,
     flexDirection: "row",
@@ -81,10 +80,10 @@ const styles = StyleSheet.create({
       justifyContent: "center",
   },
   title: {
-      color: "white",
-      fontWeight: "bold",
-      fontSize: 20,
-   },
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
   text: {
       fontSize: 14,
       marginLeft: 10,
@@ -101,4 +100,3 @@ const styles = StyleSheet.create({
 });
 
 export default SettingsScreen;
-
