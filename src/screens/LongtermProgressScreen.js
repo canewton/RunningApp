@@ -1,5 +1,5 @@
 import React, { useContext, useState, } from "react";
-import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity, Dimensions } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 import {
   LineChart,
@@ -132,13 +132,13 @@ const[screen_counter, setCounter] = useState(0);
     datasets: [
       {
         data: [
-        55,
-        66,
-        45,
-        55,
-        51,
-        56,
-        57,
+        34,
+        32,
+        29,
+        30,
+        32,
+        34,
+        35,
         ],
         color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
         strokeWidth: 2 // optional
@@ -147,7 +147,7 @@ const[screen_counter, setCounter] = useState(0);
     legend: ["your last seven runs"] // optional
     
     
-
+  
    
   };
 
@@ -155,7 +155,7 @@ const[screen_counter, setCounter] = useState(0);
 //[].reduce((a, b) => a + b, 0)
 
 
-
+const screenWidth = Dimensions.get("window").width;
 
 //only use 100-800
 
@@ -169,12 +169,12 @@ const[screen_counter, setCounter] = useState(0);
       
       <View buttonSwitch>
       <TouchableOpacity
-        style={styles.button}
+        style={styles.buttonhighlight}
         onPress={() => {
           setCounter('1');  
       }} >
       
-      <Text>100 meters</Text>
+      <Text style={styles.buttontext}>100 meters</Text>
       
       </TouchableOpacity><TouchableOpacity
         style={styles.button}
@@ -182,7 +182,7 @@ const[screen_counter, setCounter] = useState(0);
           setCounter('2');  
       }} >
       
-      <Text>200 meters</Text>
+      <Text style={styles.buttontext} >200 meters</Text>
       
       </TouchableOpacity><TouchableOpacity
         style={styles.button}
@@ -190,7 +190,7 @@ const[screen_counter, setCounter] = useState(0);
           setCounter('3');  
       }} >
       
-      <Text>400 meters</Text>
+      <Text style={styles.buttontext} >400 meters</Text>
       
       </TouchableOpacity><TouchableOpacity
         style={styles.button}
@@ -198,7 +198,7 @@ const[screen_counter, setCounter] = useState(0);
           setCounter('4');  
       }} >
       
-      <Text>800</Text>
+      <Text style={styles.buttontext} >800 meters</Text>
       
       </TouchableOpacity>
   
@@ -206,19 +206,21 @@ const[screen_counter, setCounter] = useState(0);
       
       {/* <Text> {test}</Text> */}
 
-      <View style={styles.headerBlue}>
+      {/* <View style={styles.headerBlue}>
         <Text style={styles.title}>100 meters</Text>
-      </View>
+      </View> */}
       <LineChart
           data={lastSeven}
-          width={300}
+          width={screenWidth}
           height={256}
-          verticalLabelRotation={30}
+          verticalLabelRotation={0}
           chartConfig={chartConfig}
           withDots={(false)}
         />
 
       </View>
+
+      <Text> A chart of your times, for you last seven sprints. currenly showing Your 100 meter runs</Text>
       </ScrollView>
   );
 
@@ -226,14 +228,14 @@ const[screen_counter, setCounter] = useState(0);
 };
 
 const chartConfig = {
-  backgroundGradientFrom: "#FFFFF1",
+  backgroundGradientFrom: "rgb(242, 242, 242)",
   backgroundGradientFromOpacity: 0,
-  backgroundGradientTo: "#FFFFF1",
+  backgroundGradientTo: "rgb(242, 242, 242)",
   backgroundGradientToOpacity: 0.5,
   color: (opacity = 1) => `rgba(0,0,0, ${opacity})`,
-  strokeWidth: 2, // optional, default 3
-  barPercentage: 0.5,
-  useShadowColorFromDataset: true // optional
+  strokeWidth: 2.5, // optional, default 3
+  barPercentage: 0.6,
+  useShadowColorFromDataset: true, // optional
 };
 
 const render_chart = {
@@ -278,8 +280,43 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10
+    fontSize:20,
+    // backgroundColor: "#BFCABE",
+    // padding: 13,
+    // fontSize: 30,
+    // marginHorizontal: 25,
+    marginTop:10,
+    paddingTop:10,
+    paddingBottom:10,
+    marginLeft:30,
+    marginRight:30,
+    backgroundColor:'#00BCD4',
+    borderRadius:10,
+    borderWidth: 1,
+    borderColor: '#fff',
+    justifyContent: "center",
+  },
+  buttontext: { 
+
+    fontSize: 30,
+  },
+  buttonhighlight: {
+    alignItems: "center",
+    fontSize:20,
+    // backgroundColor: "#BFCABE",
+    // padding: 13,
+    // fontSize: 30,
+    // marginHorizontal: 25,
+    marginTop:10,
+    paddingTop:10,
+    paddingBottom:10,
+    marginLeft:30,
+    marginRight:30,
+    backgroundColor:'#27C4BA',
+    borderRadius:10,
+    borderWidth: 1,
+    borderColor: '#fff',
+    justifyContent: "center",
   },
   countContainer: {
     alignItems: "center",

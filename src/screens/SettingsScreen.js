@@ -18,7 +18,7 @@ const SettingsScreen = () => {
     </View>,
 
     <View >
-      <Image source={require(profileImage)}/>
+      
 
       <TouchableOpacity >
         <View style={styles.text}>
