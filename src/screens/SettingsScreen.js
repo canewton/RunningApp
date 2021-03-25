@@ -6,6 +6,12 @@ profileImage='../../assets/icon.png'
 friendNumber='#'
 rankNumber='#'
 profileName='First Last'
+hundredMeterTime= '00:00:00'
+twoHundredMeterTime= '00:00:00'
+threeHundredMeterTime= '00:00:00'
+twoHundredMeterDay='mm/dd/yy'
+hundredMeterDay='mm/dd/yy'
+threeHundredMeterDay='mm/dd/yy'
 
 const SettingsScreen = () => {
   //green color: #8fd14f
@@ -26,7 +32,7 @@ const SettingsScreen = () => {
         </View>
       </TouchableOpacity>,
 
-      <Text style={styles.header}>{profileName}</Text>
+      <Text style={styles.textBig}>{profileName}</Text>
 
       <TouchableOpacity >
         <View style={styles.text}>
@@ -34,16 +40,25 @@ const SettingsScreen = () => {
         </View>
       </TouchableOpacity>,
 
-      <Text style={styles.text}>  - {friendNumber} Friends</Text>
-      <Text style={styles.text}>  - Rank {rankNumber}</Text>
-
+      
     </View>,
-  
+
+    <View style={styles.blueStyle}>
+       <Text style={styles.title}>  Team: {teamName} </Text>,
+       <Text style={styles.title}>  - {friendNumber} Friends</Text>,
+       <Text style={styles.title}>  - Rank {rankNumber}</Text>,
+    </View> ,
+
     <View style={styles.headerStyle}>
       <Text style={styles.title}>Top Runs</Text>
-    </View>
+    </View>,
 
-     
+    <View style={styles.blueStyle}>
+       <Text style={styles.smallTitle}>  100 meter: {hundredMeterTime} {hundredMeterDay} </Text>,
+       <Text style={styles.smallTitle}>  200 meter: {twoHundredMeterTime} {twoHundredMeterDay}</Text>,
+       <Text style={styles.smallTitle}>  300 meter: {threeHundredMeterTime} {threeHundredMeterDay}</Text>,
+    </View> 
+
   );
 };
 
@@ -57,7 +72,7 @@ const styles = StyleSheet.create({
     marginVertical: 25,
     justifyContent: "center",
   },
-  header: {
+  blueStyle: {
       backgroundColor: "#12cdd4",
       paddingVertical: 10,
       flexDirection: "row",
@@ -71,8 +86,17 @@ const styles = StyleSheet.create({
       fontSize: 20,
    },
   text: {
-      fontSize: 18,
+      fontSize: 14,
       marginLeft: 10,
+  },
+  textBig: {
+    fontSize: 20,
+    marginLeft: 10,
+  },
+  smallTitle: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 14,
   },
 });
 
