@@ -122,7 +122,7 @@ const[screen_counter, setCounter] = useState(0);
 // 3 = 400 meters
 // 4 = 800 meters
 // 5 1600 meters
-
+//yde
 
 
   let [lastSeven, yee] = useState(0)
