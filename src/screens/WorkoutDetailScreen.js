@@ -46,7 +46,9 @@ const WorkoutDetailScreen = ({ route }) => {
     var content = [];
     for (let i = 0; i < hard_data.length; i++) {
       const item = hard_data[i];
-      
+      if (!time_data[i] = 0) {
+        
+      }
 
       var previoustime = time_data[i-1];
       var previouspos = hard_data[i-1];

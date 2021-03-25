@@ -1,5 +1,5 @@
 import React, { useContext, useState, } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 import {
   LineChart,
@@ -10,7 +10,8 @@ import {
   StackedBarChart,
 } from "react-native-chart-kit";
 import { ScrollView } from "react-native-gesture-handler";
-import { test } from "../components/sortForLongTermScreen";
+
+//import { test } from "../components/sortForLongTermScreen";
 
 const LongtermProgressScreen = () => {
 
@@ -56,88 +57,88 @@ const LongtermProgressScreen = () => {
 
 
 
-  ONE=()=>{
+  // ONE=()=>{
    
-      Alert.alert("ONE");
+  //     Alert.alert("ONE");
    
-    }
+  //   }
    
-    TWO=()=>{
+  //   TWO=()=>{
    
-      Alert.alert("TWO");
+  //     Alert.alert("TWO");
    
-    }
+  //   }
    
-    THREE=()=>{
+  //   THREE=()=>{
    
-      Alert.alert("THREE");
+  //     Alert.alert("THREE");
    
-    }
+  //   }
    
-    FOUR=()=>{
+  //   FOUR=()=>{
    
-      Alert.alert("FOUR");
+  //     Alert.alert("FOUR");
    
-    }
+  //   }
 
 
-    checkSwitch=(param)=>{
+  //   checkSwitch=(param)=>{
  
-      switch(param) {
+  //     switch(param) {
    
-        case '1':
-          this.ONE();
-          break;
+  //       case '1':
+  //         this.ONE();
+  //         break;
         
-        case '2':
-          this.TWO();
-          break;
+  //       case '2':
+  //         this.TWO();
+  //         break;
    
-        case '3':
-          this.THREE();
-          break;
+  //       case '3':
+  //         this.THREE();
+  //         break;
    
-        case '4':
-          this.FOUR();
-          break;
+  //       case '4':
+  //         this.FOUR();
+  //         break;
    
-        default:
-          Alert.alert("NUMBER NOT FOUND");
+  //       default:
+  //         Alert.alert("NUMBER NOT FOUND");
       
-        }
+  //       }
    
-    }
+  //   }
 //this.checkSwitch.bind(this, this.state.TextInput_Data)
 
 /*  checkSwitch=(screen_counter)=>{
 
   */
 
-  const test = this.props.navigation.getParam('test', 'some default value');
+//   const test = this.props.navigation.getParam('test', 'some default value');
 
 const[screen_counter, setCounter] = useState(0);
-//1 = 100 meters
-//2 = 200 meters
-//3 = 400 meters
-//4 = 800 meters
-//5 1600 meters
-//
+// //1 = 100 meters
+// //2 = 200 meters
+// 3 = 400 meters
+// 4 = 800 meters
+// 5 1600 meters
+
 
 
   let [lastSeven, yee] = useState(0)
 
   lastSeven = {
-    labels: [0,0,0,0,0,0,0,0,], //filler, shall add real stuff later,
+    labels: [1,2,3,4,5,6,7,], //filler, shall add real stuff later,
     datasets: [
       {
         data: [
-         // Math.max.apply(Math, (hard_data_one) ),
-        //  Math.max.apply(Math, (hard_data_two) ),
-         // Math.max.apply(Math, (hard_data_three) ),
-         // Math.max.apply(Math, (hard_data_four) ),
-         // Math.max.apply(Math, (hard_data_five) ),
-        //  Math.max.apply(Math, (hard_data_six) ),
-        //  Math.max.apply(Math, (hard_data_seven) ) ,
+        55,
+        66,
+        45,
+        55,
+        51,
+        56,
+        57,
         ],
         color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
         strokeWidth: 2 // optional
@@ -165,29 +166,45 @@ const[screen_counter, setCounter] = useState(0);
   return (
     <ScrollView>
     <View>
-      <View style={styles.headerGreen}>
-        <Text style={styles.title}>LongtermProggress</Text>
-      </View>
-      <View buttonSwitch>
-      <Button title="100 meters" 
-        onPress={() => {
-            setCounter('1');
-        }} />
-        <Button title="200 meters" 
-        onPress={() => {
-            setCounter('2');
-        }} />
-        <Button title="400 meters" 
-        onPress={() => {
-            setCounter('3');
-        }} />
-        <Button title="800 meters" 
-        onPress={() => {
-            setCounter('4');
-        }} />
-      </View>
       
-      <Text> {test}</Text>
+      <View buttonSwitch>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          setCounter('1');  
+      }} >
+      
+      <Text>100 meters</Text>
+      
+      </TouchableOpacity><TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          setCounter('2');  
+      }} >
+      
+      <Text>200 meters</Text>
+      
+      </TouchableOpacity><TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          setCounter('3');  
+      }} >
+      
+      <Text>400 meters</Text>
+      
+      </TouchableOpacity><TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          setCounter('4');  
+      }} >
+      
+      <Text>800</Text>
+      
+      </TouchableOpacity>
+  
+    </View>
+      
+      {/* <Text> {test}</Text> */}
 
       <View style={styles.headerBlue}>
         <Text style={styles.title}>100 meters</Text>
@@ -254,6 +271,20 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginLeft: 10,
   },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 10
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10
+  },
+  countContainer: {
+    alignItems: "center",
+    padding: 10
+  }
 });
 
 
