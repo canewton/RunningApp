@@ -124,8 +124,6 @@ const WorkoutDetailScreen = ({ route }) => {
           verticalLabelRotation={0}
         />
 
-
-
          {/* <View style={styles.header}>
         <Text style={styles.title}>position-time</Text>
       </View> */}

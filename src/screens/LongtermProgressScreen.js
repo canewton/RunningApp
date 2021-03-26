@@ -128,7 +128,7 @@ const[screen_counter, setCounter] = useState(0);
   let [lastSeven, yee] = useState(0)
 
   lastSeven = {
-    labels: [1,2,3,4,5,6,7,], //filler, shall add real stuff later,
+    labels: ['1','2','3','4','5','6','7',], //filler, shall add real stuff later,
     datasets: [
       {
         data: [
@@ -140,16 +140,27 @@ const[screen_counter, setCounter] = useState(0);
         34,
         35,
         ],
-        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
-        strokeWidth: 2 // optional
+        // color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
+        // strokeWidth: 2 // optional
       }
     ],
-    legend: ["your last seven runs"] // optional
+    //legend: ["your last seven runs"] // optional
     
     
   
    
   };
+
+  const data = {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+      {
+        data: [20, 45, 28, 80, 99, 43]
+      }
+    ]
+  };
+
+  
 
   //Math.max.apply(Math, (hard_data_one) )
 //[].reduce((a, b) => a + b, 0)
@@ -167,7 +178,7 @@ const screenWidth = Dimensions.get("window").width;
     <ScrollView>
     <View>
       
-      <View buttonSwitch>
+      {/* <View buttonSwitch>
       <TouchableOpacity
         style={styles.buttonhighlight}
         onPress={() => {
@@ -196,27 +207,33 @@ const screenWidth = Dimensions.get("window").width;
         style={styles.button}
         onPress={() => {
           setCounter('4');  
-      }} >
-      
+      }} > */}
+{/*       
       <Text style={styles.buttontext} >800 meters</Text>
       
       </TouchableOpacity>
   
     </View>
-      
+       */}
       {/* <Text> {test}</Text> */}
 
-      {/* <View style={styles.headerBlue}>
+      <View style={styles.headerBlue}>
         <Text style={styles.title}>100 meters</Text>
-      </View> */}
-      <LineChart
-          data={lastSeven}
-          width={screenWidth}
-          height={256}
-          verticalLabelRotation={0}
-          chartConfig={chartConfig}
-          withDots={(false)}
-        />
+      </View> 
+      
+
+<BarChart
+  style={{
+    marginVertical: 8,
+    borderRadius: 16
+  }}
+  data={lastSeven}
+  width={screenWidth}
+  height={256}
+  yAxisLabel="$"
+  chartConfig={chartConfig}
+  verticalLabelRotation={30}
+/>
 
       </View>
 
@@ -233,11 +250,11 @@ const chartConfig = {
   backgroundGradientTo: "rgb(242, 242, 242)",
   backgroundGradientToOpacity: 0.5,
   color: (opacity = 1) => `rgba(0,0,0, ${opacity})`,
-  strokeWidth: 2.5, // optional, default 3
-  barPercentage: 0.6,
-  useShadowColorFromDataset: true, // optional
+  // strokeWidth: 2.5, // optional, default 3
+  // barPercentage: 0.6,
+ // useShadowColorFromDataset: true, // optional
 };
-
+//sgs
 const render_chart = {
 
 }
