@@ -72,21 +72,21 @@ const WorkoutDetailScreen = ({ route }) => {
 
 
   const data_velocity = {
-    labels: time_data, //filler, shall add real stuff later,
+    labels: [49.31,
+    49.36,
+    49.38,
+    49.85,
+    50.36,
+    50.86,
+    51.35,
+    51.86,
+    52.4,
+    52.87,
+    53.34,
+    53.8,], //filler, shall add real stuff later,
     datasets: [
       {
-        data: [49.31,
-          49.36,
-          49.38,
-          49.85,
-          50.36,
-          50.86,
-          51.35,
-          51.86,
-          52.4,
-          52.87,
-          53.34,
-          53.8,],//velocity_data,
+        data: time_data,//velocity_data,
         color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
         strokeWidth: 2, // optional
       },
@@ -124,9 +124,6 @@ const WorkoutDetailScreen = ({ route }) => {
           verticalLabelRotation={0}
         />
 
-        <View style={styles.header}>
-          <Text style={styles.title}>position-time</Text>
-        </View>
 
 
          {/* <View style={styles.header}>
