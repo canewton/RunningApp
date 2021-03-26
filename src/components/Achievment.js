@@ -9,19 +9,25 @@ import {
 import Collapsible from "react-native-collapsible";
 import { useNavigation } from "@react-navigation/native";
 
-const Achievment = ({achievement}) => {
-
-    const navigation = useNavigation();
-
-    return (
-        <TouchableOpacity
-        onPress={() => navigation.navigate("Achievement Details"), {goalName:achievement.goalName}}
-        style={styles.Achievmentdetails}
-        >
-        <Text style={styles.Subtext} >{achievement.goalName}</Text>
-        </TouchableOpacity>
-    )
-}
+const Achievment = ({ achievement, state }) => {
+  const navigation = useNavigation();
+  console.log(state);
+  //console.log(achievement);
+  return (
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("Achievement Details", {
+          goalName: achievement.goalName, progress: achievement.progress
+        })
+      }
+      style={styles.Achievmentdetails}
+    >
+      <Text style={styles.Subtext}>{achievement.goalName}</Text>
+     
+     <Text style={styles.Subtext} > {achievement.progress}</Text>
+    </TouchableOpacity>
+  );
+};
 
 
 
@@ -89,3 +95,4 @@ const styles = StyleSheet.create({
      },
   });
 export default Achievment;
+;

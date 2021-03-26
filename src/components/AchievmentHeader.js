@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,11 +9,13 @@ import {
 import Collapsible from "react-native-collapsible";
 import { useNavigation } from "@react-navigation/native";
 import Achievment from "../components/Achievment";
+import { Context as WorkoutContext } from "../context/WorkoutContext";
 
-const AchievementHeader = ({ title, goals,}) => {
+const AchievementHeader = ({ title, goals }) => {
+  const { state } = useContext(WorkoutContext);
   //create a state variable that defines if the collapsible list is collapsed or not
   const [collapsed, setCollapsed] = useState(true);
-  
+
   const navigation = useNavigation();
 
   //a function that collapses or expands the collapsible list
@@ -37,10 +39,9 @@ const AchievementHeader = ({ title, goals,}) => {
           <FlatList
             data={goals}
             keyExtractor={(goals) => goals.goalName}
-           
             renderItem={({ item }) => {
               return (
-                <Achievment achievement={item} />
+                <Achievment achievement={item} state={state} />
                 // <TouchableOpacity
                 //   onPress={() => navigation.navigate("Achievement Details")}
                 //   style={styles.Achievmentdetails}
@@ -58,11 +59,11 @@ const AchievementHeader = ({ title, goals,}) => {
 
 const styles = StyleSheet.create({
   title: {
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 5,
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
     borderRadius: 5,
-    paddingVertical: 18,
+    paddingVertical: 5,
     paddingHorizontal: 10,
     justifyContent: "space-between",
     borderWidth: 1,
@@ -70,19 +71,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#8fd14f",
   },
   Text: {
-    textAlign: "left",
-    fontSize: 30,
+    textAlign: "center",
+    fontSize: 25,
     color: "white",
     fontWeight: "500",
   },
   subtitle: {
-    paddingVertical: 10,
+    paddingVertical: 0,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: "white",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 10,
+    paddingHorizontal: 0,
     backgroundColor: "#12cdd4",
   },
   workoutList: {
