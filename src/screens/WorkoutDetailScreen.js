@@ -63,23 +63,10 @@ const WorkoutDetailScreen = ({ route }) => {
   //var velocity_data = getvelocity(distance_data,time_data);
 
   const data_velocity = {
-    labels: [
-      49.31,
-      49.36,
-      49.38,
-      49.85,
-      50.36,
-      50.86,
-      51.35,
-      51.86,
-      52.4,
-      52.87,
-      53.34,
-      53.8,
-    ], //filler, shall add real stuff later,
+    labels: time_data, //filler, shall add real stuff later,
     datasets: [
       {
-        data: time_data, //velocity_data,
+        data: [0, 6, 7, 8, 10, 11, 12, 12, 10, 11, 11], //velocity_data,
         color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
         strokeWidth: 2, // optional
       },
@@ -104,7 +91,7 @@ const WorkoutDetailScreen = ({ route }) => {
         Time: <Text style={styles.darkGreenText}>{time}</Text>
       </Text>
       <View style={styles.header}>
-        <Text style={styles.title}>position-time</Text>
+        <Text style={styles.title}>Distance Graph</Text>
       </View>
       <View>
         <LineChart
@@ -121,24 +108,19 @@ const WorkoutDetailScreen = ({ route }) => {
         <Text style={styles.title}>position-time</Text>
       </View> */}
 
-        <Text style={styles.text}>
-          Your top speed was:{" "}
-          <Text style={styles.greenText}>{max_of_array}</Text>{" "}
-        </Text>
-
         {/* <Text style={styles.text}>
           Your top speed was:{" "}
           <Text style={styles.greenText}>{max_of_array}</Text>{" "}
         </Text> */}
       </View>
 
-      <Text style={styles.text}>
+      {/* <Text style={styles.text}>
         Duration of your run:{" "}
         <Text style={styles.darkGreenText}>{max_of_array_time}</Text>{" "}
-      </Text>
+      </Text> */}
       <View>
         <View style={styles.header}>
-          <Text style={styles.title}>velocity-time</Text>
+          <Text style={styles.title}>Velocity Graph</Text>
         </View>
 
         <LineChart
@@ -151,6 +133,9 @@ const WorkoutDetailScreen = ({ route }) => {
           verticalLabelRotation={0}
         />
       </View>
+      <Text style={styles.text}>
+        Your top speed was: <Text style={styles.greenText}>{max_of_array}</Text>{" "}
+      </Text>
     </ScrollView>
   );
 };
