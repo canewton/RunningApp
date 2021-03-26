@@ -17,6 +17,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 //create a stack navigator for navigating between screens
 const Stack = createStackNavigator();
 const Tab = createMaterialTopTabNavigator();
+const ProgressTabs = createMaterialTopTabNavigator();
 
 //edit the default theme to customize the background color and header color
 const Theme = {
@@ -47,6 +48,20 @@ function WorkoutsScreen() {
   );
 }
 
+function LongtermProgress() {
+  return (
+    <ProgressTabs.Navigator
+      swipeEnabled={false}
+      tabBarOptions={{ style: { backgroundColor: "#12cdd4" } }}
+    >
+      <ProgressTabs.Screen name="100m" component={LongtermProgressScreen} />
+      <ProgressTabs.Screen name="200m" component={LongtermProgressScreen} />
+      <ProgressTabs.Screen name="400m" component={LongtermProgressScreen} />
+      <ProgressTabs.Screen name="800m" component={LongtermProgressScreen} />
+    </ProgressTabs.Navigator>
+  );
+}
+
 //Define which screens can be navigated to
 //Make the home screen the first screen that the user sees
 function RunningAppStack() {
@@ -59,9 +74,12 @@ function RunningAppStack() {
       />
       <Stack.Screen name="Workouts" component={WorkoutsScreen} />
       <Stack.Screen name="Workout Details" component={WorkoutDetailScreen} />
-      <Stack.Screen name="Progress" component={LongtermProgressScreen} />
+      <Stack.Screen name="Progress" component={LongtermProgress} />
       <Stack.Screen name="Achievements" component={AchievementsScreen} />
-      <Stack.Screen name="Achievement Details" component={AchievementDetailScreen} />
+      <Stack.Screen
+        name="Achievement Details"
+        component={AchievementDetailScreen}
+      />
       <Stack.Screen name="Settings" component={SettingsScreen} />
     </Stack.Navigator>
   );
