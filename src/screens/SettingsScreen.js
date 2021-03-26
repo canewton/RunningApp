@@ -1,11 +1,18 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 
-profileImage='../../assets/icon.png'
-friendNumber='#'
-rankNumber='#'
-profileName='First Last'
+const profileImage = "../../assets/icon.png";
+const teamName = "team";
+const friendNumber = "#";
+const rankNumber = "#";
+const profileName = "First Last";
+const hundredMeterTime = "00:00:00";
+const twoHundredMeterTime = "00:00:00";
+const threeHundredMeterTime = "00:00:00";
+const twoHundredMeterDay = "mm/dd/yy";
+const hundredMeterDay = "mm/dd/yy";
+const threeHundredMeterDay = "mm/dd/yy";
 
 const SettingsScreen = () => {
   //green color: #8fd14f
@@ -13,43 +20,60 @@ const SettingsScreen = () => {
   const { state } = useContext(WorkoutContext);
 
   return (
-    <View style={styles.headerStyle}>
-      <Text style={styles.title}>Profile</Text>
-    </View>,
+    <View>
+      <View style={styles.headerStyle}>
+        <Text style={styles.title}>Profile</Text>
+      </View>
 
-    <View >
-      
 
-      <TouchableOpacity >
-        <View style={styles.text}>
-      <Change Photo />
-        </View>
-      </TouchableOpacity>,
+      <View>
+        {/* <Image source={require(profileImage)}/> */}
+        <TouchableOpacity>
+          <View style={styles.text}>
+            <Text>Change Photo</Text>
+          </View>
+        </TouchableOpacity>
+        <Text style={styles.textBig}>{profileName}</Text>
+        <TouchableOpacity>
+          <View style={styles.text}>
+            <Text>Edit Profile</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
 
-      <Text style={styles.header}>{profileName}</Text>
 
-      <TouchableOpacity >
-        <View style={styles.text}>
-      <Edit Profile />
-        </View>
-      </TouchableOpacity>,
+      <View style={styles.blueStyle}>
+        <Text style={styles.title}> Team: {teamName} </Text>
+        <Text style={styles.title}> - {friendNumber} Friends</Text>
+        <Text style={styles.title}> - Rank {rankNumber}</Text>
+      </View>
 
-      <Text style={styles.text}>  - {friendNumber} Friends</Text>
-      <Text style={styles.text}>  - Rank {rankNumber}</Text>
+      <View style={styles.headerStyle}>
+        <Text style={styles.title}>Top Runs</Text>
+      </View>
 
-    </View>,
-  
-    <View style={styles.headerStyle}>
-      <Text style={styles.title}>Top Runs</Text>
+      <View style={styles.blueStyle}>
+        <Text style={styles.smallTitle}>
+          {" "}
+          100 meter: {hundredMeterTime} {hundredMeterDay}{" "}
+        </Text>
+
+        <Text style={styles.smallTitle}>
+          {" "}
+          200 meter: {twoHundredMeterTime} {twoHundredMeterDay}
+        </Text>
+
+        <Text style={styles.smallTitle}>
+          {" "}
+          300 meter: {threeHundredMeterTime} {threeHundredMeterDay}
+        </Text>
+      </View>
     </View>
-
-     
   );
 };
 
-
 const styles = StyleSheet.create({
-  headerStyle:{
+  headerStyle: {
     backgroundColor: "#008000",
     paddingVertical: 10,
     flexDirection: "row",
@@ -57,24 +81,31 @@ const styles = StyleSheet.create({
     marginVertical: 25,
     justifyContent: "center",
   },
-  header: {
-      backgroundColor: "#12cdd4",
-      paddingVertical: 10,
-      flexDirection: "row",
-      alignItems: "center",
-      marginVertical: 25,
-      justifyContent: "center",
+  blueStyle: {
+    backgroundColor: "#12cdd4",
+    paddingVertical: 10,
+    alignItems: "center",
+    marginVertical: 25,
+    justifyContent: "center",
   },
   title: {
-      color: "white",
-      fontWeight: "bold",
-      fontSize: 20,
-   },
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
   text: {
-      fontSize: 18,
-      marginLeft: 10,
+    fontSize: 14,
+    marginLeft: 10,
+  },
+  textBig: {
+    fontSize: 20,
+    marginLeft: 10,
+  },
+  smallTitle: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 14,
   },
 });
 
 export default SettingsScreen;
-

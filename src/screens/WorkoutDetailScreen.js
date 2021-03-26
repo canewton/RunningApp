@@ -31,12 +31,12 @@ const WorkoutDetailScreen = ({ route }) => {
   var max_of_array = Math.max.apply(Math, distance_data);
   var max_of_array_time = Math.max.apply(Math, time_data);
 
-
   //sudo code for velocity-time graph..... status: error
   //1. for loop to call for lenght of distance_data .... done!
   //2. use equation on this use i  and i-1 for t1 and t2 ..... done!
   //3. port into it's own array call velcoty_array ......error
   //4. new graph for the viwer ..... done!
+
 
 
 
@@ -52,8 +52,10 @@ const WorkoutDetailScreen = ({ route }) => {
 //       var previoustime = time_data[i-1];
 //       var previouspos = distance_data[i-1];
 
+
 //       var a_pos = previouspos - distance_data[i];
 //       var a_time = previoustime - distance_data[i];
+
 
 //       var gamer_juice = a_pos/a_time;
 // //yyuu
@@ -61,10 +63,13 @@ const WorkoutDetailScreen = ({ route }) => {
 //     }
 // //fh
 
+
 //     return content;
 //   };
 
+
  //var velocity_data = getvelocity(distance_data,time_data);
+
 
   const data_velocity = {
     labels: time_data, //filler, shall add real stuff later,
@@ -83,18 +88,13 @@ const WorkoutDetailScreen = ({ route }) => {
           53.34,
           53.8,],//velocity_data,
         color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
-        strokeWidth: 2 // optional
-      }
+        strokeWidth: 2, // optional
+      },
     ],
-   // legend: ["running data(dummy)"] // optional
-    
-
+    // legend: ["running data(dummy)"] // optional
   };
 
-
-
   const screenWidth = Dimensions.get("window").width;
-
 
   //sgsfbdsb
   // var max_of_array = Math.max.apply(Math, [49,49,49,49,50,50,51,51,52,52,53,53]);
@@ -124,6 +124,10 @@ const WorkoutDetailScreen = ({ route }) => {
           verticalLabelRotation={0}
         />
 
+        <View style={styles.header}>
+          <Text style={styles.title}>position-time</Text>
+        </View>
+
 
          {/* <View style={styles.header}>
         <Text style={styles.title}>position-time</Text>
@@ -132,11 +136,13 @@ const WorkoutDetailScreen = ({ route }) => {
         <Text style={styles.text}>Your top speed was: <Text style = {styles.greenText} >{max_of_array}</Text> </Text>
 
 
+
         {/* <Text style={styles.text}>
           Your top speed was:{" "}
           <Text style={styles.greenText}>{max_of_array}</Text>{" "}
         </Text> */}
       </View>
+
 
       <Text style={styles.text}>Duration of your run: <Text style = {styles.darkGreenText} >{max_of_array_time}</Text> </Text>
       <View >
@@ -144,17 +150,17 @@ const WorkoutDetailScreen = ({ route }) => {
         <Text style={styles.title}>velocity-time</Text>
       </View>
 
-      
-      <LineChart
+
+        <LineChart
           data={data_velocity}
           width={screenWidth}
           height={256}
           verticalLabelRotation={30}
           chartConfig={chartConfig}
-          withDots={(false)}
-          verticalLabelRotation = {0}
+          withDots={false}
+          verticalLabelRotation={0}
         />
-        </View>
+      </View>
     </ScrollView>
   );
 };

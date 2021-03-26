@@ -59,11 +59,11 @@ const AchievementHeader = ({ title, goals }) => {
 
 const styles = StyleSheet.create({
   title: {
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 5,
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
     borderRadius: 5,
-    paddingVertical: 18,
+    paddingVertical: 5,
     paddingHorizontal: 10,
     justifyContent: "space-between",
     borderWidth: 1,
@@ -71,19 +71,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#8fd14f",
   },
   Text: {
-    textAlign: "left",
-    fontSize: 30,
+    textAlign: "center",
+    fontSize: 25,
     color: "white",
     fontWeight: "500",
   },
   subtitle: {
-    paddingVertical: 10,
+    paddingVertical: 0,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: "white",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 10,
+    paddingHorizontal: 0,
     backgroundColor: "#12cdd4",
   },
   workoutList: {
