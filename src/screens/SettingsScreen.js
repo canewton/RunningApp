@@ -25,6 +25,7 @@ const SettingsScreen = () => {
         <Text style={styles.title}>Profile</Text>
       </View>
 
+
       <View>
         {/* <Image source={require(profileImage)}/> */}
         <TouchableOpacity>
@@ -39,6 +40,7 @@ const SettingsScreen = () => {
           </View>
         </TouchableOpacity>
       </View>
+
 
       <View style={styles.blueStyle}>
         <Text style={styles.title}> Team: {teamName} </Text>

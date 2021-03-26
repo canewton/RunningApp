@@ -43,7 +43,7 @@ export const { Context, Provider } = createDataContext(
         49.38,
         49.85,
         50.36,
-        500.86,
+        50.86,
         51.35,
         51.86,
         52.4,
@@ -447,7 +447,7 @@ export const { Context, Provider } = createDataContext(
         53.34,
         53.8,
       ],
-      time_data: [1, 0, 0, 0, 0, 0, 0, 9.23],
+      time_data: [1, 2, 3, 4, 5, 6, 7,8, 9.23],
     },
     {
       date: new Date("3/23/2021"),
