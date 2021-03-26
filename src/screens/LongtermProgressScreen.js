@@ -122,15 +122,24 @@ const LongtermProgressScreen = () => {
   let [lastSeven, yee] = useState(0);
 
   lastSeven = {
-    labels: [1, 2, 3, 4, 5, 6, 7], //filler, shall add real stuff later,
+    labels: ["1", "2", "3", "4", "5", "6", "7"], //filler, shall add real stuff later,
     datasets: [
       {
         data: [34, 32, 29, 30, 32, 34, 35],
-        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
-        strokeWidth: 2, // optional
+        // color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
+        // strokeWidth: 2 // optional
       },
     ],
-    legend: ["your last seven runs"], // optional
+    //legend: ["your last seven runs"] // optional
+  };
+
+  const data = {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+      {
+        data: [20, 45, 28, 80, 99, 43],
+      },
+    ],
   };
 
   //Math.max.apply(Math, (hard_data_one) )
@@ -147,52 +156,59 @@ const LongtermProgressScreen = () => {
     <ScrollView>
       <View>
         {/* <View buttonSwitch>
-          <TouchableOpacity
-            style={styles.buttonhighlight}
-            onPress={() => {
-              setCounter("1");
-            }}
-          >
-            <Text style={styles.buttontext}>100 meters</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              setCounter("2");
-            }}
-          >
-            <Text style={styles.buttontext}>200 meters</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              setCounter("3");
-            }}
-          >
-            <Text style={styles.buttontext}>400 meters</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              setCounter("4");
-            }}
-          >
-            <Text style={styles.buttontext}>800 meters</Text>
-          </TouchableOpacity>
-        </View> */}
-
+      <TouchableOpacity
+        style={styles.buttonhighlight}
+        onPress={() => {
+          setCounter('1');  
+      }} >
+      
+      <Text style={styles.buttontext}>100 meters</Text>
+      
+      </TouchableOpacity><TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          setCounter('2');  
+      }} >
+      
+      <Text style={styles.buttontext} >200 meters</Text>
+      
+      </TouchableOpacity><TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          setCounter('3');  
+      }} >
+      
+      <Text style={styles.buttontext} >400 meters</Text>
+      
+      </TouchableOpacity><TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          setCounter('4');  
+      }} > */}
+        {/*       
+      <Text style={styles.buttontext} >800 meters</Text>
+      
+      </TouchableOpacity>
+  
+    </View>
+       */}
         {/* <Text> {test}</Text> */}
 
-        {/* <View style={styles.headerBlue}>
-        <Text style={styles.title}>100 meters</Text>
-      </View> */}
-        <LineChart
+        <View style={styles.headerBlue}>
+          <Text style={styles.title}>100 meters</Text>
+        </View>
+
+        <BarChart
+          style={{
+            marginVertical: 8,
+            borderRadius: 16,
+          }}
           data={lastSeven}
           width={screenWidth}
           height={256}
-          verticalLabelRotation={0}
+          yAxisLabel="$"
           chartConfig={chartConfig}
-          withDots={false}
+          verticalLabelRotation={30}
         />
       </View>
 
@@ -211,11 +227,11 @@ const chartConfig = {
   backgroundGradientTo: "rgb(242, 242, 242)",
   backgroundGradientToOpacity: 0.5,
   color: (opacity = 1) => `rgba(0,0,0, ${opacity})`,
-  strokeWidth: 2.5, // optional, default 3
-  barPercentage: 0.6,
-  useShadowColorFromDataset: true, // optional
+  // strokeWidth: 2.5, // optional, default 3
+  // barPercentage: 0.6,
+  // useShadowColorFromDataset: true, // optional
 };
-
+//sgs
 const render_chart = {};
 
 const styles = StyleSheet.create({
