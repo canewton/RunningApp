@@ -24,11 +24,13 @@ const SettingsScreen = () => {
       <View style={styles.headerStyle}>
         <Text style={styles.title}>Profile</Text>
       </View>
+
       <View style={styles.imageStyle}>
         <Image source={require('../../assets/icon.png')} style={styles.image}/> 
       </View>
  
       <View style={styles.textStyle}>
+
         <TouchableOpacity>
           <View>
             <Text style={styles.text}>Change Photo</Text>
@@ -41,6 +43,7 @@ const SettingsScreen = () => {
           </View>
         </TouchableOpacity>
       </View>
+
 
       <View style={styles.blueStyle}>
         <Text style={styles.title}> Team: {teamName} </Text>
