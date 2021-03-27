@@ -131,7 +131,8 @@ const WorkoutDetailScreen = ({ route }) => {
         />
       </View>
       <Text style={styles.text}>
-        Your top speed was: <Text style={styles.greenText}>{max_of_array}</Text>{" "}
+        Your top speed was: <Text style={styles.greenText}>12.0 m/s</Text>
+        {/* <Text style={styles.greenText}>{max_of_array}</Text> */}{" "}
       </Text>
     </ScrollView>
   );
