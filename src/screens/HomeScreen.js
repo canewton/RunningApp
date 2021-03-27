@@ -1,5 +1,11 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+  Text,
+} from "react-native";
 import WorkoutListWindow from "../feed/WorkoutListWindow";
 import WindowHeader from "../components/WindowHeader";
 import ConnectButton from "../components/ConnectButton";
@@ -13,8 +19,30 @@ import ProfileWindow from "../feed/ProfileWindow";
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
+      <View
+        style={{
+          height: 230,
+          width: Dimensions.get("window").width,
+          backgroundColor: "#8fd14f",
+          borderBottomLeftRadius: 20,
+          borderBottomRightRadius: 20,
+          position: "absolute",
+        }}
+      ></View>
+      <View style={{ marginBottom: 70 }}></View>
+      <Text
+        style={{
+          color: "white",
+          fontSize: 28,
+          fontWeight: "800",
+          alignSelf: "center",
+          marginBottom: 15,
+        }}
+      >
+        Hello, User
+      </Text>
+      <ConnectButton />
       <ScrollView>
-        <ConnectButton />
         {/*Display all the windows that are in the feed folder
       Make all the windows a button that navigates to the corresponding screen */}
         <TouchableOpacity onPress={() => navigation.navigate("Workouts")}>

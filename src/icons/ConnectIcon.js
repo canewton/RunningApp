@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <View>
-      <Icon name="ConnectIcon" size={100} color="#8fd14f" />
+      <Icon name="ConnectIcon" size={100} color="#12cdd4" />
     </View>
   );
 }
