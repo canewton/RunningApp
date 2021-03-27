@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 
 const profileImage = "../../assets/icon.png";
-const teamName = "team";
+const teamName = "Team";
 const friendNumber = "#";
 const rankNumber = "#";
 const profileName = "First Last";
@@ -24,18 +24,20 @@ const SettingsScreen = () => {
       <View style={styles.headerStyle}>
         <Text style={styles.title}>Profile</Text>
       </View>
-
-      <View>
-        {/* <Image source={require(profileImage)}/> */}
+      <View style={styles.imageStyle}>
+        <Image source={require('../../assets/icon.png')} style={styles.image}/> 
+      </View>
+ 
+      <View style={styles.textStyle}>
         <TouchableOpacity>
-          <View style={styles.text}>
-            <Text>Change Photo</Text>
+          <View>
+            <Text style={styles.text}>Change Photo</Text>
           </View>
         </TouchableOpacity>
         <Text style={styles.textBig}>{profileName}</Text>
         <TouchableOpacity>
-          <View style={styles.text}>
-            <Text>Edit Profile</Text>
+          <View >
+            <Text style={styles.text}>Edit Profile</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -72,31 +74,39 @@ const SettingsScreen = () => {
 
 const styles = StyleSheet.create({
   headerStyle: {
-    backgroundColor: "#008000",
+    backgroundColor: "#8fd14f",
     paddingVertical: 10,
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 25,
+    marginVertical: 0,
     justifyContent: "center",
   },
   blueStyle: {
     backgroundColor: "#12cdd4",
     paddingVertical: 10,
     alignItems: "center",
-    marginVertical: 25,
+    marginVertical: 0,
     justifyContent: "center",
+    borderRadius:20
+  },
+  textStyle: {
+    paddingVertical: 10,
+    alignItems: "center",
+    marginVertical: 0,
+    justifyContent: "center",
+    borderRadius:20
   },
   title: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 25,
   },
   text: {
-    fontSize: 14,
+    fontSize: 10,
     marginLeft: 10,
   },
   textBig: {
-    fontSize: 20,
+    fontSize: 25,
     marginLeft: 10,
   },
   smallTitle: {
@@ -104,6 +114,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 14,
   },
+  image: {
+    width: 200,
+    height: 200,
+  },
+  imageStyle:{
+    alignItems: "center",
+    padding: 20,
+  }
 });
 
 export default SettingsScreen;
