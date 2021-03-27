@@ -82,15 +82,6 @@ const WorkoutDetailScreen = ({ route }) => {
   return (
     <ScrollView>
       <View style={styles.header}>
-        <Text style={styles.title}>Distance</Text>
-      </View>
-      <Text style={styles.text}>
-        Distance: <Text style={styles.darkGreenText}>{distance}</Text>
-      </Text>
-      <Text style={styles.text}>
-        Time: <Text style={styles.darkGreenText}>{time}</Text>
-      </Text>
-      <View style={styles.header}>
         <Text style={styles.title}>Distance Graph</Text>
       </View>
       <View>
@@ -103,6 +94,12 @@ const WorkoutDetailScreen = ({ route }) => {
           withDots={false}
           verticalLabelRotation={0}
         />
+        <Text style={styles.text}>
+          Sprint Distance: <Text style={styles.darkGreenText}>{distance}</Text>
+        </Text>
+        <Text style={styles.text}>
+          Sprint Time: <Text style={styles.darkGreenText}>{time}</Text>
+        </Text>
 
         {/* <View style={styles.header}>
         <Text style={styles.title}>position-time</Text>
