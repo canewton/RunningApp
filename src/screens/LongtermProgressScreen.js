@@ -119,6 +119,7 @@ const LongtermProgressScreen = () => {
   // 5 1600 meters
   //yde
 
+
   let [lastSeven, yee] = useState(0);
 
   lastSeven = {
@@ -142,10 +143,16 @@ const LongtermProgressScreen = () => {
     ],
   };
 
+
+  const bleh = [34, 32, 29, 30, 32, 34, 35];
+
+  const bestrun = Math.max.apply(Math, bleh );
+
   //Math.max.apply(Math, (hard_data_one) )
   //[].reduce((a, b) => a + b, 0)
 
   const screenWidth = Dimensions.get("window").width;
+
 
   //only use 100-800
 
@@ -206,30 +213,38 @@ const LongtermProgressScreen = () => {
           data={lastSeven}
           width={screenWidth}
           height={256}
-          yAxisLabel="$"
+          yAxisLabel=""
           chartConfig={chartConfig}
-          verticalLabelRotation={30}
+          verticalLabelRotation={0}
         />
       </View>
 
-      <Text>
+      <Text style={styles.text}>
         {" "}
-        A chart of your times, for you last seven sprints. currenly showing Your
-        100 meter runs
+        A chart of your times, for you last seven sprints. 
+        currenly showing your <Text style={styles.greenText}>100</Text> meter runs
       </Text>
+          <Text style = {styles.text}>
+             Your Best time is: <Text style={styles.greenText}>{bestrun}</Text>
+             </Text>
+
+
     </ScrollView>
   );
 };
 
 const chartConfig = {
   backgroundGradientFrom: "rgb(242, 242, 242)",
-  backgroundGradientFromOpacity: 0,
+  backgroundGradientFromOpacity: 1,
   backgroundGradientTo: "rgb(242, 242, 242)",
-  backgroundGradientToOpacity: 0.5,
+  backgroundGradientToOpacity: 0.1,
   color: (opacity = 1) => `rgba(0,0,0, ${opacity})`,
   // strokeWidth: 2.5, // optional, default 3
   // barPercentage: 0.6,
   // useShadowColorFromDataset: true, // optional
+  fillShadowGradientOpacity: 0.5,
+  fillShadowGradient: "rgb(0,0,0)",
+
 };
 //sgs
 const render_chart = {};
@@ -260,7 +275,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   text: {
-    fontSize: 18,
+    fontSize: 20,
     marginLeft: 10,
   },
   container: {
@@ -288,6 +303,11 @@ const styles = StyleSheet.create({
   },
   buttontext: {
     fontSize: 30,
+  },
+  greenText: {
+    color: "green",
+    fontSize: 24,
+    marginLeft: 10,
   },
   buttonhighlight: {
     alignItems: "center",
