@@ -80,7 +80,7 @@ function RunningAppStack() {
         name="Achievement Details"
         component={AchievementDetailScreen}
       />
-      <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen name="Profile" component={SettingsScreen} />
     </Stack.Navigator>
   );
 }
