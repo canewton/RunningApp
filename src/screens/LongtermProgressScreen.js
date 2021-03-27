@@ -119,6 +119,7 @@ const LongtermProgressScreen = () => {
   // 5 1600 meters
   //yde
 
+
   let [lastSeven, yee] = useState(0);
 
   lastSeven = {
@@ -142,6 +143,7 @@ const LongtermProgressScreen = () => {
     ],
   };
 
+
   const bleh = [34, 32, 29, 30, 32, 34, 35];
 
   const bestrun = Math.max.apply(Math, bleh );
@@ -150,6 +152,7 @@ const LongtermProgressScreen = () => {
   //[].reduce((a, b) => a + b, 0)
 
   const screenWidth = Dimensions.get("window").width;
+
 
   //only use 100-800
 
@@ -225,6 +228,7 @@ const LongtermProgressScreen = () => {
              Your Best time is: <Text style={styles.greenText}>{bestrun}</Text>
              </Text>
 
+
     </ScrollView>
   );
 };
@@ -240,6 +244,7 @@ const chartConfig = {
   // useShadowColorFromDataset: true, // optional
   fillShadowGradientOpacity: 0.5,
   fillShadowGradient: "rgb(0,0,0)",
+
 };
 //sgs
 const render_chart = {};

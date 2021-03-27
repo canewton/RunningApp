@@ -32,7 +32,7 @@ const HomeScreen = ({ navigation }) => {
             <ProgressWindow />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
           <View style={styles.button}>
             <ProfileWindow />
           </View>
