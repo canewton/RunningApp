@@ -1,5 +1,12 @@
-import React, { useContext, useState, } from "react";
-import { View, Text, StyleSheet, Button, TouchableOpacity, Dimensions } from "react-native";
+import React, { useContext, useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  TouchableOpacity,
+  Dimensions,
+} from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 import {
   LineChart,
@@ -14,10 +21,6 @@ import { ScrollView } from "react-native-gesture-handler";
 //import { test } from "../components/sortForLongTermScreen";
 
 const LongtermProgressScreen = () => {
-
-
- 
-
   // const hard_data_one  = Object.values(state)[workouts.length - 1];
   // let  hard_data_two  = Object.values(state)[workouts.length - 2];
   // let  hard_data_three  = Object.values(state)[workouts.length - 3];
@@ -25,149 +28,138 @@ const LongtermProgressScreen = () => {
   // let  hard_data_five  = Object.values(state)[workouts.length - 5];
   // let  hard_data_six  = Object.values(state)[workouts.length - 7];
   // let  hard_data_seven  = Object.values(state)[workouts.length - 8];
-//commented out beacuse doesn't work?!?!?!?!?!
+  //commented out beacuse doesn't work?!?!?!?!?!
 
   //green color: #8fd14f
   //blue color: #12cdd4
- 
-   //sudo code for now
+
+  //sudo code for now
   //1. get all seven of the most recent seven workouts from other page?!!! (NOT WORKING)
   //2. run the MAX of array code on each workout
   //3. port into the graph stoopid, (what else would we do with it?)
- 
-
 
   //dummy data for proof of concept.
-  
+
   //const { distance, data, date,hard_data }  = [Object.values(state)[workouts.length - 1]];
-//needs to look like this ^^^ ?!?!?!
+  //needs to look like this ^^^ ?!?!?!
 
-//100 meter data
-
-
-  
+  //100 meter data
 
   // super();
 
   // this.state={
- 
+
   //   TextInput_Data : ''
 
   // }
 
-
-
   // ONE=()=>{
-   
+
   //     Alert.alert("ONE");
-   
-  //   }
-   
-  //   TWO=()=>{
-   
-  //     Alert.alert("TWO");
-   
-  //   }
-   
-  //   THREE=()=>{
-   
-  //     Alert.alert("THREE");
-   
-  //   }
-   
-  //   FOUR=()=>{
-   
-  //     Alert.alert("FOUR");
-   
+
   //   }
 
+  //   TWO=()=>{
+
+  //     Alert.alert("TWO");
+
+  //   }
+
+  //   THREE=()=>{
+
+  //     Alert.alert("THREE");
+
+  //   }
+
+  //   FOUR=()=>{
+
+  //     Alert.alert("FOUR");
+
+  //   }
 
   //   checkSwitch=(param)=>{
- 
+
   //     switch(param) {
-   
+
   //       case '1':
   //         this.ONE();
   //         break;
-        
+
   //       case '2':
   //         this.TWO();
   //         break;
-   
+
   //       case '3':
   //         this.THREE();
   //         break;
-   
+
   //       case '4':
   //         this.FOUR();
   //         break;
-   
+
   //       default:
   //         Alert.alert("NUMBER NOT FOUND");
-      
-  //       }
-   
-  //   }
-//this.checkSwitch.bind(this, this.state.TextInput_Data)
 
-/*  checkSwitch=(screen_counter)=>{
+  //       }
+
+  //   }
+  //this.checkSwitch.bind(this, this.state.TextInput_Data)
+
+  /*  checkSwitch=(screen_counter)=>{
 
   */
 
-//   const test = this.props.navigation.getParam('test', 'some default value');
+  //   const test = this.props.navigation.getParam('test', 'some default value');
 
-const[screen_counter, setCounter] = useState(0);
-// //1 = 100 meters
-// //2 = 200 meters
-// 3 = 400 meters
-// 4 = 800 meters
-// 5 1600 meters
-//yde
+  const [screen_counter, setCounter] = useState(0);
+  // //1 = 100 meters
+  // //2 = 200 meters
+  // 3 = 400 meters
+  // 4 = 800 meters
+  // 5 1600 meters
+  //yde
 
-
-  let [lastSeven, yee] = useState(0)
+  let [lastSeven, yee] = useState(0);
 
   lastSeven = {
-    labels: [1,2,3,4,5,6,7,], //filler, shall add real stuff later,
+    labels: ["1", "2", "3", "4", "5", "6", "7"], //filler, shall add real stuff later,
     datasets: [
       {
-        data: [
-        34,
-        32,
-        29,
-        30,
-        32,
-        34,
-        35,
-        ],
-        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
-        strokeWidth: 2 // optional
-      }
+        data: [34, 32, 29, 30, 32, 34, 35],
+        // color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
+        // strokeWidth: 2 // optional
+      },
     ],
-    legend: ["your last seven runs"] // optional
-    
-    
-  
-   
+    //legend: ["your last seven runs"] // optional
   };
 
+  const data = {
+    labels: ["January", "February", "March", "April", "May", "June"],
+    datasets: [
+      {
+        data: [20, 45, 28, 80, 99, 43],
+      },
+    ],
+  };
+
+  const bleh = [34, 32, 29, 30, 32, 34, 35];
+
+  const bestrun = Math.max.apply(Math, bleh );
+
   //Math.max.apply(Math, (hard_data_one) )
-//[].reduce((a, b) => a + b, 0)
+  //[].reduce((a, b) => a + b, 0)
 
+  const screenWidth = Dimensions.get("window").width;
 
-const screenWidth = Dimensions.get("window").width;
-
-//only use 100-800
-
+  //only use 100-800
 
   //times and such
   //how fast you completed the runs
   //all times
   return (
     <ScrollView>
-    <View>
-      
-      <View buttonSwitch>
+      <View>
+        {/* <View buttonSwitch>
       <TouchableOpacity
         style={styles.buttonhighlight}
         onPress={() => {
@@ -196,53 +188,61 @@ const screenWidth = Dimensions.get("window").width;
         style={styles.button}
         onPress={() => {
           setCounter('4');  
-      }} >
-      
+      }} > */}
+        {/*       
       <Text style={styles.buttontext} >800 meters</Text>
       
       </TouchableOpacity>
   
     </View>
-      
-      {/* <Text> {test}</Text> */}
+       */}
+        {/* <Text> {test}</Text> */}
 
-      {/* <View style={styles.headerBlue}>
-        <Text style={styles.title}>100 meters</Text>
-      </View> */}
-      <LineChart
+        <View style={styles.headerBlue}>
+          <Text style={styles.title}>100 meters</Text>
+        </View>
+
+        <BarChart
+          style={{
+            marginVertical: 8,
+            borderRadius: 16,
+          }}
           data={lastSeven}
           width={screenWidth}
           height={256}
-          verticalLabelRotation={0}
+          yAxisLabel=""
           chartConfig={chartConfig}
-          withDots={(false)}
+          verticalLabelRotation={0}
         />
-
       </View>
 
-      <Text> A chart of your times, for you last seven sprints. currenly showing Your 100 meter runs</Text>
-      </ScrollView>
+      <Text style={styles.text}>
+        {" "}
+        A chart of your times, for you last seven sprints. 
+        currenly showing your <Text style={styles.greenText}>100</Text> meter runs
+      </Text>
+          <Text style = {styles.text}>
+             Your Best time is: <Text style={styles.greenText}>{bestrun}</Text>
+             </Text>
+
+    </ScrollView>
   );
-
-
 };
 
 const chartConfig = {
   backgroundGradientFrom: "rgb(242, 242, 242)",
-  backgroundGradientFromOpacity: 0,
+  backgroundGradientFromOpacity: 1,
   backgroundGradientTo: "rgb(242, 242, 242)",
-  backgroundGradientToOpacity: 0.5,
+  backgroundGradientToOpacity: 0.1,
   color: (opacity = 1) => `rgba(0,0,0, ${opacity})`,
-  strokeWidth: 2.5, // optional, default 3
-  barPercentage: 0.6,
-  useShadowColorFromDataset: true, // optional
+  // strokeWidth: 2.5, // optional, default 3
+  // barPercentage: 0.6,
+  // useShadowColorFromDataset: true, // optional
+  fillShadowGradientOpacity: 0.5,
+  fillShadowGradient: "rgb(0,0,0)",
 };
-
-const render_chart = {
-
-}
-
-
+//sgs
+const render_chart = {};
 
 const styles = StyleSheet.create({
   headerBlue: {
@@ -270,60 +270,62 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   text: {
-    fontSize: 18,
+    fontSize: 20,
     marginLeft: 10,
   },
   container: {
     flex: 1,
     justifyContent: "center",
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   button: {
     alignItems: "center",
-    fontSize:20,
+    fontSize: 20,
     // backgroundColor: "#BFCABE",
     // padding: 13,
     // fontSize: 30,
     // marginHorizontal: 25,
-    marginTop:10,
-    paddingTop:10,
-    paddingBottom:10,
-    marginLeft:30,
-    marginRight:30,
-    backgroundColor:'#00BCD4',
-    borderRadius:10,
+    marginTop: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginLeft: 30,
+    marginRight: 30,
+    backgroundColor: "#00BCD4",
+    borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: "#fff",
     justifyContent: "center",
   },
-  buttontext: { 
-
+  buttontext: {
     fontSize: 30,
+  },
+  greenText: {
+    color: "green",
+    fontSize: 24,
+    marginLeft: 10,
   },
   buttonhighlight: {
     alignItems: "center",
-    fontSize:20,
+    fontSize: 20,
     // backgroundColor: "#BFCABE",
     // padding: 13,
     // fontSize: 30,
     // marginHorizontal: 25,
-    marginTop:10,
-    paddingTop:10,
-    paddingBottom:10,
-    marginLeft:30,
-    marginRight:30,
-    backgroundColor:'#27C4BA',
-    borderRadius:10,
+    marginTop: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginLeft: 30,
+    marginRight: 30,
+    backgroundColor: "#27C4BA",
+    borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: "#fff",
     justifyContent: "center",
   },
   countContainer: {
     alignItems: "center",
-    padding: 10
-  }
+    padding: 10,
+  },
 });
-
-
 
 export default LongtermProgressScreen;
