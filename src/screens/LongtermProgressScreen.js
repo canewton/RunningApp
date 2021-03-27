@@ -119,14 +119,64 @@ const LongtermProgressScreen = () => {
   // 5 1600 meters
   //yde
 
-
   let [lastSeven, yee] = useState(0);
 
   lastSeven = {
-    labels: ["1", "2", "3", "4", "5", "6", "7"], //filler, shall add real stuff later,
+    labels: [
+      "Feb 14",
+      "Feb 16",
+      "Feb 28",
+      "Mar 10",
+      "Mar 18",
+      "Mar 20",
+      "Mar 26",
+    ], //filler, shall add real stuff later,
     datasets: [
       {
-        data: [34, 32, 29, 30, 32, 34, 35],
+        data: [9.13, 9.1, 9.2, 9.1, 9.07, 9.05, 9.1],
+        // color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
+        // strokeWidth: 2 // optional
+      },
+    ],
+    //legend: ["your last seven runs"] // optional
+  };
+
+  const lastThirty = {
+    labels: [], //filler, shall add real stuff later,
+    datasets: [
+      {
+        data: [
+          10.8,
+          10.82,
+          10.79,
+          10.63,
+          10.36,
+          10.3,
+          10.2,
+          10.22,
+          10.13,
+          10.19,
+          10.2,
+          10.1,
+          10.07,
+          10.05,
+          10.1,
+          9.8,
+          9.82,
+          9.79,
+          9.63,
+          9.36,
+          9.3,
+          9.2,
+          9.22,
+          9.13,
+          9.19,
+          9.2,
+          9.1,
+          9.07,
+          9.05,
+          9.1,
+        ],
         // color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
         // strokeWidth: 2 // optional
       },
@@ -143,16 +193,14 @@ const LongtermProgressScreen = () => {
     ],
   };
 
-
   const bleh = [34, 32, 29, 30, 32, 34, 35];
 
-  const bestrun = Math.max.apply(Math, bleh );
+  const bestrun = Math.max.apply(Math, bleh);
 
   //Math.max.apply(Math, (hard_data_one) )
   //[].reduce((a, b) => a + b, 0)
 
   const screenWidth = Dimensions.get("window").width;
-
 
   //only use 100-800
 
@@ -202,33 +250,47 @@ const LongtermProgressScreen = () => {
         {/* <Text> {test}</Text> */}
 
         <View style={styles.headerBlue}>
-          <Text style={styles.title}>100 meters</Text>
+          <Text style={styles.title}>Last 7 Runs</Text>
         </View>
-
         <BarChart
           style={{
             marginVertical: 8,
             borderRadius: 16,
           }}
           data={lastSeven}
-          width={screenWidth}
+          width={screenWidth - 20}
           height={256}
           yAxisLabel=""
           chartConfig={chartConfig}
           verticalLabelRotation={0}
         />
+
+        <View style={styles.headerBlue}>
+          <Text style={styles.title}>Last 30 Runs</Text>
+        </View>
+        <BarChart
+          style={{
+            marginVertical: 2,
+            borderRadius: 5,
+          }}
+          data={lastThirty}
+          width={screenWidth - 20}
+          height={256}
+          yAxisLabel=""
+          chartConfig={chartConfig2}
+          verticalLabelRotation={0}
+        />
       </View>
 
       <Text style={styles.text}>
-        {" "}
-        A chart of your times, for you last seven sprints. 
-        currenly showing your <Text style={styles.greenText}>100</Text> meter runs
+        Your Best time is: <Text style={styles.greenText}>00:09.05</Text>
       </Text>
-          <Text style = {styles.text}>
-             Your Best time is: <Text style={styles.greenText}>{bestrun}</Text>
-             </Text>
 
-
+      <Text style={styles.text}>
+        {" "}
+        A chart of your times, for you last seven sprints. currenly showing your{" "}
+        <Text style={styles.greenText}>100</Text> meter runs
+      </Text>
     </ScrollView>
   );
 };
@@ -244,7 +306,21 @@ const chartConfig = {
   // useShadowColorFromDataset: true, // optional
   fillShadowGradientOpacity: 0.5,
   fillShadowGradient: "rgb(0,0,0)",
+};
 
+const chartConfig2 = {
+  backgroundGradientFrom: "rgb(242, 242, 242)",
+  backgroundGradientFromOpacity: 1,
+  backgroundGradientTo: "rgb(242, 242, 242)",
+  backgroundGradientToOpacity: 0.1,
+  color: (opacity = 1) => `rgba(0,0,0, ${opacity})`,
+  // strokeWidth: 2.5, // optional, default 3
+  // barPercentage: 0.6,
+  // useShadowColorFromDataset: true, // optional
+  fillShadowGradientOpacity: 0.5,
+  fillShadowGradient: "rgb(0,0,0)",
+  strokeWidth: 2,
+  barPercentage: 0.2,
 };
 //sgs
 const render_chart = {};
