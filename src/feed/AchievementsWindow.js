@@ -11,6 +11,11 @@ const AchievementsWindow = () => {
         <WindowHeader title="Recent Achievements" />
         <Ionicons name="trophy-sharp" color="white" size={30} />
       </View>
+      <Text style={styles.text}>Completed: Run 5,000 meters</Text>
+      <Text style={styles.text}>Completed: Run in 2/4 seasons</Text>
+      <Text style={styles.text}>
+        Completed: Beat your personal record 3 times
+      </Text>
     </View>
   );
 };
@@ -21,6 +26,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginRight: 15,
+  },
+  text: {
+    marginLeft: 10,
+    fontSize: 15,
+    paddingBottom: 5,
+    color: "white",
   },
 });
 

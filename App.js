@@ -70,7 +70,7 @@ function RunningAppStack() {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        /* options={{ headerShown: false }} */
+        options={{ headerShown: false }}
       />
       <Stack.Screen name="Workouts" component={WorkoutsScreen} />
       <Stack.Screen name="Workout Details" component={WorkoutDetailScreen} />

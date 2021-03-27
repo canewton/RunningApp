@@ -7,6 +7,9 @@ const ConnectButton = () => {
     <View style={styles.margin}>
       <View style={styles.circle}>
         <ConnectIcon />
+        <Text style={{ color: "#12cdd4", fontSize: 16, fontWeight: "700" }}>
+          Connect
+        </Text>
       </View>
     </View>
   );
@@ -22,18 +25,19 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   margin: {
-    marginTop: 30,
-    marginBottom: 50,
+    //marginTop: 30,
+    marginBottom: 5,
     alignItems: "center",
   },
   circle: {
     width: circleDiameter,
     height: circleDiameter,
     borderRadius: circleDiameter / 2,
-    borderWidth: 10,
-    borderColor: "#8fd14f",
+    //borderWidth: 10,
+    //borderColor: "#8fd14f",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#d0f5f6",
   },
 });
 
