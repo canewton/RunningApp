@@ -13,7 +13,7 @@ import {
 
 const AchievmentDetailScreen = ({ route }) => {
   const { goalName } = route.params;
-  console.log(route);
+  //console.log(route);
   return (
     <View>
       <Text> {goalName} </Text>
