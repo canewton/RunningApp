@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,} from "react";
 import {
   StyleSheet,
   Text,
@@ -9,7 +9,7 @@ import {
 import Collapsible from "react-native-collapsible";
 import { useNavigation } from "@react-navigation/native";
 
-const Achievment = ({ achievement, state }) => {
+const Achievment = ({ achievement }) => {
   const navigation = useNavigation();
   //console.log(state);
   //console.log(achievement);

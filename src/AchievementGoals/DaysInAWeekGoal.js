@@ -1,16 +1,9 @@
-import React from "react";
+/*import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 
 const DaysInAWeekGoals = ({ workouts, amountOfDays }) => {
-  const filterWorkoutsByDate = (date) => {
-    return workouts.filter((workout) => {
-      return (
-        workout.date.getDate() === date.getDate() &&
-        workout.date.getMonth() === date.getMonth() &&
-        workout.date.getYear() === date.getYear()
-      );
-    });
-  };
+  const done = false;
+  
 
   return (
     <View>
@@ -23,6 +16,11 @@ const DaysInAWeekGoals = ({ workouts, amountOfDays }) => {
               {item.date.getMonth() + 1}/{item.date.getDate()}/
               {item.date.getFullYear()}
             </Text>
+            //for the items in flatlist (is this looping?) if get day minus comparingdate is less than 7 set
+            //comparing day to the first day and increase counter (this is also the variable for bronze gold and silver) (u can erase progress??)
+            //if increase counter = 4 set done to true
+            //talk to caden: idk if this is right; a very java way to solve
+
           );
         }}
       />
@@ -32,4 +30,4 @@ const DaysInAWeekGoals = ({ workouts, amountOfDays }) => {
 
 const styles = StyleSheet.create({});
 
-export default DaysInAWeekGoals;
+export default DaysInAWeekGoals; */
