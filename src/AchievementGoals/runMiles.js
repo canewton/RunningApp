@@ -5,7 +5,7 @@ var done = false;
 var counter = 0;
 var metersCount = 0;
 
-const runMiles = ({ workouts }) => {
+const RunMiles = ({ workouts }) => {
   for (var i = 0; i < workouts.length; i++) {
     if (workouts[i].distance === "100 meters") {
       metersCount += 100;
@@ -31,8 +31,11 @@ const runMiles = ({ workouts }) => {
   }
   console.log(counter)
   console.log(done)
+  return (
+    null
+)
 };
 
 const styles = StyleSheet.create({});
 
-export default runMiles;
+export default RunMiles;

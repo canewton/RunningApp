@@ -6,7 +6,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import DaysInAWeekGoals from "../AchievementGoals/DaysInAWeekGoal";
 import HundredInFifteen from "../AchievementGoals/HundredInFifteen";
-import runMiles from "../AchievementGoals/runMiles";
+import RunMiles from "../AchievementGoals/RunMiles";
+import TenKTotal from "../AchievementGoals/TenKTotal";
 import {
   LineChart,
   BarChart,
@@ -64,12 +65,17 @@ const AchievementsScreen = () => {
         <View style={styles.trophyAndCountContainer}>
           <Ionicons name="md-trophy-sharp" size={30} color="gold" />
           <Text style={styles.trophyCount}>3</Text>
-        </View>
+        </View> 
       </View>
       <Text style={styles.title}> Goals</Text>
-     {/* <DaysInAWeekGoals amountOfDays={3} workouts={state} /> */}
-      {/* <HundredInFifteen workouts={state}/> */}
-      {/* <runMiles workouts={state}/> */}
+
+
+     {/* <DaysInAWeekGoals amountOfDays={3} workouts={state} /> */} 
+      <HundredInFifteen workouts={state}/>
+      <RunMiles workouts={state}/>
+      <TenKTotal workouts={state}/>
+
+
       <AchievementHeader
         title="To Do"
         goals={[
@@ -128,7 +134,6 @@ const AchievementsScreen = () => {
   );
 };
 
-const workouts = Object.values(state)[0];
 
 const styles = StyleSheet.create({
   icons: {
