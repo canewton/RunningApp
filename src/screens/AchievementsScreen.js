@@ -5,6 +5,7 @@ import AchievementHeader from "../components/AchievmentHeader";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import DaysInAWeekGoals from "../AchievementGoals/DaysInAWeekGoal";
+import HundredInFifteen from "../AchievementGoals/HundredInFifteen";
 import {
   LineChart,
   BarChart,
@@ -65,7 +66,8 @@ const AchievementsScreen = () => {
         </View>
       </View>
       <Text style={styles.title}> Goals</Text>
-      <DaysInAWeekGoals amountOfDays={3} workouts={state} />
+     {/* <DaysInAWeekGoals amountOfDays={3} workouts={state} /> */}
+      <HundredInFifteen workouts={state}/>
       <AchievementHeader
         title="To Do"
         goals={[
@@ -88,6 +90,7 @@ const AchievementsScreen = () => {
             goalName: "Beat your personal best 3 times",
             progress: "To bronze: 2/3 completed",
             Done: false,
+            //this = hard
           },
           {
             goalName: "Run all 4 different distances",
