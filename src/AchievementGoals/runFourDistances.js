@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+// import React from "react";
+// import { View, Text, StyleSheet, FlatList } from "react-native";
 
 var done = false;
 var runonehundred = false;
@@ -29,7 +29,7 @@ const RunFourDistances = ({ workouts }) => {
   console.log (done)
 };
 
-const styles = StyleSheet.create({});
+// const styles = StyleSheet.create({});
 
 
 export default RunFourDistances;
