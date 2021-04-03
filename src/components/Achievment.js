@@ -11,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const Achievment = ({ achievement, state }) => {
   const navigation = useNavigation();
-  console.log(state);
+  //console.log(state);
   //console.log(achievement);
   return (
     <TouchableOpacity

@@ -4,6 +4,7 @@ import { Context as WorkoutContext } from "../context/WorkoutContext";
 import AchievementHeader from "../components/AchievmentHeader";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
+import DaysInAWeekGoals from "../AchievementGoals/DaysInAWeekGoal";
 import {
   LineChart,
   BarChart,
@@ -16,6 +17,7 @@ import {
 const AchievementsScreen = () => {
   //green color: #8fd14f
   //blue color: #12cdd4
+  const { state } = useContext(WorkoutContext);
 
   const windowWidth = Dimensions.get("window").width;
 
@@ -63,6 +65,7 @@ const AchievementsScreen = () => {
         </View>
       </View>
       <Text style={styles.title}> Goals</Text>
+      <DaysInAWeekGoals amountOfDays={3} workouts={state} />
       <AchievementHeader
         title="To Do"
         goals={[
