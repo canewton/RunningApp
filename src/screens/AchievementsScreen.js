@@ -6,6 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import DaysInAWeekGoals from "../AchievementGoals/DaysInAWeekGoal";
 import HundredInFifteen from "../AchievementGoals/HundredInFifteen";
+import runMiles from "../AchievementGoals/runMiles";
 import {
   LineChart,
   BarChart,
@@ -67,7 +68,8 @@ const AchievementsScreen = () => {
       </View>
       <Text style={styles.title}> Goals</Text>
      {/* <DaysInAWeekGoals amountOfDays={3} workouts={state} /> */}
-      <HundredInFifteen workouts={state}/>
+      {/* <HundredInFifteen workouts={state}/> */}
+      {/* <runMiles workouts={state}/> */}
       <AchievementHeader
         title="To Do"
         goals={[

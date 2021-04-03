@@ -1,30 +1,38 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 
-const done = false;
-const counter = 0;
-const runFourDistances = ({ workouts }) => {
+var done = false;
+var counter = 0;
+var metersCount = 0;
+
+const runMiles = ({ workouts }) => {
   for (var i = 0; i < workouts.length; i++) {
-    if (workouts[i].getdistance === "1609 meters") {
+    if (workouts[i].distance === "100 meters") {
+      metersCount += 100;
+    }
+    else if (workouts[i].distance === "200 meters") {
+      metersCount += 200;
+    }
+    else if (workouts[i].distance === "400 meters") {
+      metersCount += 400;
+    }
+    else if (workouts[i].distance === "800 meters") {
+      metersCount += 800;
+    }
+    console.log(metersCount)
+    if (metersCount >= 1609) {
       counter += 1;
+      metersCount = (metersCount-1609);
     }
 
     if (counter >= 3) {
       done = true;
     }
   }
-
-  return (
-    <View>
-      <Text> {counter} </Text>
-    </View>
-  );
+  console.log(counter)
+  console.log(done)
 };
 
 const styles = StyleSheet.create({});
 
-export default DaysInAWeekGoals;
-
-// Do we use distance_Data and what is that? 
-// How do we display these and how do we check it? is it a console.log? 
-// 
+export default runMiles;

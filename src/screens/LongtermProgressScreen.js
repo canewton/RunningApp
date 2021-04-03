@@ -110,7 +110,7 @@ const LongtermProgressScreen = () => {
   */
 
   //   const test = this.props.navigation.getParam('test', 'some default value');
-
+  
   const [screen_counter, setCounter] = useState(0);
   // //1 = 100 meters
   // //2 = 200 meters
