@@ -13,6 +13,10 @@ import { Ionicons } from "@expo/vector-icons";
 import EditProfileScreen from "../screens/EditProfileScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 import TopRunsFilter from "../components/TopRunsFilter";
+import Collapsible from "react-native-collapsible";
+import TotalDistance from "../components/TotalDistance";
+import TotalTime from "../components/TotalTime";
+
 
 const profileImage = "../../assets/icon.png";
 const teamName = "Ballard";
@@ -40,8 +44,10 @@ const SettingsScreen = (props) => {
   const { state } = useContext(WorkoutContext);
   const [profileName, setProfileName] = useState("First Last");
   const [teamName, setTeamName] = useState("Ballard");
-  //const onPressEdit
-  //
+  const [collapsed, setCollapsed] = useState(true);
+  const toggleExpanded = () => {
+    setCollapsed(!collapsed);
+  };
 
   return (
     <View>
@@ -63,13 +69,36 @@ const SettingsScreen = (props) => {
         </TouchableOpacity>
         <Text style={styles.textBig}>{profileName}</Text>
         <TouchableOpacity
-        //onPress={() => navigation.navigate("EditProfile") }
+        onPress={toggleExpanded}
         >
           <View>
             <Text style={styles.text}>Edit Profile</Text>
           </View>
         </TouchableOpacity>
       </View>
+      <Collapsible collapsed={collapsed} align="center">
+        <Text>Name:</Text>
+        <TextInput 
+          style={styles.input}
+          autoCapitalize="none"
+          autoCorrect={false}
+          value={profileName}
+          onChangeText={(newValue) => setProfileName(newValue)}
+        />
+        <Text>Team:</Text>
+        <TextInput 
+          style={styles.input}
+          autoCapitalize="none"
+          autoCorrect={false}
+          value={teamName}
+          onChangeText={(newValue) => setTeamName(newValue)}
+        />
+        <TouchableOpacity>
+          <View style={styles.blueStyle}>
+            <Text style={styles.white}>Add friends</Text>
+          </View>
+        </TouchableOpacity>
+      </Collapsible>
 
       {/*<TextInput 
         style={styles.input}
@@ -85,36 +114,22 @@ const SettingsScreen = (props) => {
       </View>
 
       <View style={styles.row}>
-        <View style={styles.greyStyle}>
+        <View style={styles.grayStyle}>
           <Text style={styles.title}>Top Runs</Text>
           <TopRunsFilter state={state} />
-          {/* <Text style={styles.smallTitle}>
-            {" "}
-            100 meter: {hundredMeterTime} {hundredMeterDay}{" "}
-          </Text>
-
-          <Text style={styles.smallTitle}>
-            {" "}
-            200 meter: {twoHundredMeterTime} {twoHundredMeterDay}
-          </Text>
-
-          <Text style={styles.smallTitle}>
-            {" "}
-            300 meter: {threeHundredMeterTime} {threeHundredMeterDay}
-          </Text> */}
+          
         </View>
         <View style={styles.Column}>
-          <View style={styles.greyStyle}>
+          <View style={styles.grayStyle}>
             <Text style={styles.smallTitle}> TOTAL DISTANCE</Text>
-            <Text style={styles.smallTitle}> {totalDistance} m</Text>
+            <TotalDistance state={state}/>
             <TouchableOpacity style={styles.blueStyle}>
               <Text style={styles.white}>Compare</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.greyStyle}>
+          <View style={styles.grayStyle}>
             <Text style={styles.smallTitle}> TOTAL TIME</Text>
-            <Text style={styles.smallTitle}> {totalTime}sec</Text>
-            <TouchableOpacity style={styles.blueStyle}>
+            <TotalTime state={state}/>            <TouchableOpacity style={styles.blueStyle}>
               <Text style={styles.white}>Compare</Text>
             </TouchableOpacity>
           </View>
@@ -137,12 +152,12 @@ const styles = StyleSheet.create({
     backgroundColor: "grey",
     paddingVertical: 10,
     alignItems: "center",
-    marginVertical: 20,
+    margin: 20,
     justifyContent: "center",
     borderRadius: 20,
     borderColor: "#8fd14f",
     borderWidth: 5,
-    width: windowWidth / 2,
+    
   },
   blueStyle: {
     backgroundColor: "#12cdd4",
@@ -192,6 +207,7 @@ const styles = StyleSheet.create({
   },
   Column: {
     flexDirection: "column",
+    
   },
   row: {
     flexDirection: "row",
@@ -199,6 +215,17 @@ const styles = StyleSheet.create({
   white: {
     color: "white",
     fontWeight: "bold",
+  },
+  grayStyle: {
+    backgroundColor: "grey",
+    paddingVertical: 10,
+    alignItems: "center",
+    margin: 20,
+    justifyContent: "center",
+    borderRadius: 20,
+    borderColor: "#8fd14f",
+    borderWidth: 5,
+    width:300
   },
 });
 

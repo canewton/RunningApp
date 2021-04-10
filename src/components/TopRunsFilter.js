@@ -15,20 +15,117 @@ const TopRunsFilter = ({ state }) => {
       return workout.rank === rank;
     });
   };
+  const topRun = filterWorkoutsByRank(1)
+  const filterWorkoutsByDistance = (distance) => {
+    return topRun.filter((topRun) => {
+      return topRun.distance === distance;
+    });
+  };
+  const filterWorkoutsByDate = (date) => {
+    return state.filter((workout) => {
+      return workout.date === date;
+    });
+  };
   console.log(filterWorkoutsByRank(1));
   return (
     <View>
+      
       <FlatList
-        data={filterWorkoutsByRank(1)}
+        data={filterWorkoutsByDistance("100 meters")}
         keyExtractor={(index) => index.id}
         renderItem={({ item }) => {
-          return <Text>{item.distance}</Text>;
+          return (
+           <View>
+             <Text style={styles.smallTitle}>
+               {item.distance}: {item.time}
+             </Text>
+             <Text style={styles.smallTitle}>
+             {item.date.getMonth() + 1}/{item.date.getDate()}/
+             {item.date.getFullYear()}
+             </Text>
+           </View>  
+          )
         }}
-      />
+      /> 
+      <FlatList
+        data={filterWorkoutsByDistance("200 meters")}
+        keyExtractor={(index) => index.id}
+        renderItem={({ item }) => {
+          return (
+           <View>
+             <Text style={styles.smallTitle}>
+               {item.distance}: {item.time}
+             </Text>
+             <Text style={styles.smallTitle}>
+             {item.date.getMonth() + 1}/{item.date.getDate()}/
+             {item.date.getFullYear()}
+             </Text>
+           </View>  
+          )
+        }}
+      /> 
+      <FlatList
+        data={filterWorkoutsByDistance("400 meters")}
+        keyExtractor={(index) => index.id}
+        renderItem={({ item }) => {
+          return (
+           <View>
+             <Text style={styles.smallTitle}>
+               {item.distance}: {item.time}
+             </Text>
+             <Text style={styles.smallTitle}>
+             {item.date.getMonth() + 1}/{item.date.getDate()}/
+             {item.date.getFullYear()}
+             </Text>
+           </View>  
+          )
+        }}
+      /> 
+      <FlatList
+        data={filterWorkoutsByDistance("800 meters")}
+        keyExtractor={(index) => index.id}
+        renderItem={({ item }) => {
+          return (
+           <View>
+             <Text style={styles.smallTitle}>
+               {item.distance}: {item.time}
+             </Text>
+             <Text style={styles.smallTitle}>
+             {item.date.getMonth() + 1}/{item.date.getDate()}/
+             {item.date.getFullYear()}
+             </Text>
+           </View>  
+          )
+        }}
+      /> 
+      <FlatList
+        data={filterWorkoutsByDistance("1600 meters")}
+        keyExtractor={(index) => index.id}
+        renderItem={({ item }) => {
+          return (
+           <View>
+             <Text style={styles.smallTitle}>
+               {item.distance}: {item.time}
+             </Text>
+             <Text style={styles.smallTitle}>
+             {item.date.getMonth() + 1}/{item.date.getDate()}/
+             {item.date.getFullYear()}
+             </Text>
+           </View>  
+          )
+        }}
+      /> 
     </View>
+    
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  smallTitle: {
+    color: "#12cdd4",
+    fontWeight: "bold",
+    fontSize: 14,
+  },
+});
 
 export default TopRunsFilter;
