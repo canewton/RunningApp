@@ -1,33 +1,41 @@
-/*import React from "react";
+import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 
-const DaysInAWeekGoals = ({ workouts, amountOfDays }) => {
-  const done = false;
+const DaysInAWeekGoal = ({ workouts }) => {
+  var done = false;
+  var counter = 0;
+  var tempWeek = [];
+  var comparingDate = 0;
+
   
+    for (var i = 0; i < workouts.length; i++) {
+      var date = workouts[i].date
+      var day = date.getDay()
+      comparingDate = day+7;
+      if (day = comparingDate){
+        counter = 0;
+      }
+      else{
+        counter += 1;
 
-  return (
-    <View>
-      <FlatList
-        data={filterWorkoutsByDate(new Date("1/1/2021"))}
-        keyExtractor={(index) => index.id}
-        renderItem={({ item }) => {
-          return (
-            <Text>
-              {item.date.getMonth() + 1}/{item.date.getDate()}/
-              {item.date.getFullYear()}
-            </Text>
-            //for the items in flatlist (is this looping?) if get day minus comparingdate is less than 7 set
-            //comparing day to the first day and increase counter (this is also the variable for bronze gold and silver) (u can erase progress??)
-            //if increase counter = 4 set done to true
-            //talk to caden: idk if this is right; a very java way to solve
-
-          );
-        }}
-      />
-    </View>
-  );
+        if(counter==1){
+          comparingDate = day;
+        }
+        if(counter == 4){
+          done = true;
+        }
+      }
+    }
+    return (
+        null
+    )
 };
+
+//add days to array loop through array erase everything before that index and set that index to 0 idrk how to do that also months 
+
+// OR sense first context date and last context date and divide into sevens reset counter for each week and if conter = 4 (YA THIS ONE)
 
 const styles = StyleSheet.create({});
 
-export default DaysInAWeekGoals; */
+export default DaysInAWeekGoal;
+

@@ -23,8 +23,8 @@ const TenKTotal = ({ workouts }) => {
         }
     
     }
-    console.log(metersCount);
-    console.log(done);
+    // console.log(metersCount);
+    // console.log(done);
     return(
         null
     )

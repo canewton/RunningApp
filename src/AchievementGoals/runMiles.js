@@ -19,7 +19,7 @@ const RunMiles = ({ workouts }) => {
     else if (workouts[i].distance === "800 meters") {
       metersCount += 800;
     }
-    console.log(metersCount)
+    //console.log(metersCount)
     if (metersCount >= 1609) {
       counter += 1;
       metersCount = (metersCount-1609);
@@ -29,8 +29,8 @@ const RunMiles = ({ workouts }) => {
       done = true;
     }
   }
-  console.log(counter)
-  console.log(done)
+  // console.log(counter)
+  // console.log(done)
   return (
     null
 )

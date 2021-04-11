@@ -2,31 +2,32 @@
 // import { View, Text, StyleSheet, FlatList } from "react-native";
 
 var done = false;
-var runonehundred = false;
-var runtwohundred = false;
-var runfourhundred = false;
-var runeighthundred = false;
+var runOneHundred = false;
+var runTwoHundred = false;
+var runFourHundred = false;
+var runEightHundred = false;
 
 const RunFourDistances = ({ workouts }) => {
   for (var i = 0; i < workouts.length; i++) {
-    if (workouts[i].getdistance === "400 meters") {
-      runfourhundred = true;
+    if (workouts[i].distance === "400 meters") {
+      runFourHundred = true;
     }
-    if (workouts[i].getdistance === "200 meters") {
-        runtwohundred = true;
+    else if (workouts[i].distance === "200 meters") {
+        runTwoHundred = true;
     }
-    if (workouts[i].getdistance === "100 meters") {
-        runonehundred = true;
+    else if (workouts[i].distance === "100 meters") {
+        runOneHundred = true;
     }
-    if (workouts[i].getdistance === "800 meters") {
-        runeighthundred = true;
+    else if (workouts[i].distance === "800 meters") {
+        runEightHundred = true;
     } 
     
-    if (runonehundred && runtwohundred && runfourhundred && runeighthundred) {
+    if (runOneHundred && runTwoHundred && runFourHundred && runEightHundred) {
       done = true;
     }
   }
   console.log (done)
+  return(null)
 };
 
 // const styles = StyleSheet.create({});

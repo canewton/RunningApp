@@ -8,6 +8,8 @@ import DaysInAWeekGoals from "../AchievementGoals/DaysInAWeekGoal";
 import HundredInFifteen from "../AchievementGoals/HundredInFifteen";
 import RunMiles from "../AchievementGoals/RunMiles";
 import TenKTotal from "../AchievementGoals/TenKTotal";
+import RunFourDistances from "../AchievementGoals/RunFourDistances";
+import BeatYourBest from "../AchievementGoals/BeatYourBest";
 import {
   LineChart,
   BarChart,
@@ -74,6 +76,9 @@ const AchievementsScreen = () => {
       <HundredInFifteen workouts={state}/>
       <RunMiles workouts={state}/>
       <TenKTotal workouts={state}/>
+      <RunFourDistances workouts={state}/>
+      <BeatYourBest workouts={state}/>
+
 
 
       <AchievementHeader
@@ -93,12 +98,13 @@ const AchievementsScreen = () => {
             goalName: "Run for all 4 seasons",
             progress: "To bronze: 1/4 completed",
             Done: false,
+
           },
           {
             goalName: "Beat your personal best 3 times",
             progress: "To bronze: 2/3 completed",
             Done: false,
-            //this = hard
+      
           },
           {
             goalName: "Run all 4 different distances",
@@ -109,12 +115,14 @@ const AchievementsScreen = () => {
             goalName: "Run 5 times a week for a month",
             progress: "To silver: 2/4 completed",
             Done: false,
+  
           },
           {
             goalName: "Run 4 times a week for 6 months",
             progress: "To bronze: 1/3 completed",
             Done: false,
           },
+            
           {
             goalName: "Run 100 meters in 15 seconds",
             progress: "To gold: 1/6 completed",
