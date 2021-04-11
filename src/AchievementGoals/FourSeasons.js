@@ -15,13 +15,13 @@ const FourSeasons = ({ workouts }) => {
         if((workouts[i].month === "January" ||"Febuary" || "December") ){
             winter = true;
         
-        if((workouts[i].month === "march" ||"April" || "May") ){
+        if((workouts[i].month === "March" ||"April" || "May") ){
             spring = true;}
 
-        if((workouts[i].month === "october" ||"november" || "september") ){
+        if((workouts[i].month === "October" ||"November" || "September") ){
             fall = true;   }
                     
-        if((workouts[i].month === "june" ||"july" || "August") ){
+        if((workouts[i].month === "June" ||"July" || "August") ){
             summer = true;   } 
             
         if(summer && fall && spring && winter) {
