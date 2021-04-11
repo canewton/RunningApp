@@ -30,7 +30,7 @@ const RunFourDistances = ({ workouts }) => {
   return(null)
 };
 
-// const styles = StyleSheet.create({});
+const styles = StyleSheet.create({});
 
 
 export default RunFourDistances;
