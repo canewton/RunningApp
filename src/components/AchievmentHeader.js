@@ -11,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import Achievment from "../components/Achievment";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 
-const AchievementHeader = ({ title, goals }) => {
+const AchievementHeader = ({ title, goals,}) => {
   const { state } = useContext(WorkoutContext);
   //create a state variable that defines if the collapsible list is collapsed or not
   const [collapsed, setCollapsed] = useState(true);

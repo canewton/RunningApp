@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useState,useContext } from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 import AchievementHeader from "../components/AchievmentHeader";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import DaysInAWeekGoals from "../AchievementGoals/DaysInAWeekGoal";
+import HundredInFifteen from "../AchievementGoals/HundredInFifteen";
+import RunMiles from "../AchievementGoals/RunMiles";
+import TenKTotal from "../AchievementGoals/TenKTotal";
+import RunFourDistances from "../AchievementGoals/RunFourDistances";
+import BeatYourBest from "../AchievementGoals/BeatYourBest";
+import FourSeasons from "../AchievementGoals/FourSeasons";
+
 import {
   LineChart,
   BarChart,
@@ -62,10 +69,21 @@ const AchievementsScreen = () => {
         <View style={styles.trophyAndCountContainer}>
           <Ionicons name="md-trophy-sharp" size={30} color="gold" />
           <Text style={styles.trophyCount}>3</Text>
-        </View>
+        </View> 
       </View>
       <Text style={styles.title}> Goals</Text>
-      <DaysInAWeekGoals amountOfDays={3} workouts={state} />
+
+
+     {/* <DaysInAWeekGoals amountOfDays={3} workouts={state} /> */} 
+      <HundredInFifteen workouts={state}/>
+      <RunMiles workouts={state}/>
+      <TenKTotal workouts={state}/>
+      <RunFourDistances workouts={state}/>
+      <BeatYourBest workouts={state}/>
+      <FourSeasons workouts={state}/>
+
+
+
       <AchievementHeader
         title="To Do"
         goals={[
@@ -83,11 +101,13 @@ const AchievementsScreen = () => {
             goalName: "Run for all 4 seasons",
             progress: "To bronze: 1/4 completed",
             Done: false,
+
           },
           {
             goalName: "Beat your personal best 3 times",
             progress: "To bronze: 2/3 completed",
             Done: false,
+      
           },
           {
             goalName: "Run all 4 different distances",
@@ -98,12 +118,14 @@ const AchievementsScreen = () => {
             goalName: "Run 5 times a week for a month",
             progress: "To silver: 2/4 completed",
             Done: false,
+  
           },
           {
             goalName: "Run 4 times a week for 6 months",
             progress: "To bronze: 1/3 completed",
             Done: false,
           },
+            
           {
             goalName: "Run 100 meters in 15 seconds",
             progress: "To gold: 1/6 completed",
@@ -122,6 +144,7 @@ const AchievementsScreen = () => {
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   icons: {
@@ -159,30 +182,3 @@ const styles = StyleSheet.create({
 
 export default AchievementsScreen;
 
-/*
-overall qs:
-will we need to be able to click on them to see more info?? 
-our list and key extractor + their location is very scuffed
-what do we display on the opening page? how?
-where do we compare the data to the requirments (i assume here?)
-+LUCA DESIGN??
-
-
-
-still todo
-progress bar
-requirments styling
-comparing data
-individual functions
-
-ERROR:
-collapsable goals??
-
-done
-will format text of the passed in requirment 
-
-list possible acheivemnts and their requirments in  achivements screen
-that will pass in info on individual acheivements and 
-their medal requirments - component will format it and screen will display it
-
-*/

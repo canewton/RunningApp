@@ -1,35 +1,35 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 
-const DaysInAWeekGoals = ({ workouts, amountOfDays }) => {
-  const filterWorkoutsByDate = (date) => {
-    return workouts.filter((workout) => {
-      return (
-        workout.date.getDate() === date.getDate() &&
-        workout.date.getMonth() === date.getMonth() &&
-        workout.date.getYear() === date.getYear()
-      );
-    });
-  };
+const DaysInAWeekGoal = ({ workouts }) => {
+  var done = false;
+  var counter = 0;
+  var tempWeek = [];
+  var comparingDate = 0;
 
-  return (
-    <View>
-      <FlatList
-        data={filterWorkoutsByDate(new Date("1/1/2021"))}
-        keyExtractor={(index) => index.id}
-        renderItem={({ item }) => {
-          return (
-            <Text>
-              {item.date.getMonth() + 1}/{item.date.getDate()}/
-              {item.date.getFullYear()}
-            </Text>
-          );
-        }}
-      />
-    </View>
-  );
+  
+    for (var i = 0; i < workouts.length; i++) {
+      var date = workouts[i].date
+      var day = date.getDay()
+      comparingDate = day+7;
+      if (day = comparingDate){
+        counter = 0;
+        comparingDate = day;
+      }
+      else{
+        counter += 1;
+        if(counter == 4){
+          done = true;
+        }
+      }
+    }
+    return (
+        null
+    )
 };
+
 
 const styles = StyleSheet.create({});
 
-export default DaysInAWeekGoals;
+export default DaysInAWeekGoal;
+
