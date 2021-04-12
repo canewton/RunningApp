@@ -10,6 +10,8 @@ import RunMiles from "../AchievementGoals/RunMiles";
 import TenKTotal from "../AchievementGoals/TenKTotal";
 import RunFourDistances from "../AchievementGoals/RunFourDistances";
 import BeatYourBest from "../AchievementGoals/BeatYourBest";
+import FourSeasons from "../AchievementGoals/FourSeasons";
+
 import {
   LineChart,
   BarChart,
@@ -78,6 +80,7 @@ const AchievementsScreen = () => {
       <TenKTotal workouts={state}/>
       <RunFourDistances workouts={state}/>
       <BeatYourBest workouts={state}/>
+      <FourSeasons workouts={state}/>
 
 
 

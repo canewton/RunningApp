@@ -14,13 +14,10 @@ const DaysInAWeekGoal = ({ workouts }) => {
       comparingDate = day+7;
       if (day = comparingDate){
         counter = 0;
+        comparingDate = day;
       }
       else{
         counter += 1;
-
-        if(counter==1){
-          comparingDate = day;
-        }
         if(counter == 4){
           done = true;
         }
@@ -31,9 +28,6 @@ const DaysInAWeekGoal = ({ workouts }) => {
     )
 };
 
-//add days to array loop through array erase everything before that index and set that index to 0 idrk how to do that also months 
-
-// OR sense first context date and last context date and divide into sevens reset counter for each week and if conter = 4 (YA THIS ONE)
 
 const styles = StyleSheet.create({});
 
