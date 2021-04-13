@@ -122,14 +122,15 @@ const SettingsScreen = (props) => {
         <View style={styles.Column}>
           <View style={styles.grayStyle}>
             <Text style={styles.smallTitle}> TOTAL DISTANCE</Text>
-            <TotalDistance state={state}/>
+            <TotalDistance state={state} Style={styles.smallTitle}/>
             <TouchableOpacity style={styles.blueStyle}>
               <Text style={styles.white}>Compare</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.grayStyle}>
             <Text style={styles.smallTitle}> TOTAL TIME</Text>
-            <TotalTime state={state}/>            <TouchableOpacity style={styles.blueStyle}>
+            <TotalTime state={state} style={styles.smallTitle}/>        
+            <TouchableOpacity style={styles.blueStyle}>
               <Text style={styles.white}>Compare</Text>
             </TouchableOpacity>
           </View>

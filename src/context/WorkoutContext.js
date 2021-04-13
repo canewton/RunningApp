@@ -403,7 +403,7 @@ export const { Context, Provider } = createDataContext(
         53.34,
         53.8,
       ],
-      time_data: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 20.68],
+      time_data: [1, 0, 0, 0, 0, 0, 0, 20.68],
     },
     {
       date: new Date("1/10/2021"),
@@ -447,7 +447,7 @@ export const { Context, Provider } = createDataContext(
         53.34,
         53.8,
       ],
-      time_data: [1, 2, 3, 4, 5, 6, 7, 8, 9.23],
+      time_data: [1, 0, 0, 0, 0, 0, 0, 9.23],
     },
     {
       date: new Date("3/23/2021"),
@@ -456,7 +456,7 @@ export const { Context, Provider } = createDataContext(
       id: "19",
       rank: 1,
       distance_data: [0, 6, 13, 21, 30, 43, 54, 65, 79, 89, 100],
-      time_data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      time_data: [1, 0, 0, 0, 0, 0, 0, 9.89],
     },
     {
       date: new Date("3/23/2021"),

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
@@ -8,15 +8,26 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import WorkoutList from "./WorkoutList";
+import WorkoutListScreen from "../screens/WorkoutListScreen";
+import {Context as WorkoutContext} from "../context/WorkoutContext"
+const TotalTime = props => {
+    var totalTime = 0;
+    for(var i=0; i<props.state.length; i++){
+        totalTime = totalTime + props.state[i].time_data[7]
+        
+        
+    
+    }
+    console.log(props.state)
+    console.log(totalTime)
 
-const TotalTime = ({ state }) => {
     return(
-        <Text style={styles.smallTitle}>
-            3 hrs 42 min 25 sec
+        <Text style={props.style}>
+            {totalTime} seconds
         </Text>
     )
- 
-  
+    
+    
 };
 
 const styles = StyleSheet.create({
