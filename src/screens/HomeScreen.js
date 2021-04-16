@@ -155,6 +155,7 @@ const HomeScreen = ({ navigation }) => {
             Connect
           </Animated.Text>
         </Animated.View>
+        {/* render the header icon's final state */}
         <View
           style={{
             position: "absolute",
