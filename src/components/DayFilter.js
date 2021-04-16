@@ -37,7 +37,7 @@ const DayFilter = (state) => {
   var month = date.getMonth();
   var day = date.getDate();
   var weekday = date.getDay();
-  
+
   //State is currently an array wrapped in an object.
   //Create workouts which contains the array of workouts, not wrapped in an object.
   const workouts = Object.values(state)[0];
@@ -121,7 +121,15 @@ const DayFilter = (state) => {
         {/*If the left arrow button is pressed, display workouts of an older date */}
         <TouchableOpacity onPress={() => updateDateDisplayed("decrease")}>
           <View style={styles.iconButton}>
-            <Ionicons name="chevron-back" style={styles.iconLeft} />
+            <Ionicons
+              name="chevron-back"
+              style={[
+                styles.iconLeft,
+                {
+                  opacity: dateIndex === 0 ? 0 : 1,
+                },
+              ]}
+            />
           </View>
         </TouchableOpacity>
         {/*Display the date corresponding to all the workouts displayed */}
@@ -132,7 +140,16 @@ const DayFilter = (state) => {
         {/*If the right arrow button is pressed, display workouts of a more recent date */}
         <TouchableOpacity onPress={() => updateDateDisplayed("increase")}>
           <View style={styles.iconButton}>
-            <Ionicons name="chevron-back" style={styles.iconRight} />
+            <Ionicons
+              name="chevron-back"
+              style={[
+                styles.iconRight,
+                {
+                  opacity:
+                    dateIndex === workoutsSortedByDate.length - 1 ? 0 : 1,
+                },
+              ]}
+            />
           </View>
         </TouchableOpacity>
       </View>

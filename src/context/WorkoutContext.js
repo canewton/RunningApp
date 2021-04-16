@@ -11,7 +11,6 @@ const workoutReducer = (state, action) => {
           distance: action.payload.distance,
           hard_data: action.payload.hard_data,
           time_data: action.payload.time_data,
-          //added hard data list
         },
       ];
   }
@@ -19,7 +18,6 @@ const workoutReducer = (state, action) => {
 
 const addWorkout = (dispatch) => {
   return (date, distance, data, callback, hard_data, time_data) => {
-    //added hard_data list? doesn't work
     dispatch({
       type: "add_workout",
       payload: { date, distance, data, id, hard_data, time_data },
