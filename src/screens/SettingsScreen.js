@@ -16,7 +16,8 @@ import TopRunsFilter from "../components/TopRunsFilter";
 import Collapsible from "react-native-collapsible";
 import TotalDistance from "../components/TotalDistance";
 import TotalTime from "../components/TotalTime";
-
+import IconSelection from "../components/IconSelection"
+import ProfileIcons from "../icons/ProfileIcons"
 
 const profileImage = "../../assets/icon.png";
 const teamName = "Ballard";
@@ -41,6 +42,7 @@ const windowWidth = Dimensions.get("window").width;
 const SettingsScreen = (props) => {
   //green color: #8fd14f
   //blue color: #12cdd4
+  const [icon, setIcon] = useState(<Feather name="zap" size={iconSize} color={iconColor} />)
   const { state } = useContext(WorkoutContext);
   const [profileName, setProfileName] = useState("First Last");
   const [teamName, setTeamName] = useState("Ballard");
@@ -48,7 +50,10 @@ const SettingsScreen = (props) => {
   const toggleExpanded = () => {
     setCollapsed(!collapsed);
   };
-
+  const [collapsed2, setCollapsed2] = useState(true);
+  const toggleExpanded2 = () => {
+    setCollapsed2(!collapsed2);
+  };
   return (
     <View>
       {/* <View style={styles.headerStyle}>
@@ -59,14 +64,34 @@ const SettingsScreen = (props) => {
         <Image source={require("../../assets/icon.png")} style={styles.image} />
       </View> */}
       <View style={{ alignItems: "center", marginLeft: 10 }}>
-        <Ionicons name="person-circle-sharp" size={200} color="#caccce" />
+        <Ionicons name={icon} size={200} color="#caccce" />
       </View>
       <View style={styles.textStyle}>
-        <TouchableOpacity>
+        <TouchableOpacity
+         onPress={toggleExpanded2}
+        >
           <View>
-            <Text style={styles.text}>Change Photo</Text>
+            <Text style={styles.text}>Change Icon</Text>
           </View>
         </TouchableOpacity>
+
+
+
+
+        <Collapsible collapsed={collapsed2} align="center">
+          <IconSelection
+            initial values={{
+              iconName: icon.props.name
+            }}
+          />
+          
+        </Collapsible>
+
+
+
+
+
+
         <Text style={styles.textBig}>{profileName}</Text>
         <TouchableOpacity
         onPress={toggleExpanded}
@@ -226,7 +251,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: "#8fd14f",
     borderWidth: 5,
-    width:300
+    width: 3/7*windowWidth
   },
 });
 
