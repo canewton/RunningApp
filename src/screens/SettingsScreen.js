@@ -16,8 +16,9 @@ import TopRunsFilter from "../components/TopRunsFilter";
 import Collapsible from "react-native-collapsible";
 import TotalDistance from "../components/TotalDistance";
 import TotalTime from "../components/TotalTime";
-import IconSelection from "../components/IconSelection"
-import ProfileIcons from "../icons/ProfileIcons"
+import IconSelection from "../components/IconSelection";
+import { colors, icons } from "../icons/ProfileIcons";
+import { Feather } from "@expo/vector-icons";
 
 const profileImage = "../../assets/icon.png";
 const teamName = "Ballard";
@@ -42,7 +43,7 @@ const windowWidth = Dimensions.get("window").width;
 const SettingsScreen = (props) => {
   //green color: #8fd14f
   //blue color: #12cdd4
-  const [icon, setIcon] = useState(<Feather name="zap" size={iconSize} color={iconColor} />)
+  const [icon, setIcon] = useState(icons(30, "white")[0]);
   const { state } = useContext(WorkoutContext);
   const [profileName, setProfileName] = useState("First Last");
   const [teamName, setTeamName] = useState("Ballard");
@@ -67,35 +68,22 @@ const SettingsScreen = (props) => {
         <Ionicons name={icon} size={200} color="#caccce" />
       </View>
       <View style={styles.textStyle}>
-        <TouchableOpacity
-         onPress={toggleExpanded2}
-        >
+        <TouchableOpacity onPress={toggleExpanded2}>
           <View>
             <Text style={styles.text}>Change Icon</Text>
           </View>
         </TouchableOpacity>
 
-
-
-
         <Collapsible collapsed={collapsed2} align="center">
           <IconSelection
-            initial values={{
-              iconName: icon.props.name
+            initialValues={{
+              iconName: icon.props.name,
             }}
           />
-          
         </Collapsible>
 
-
-
-
-
-
         <Text style={styles.textBig}>{profileName}</Text>
-        <TouchableOpacity
-        onPress={toggleExpanded}
-        >
+        <TouchableOpacity onPress={toggleExpanded}>
           <View>
             <Text style={styles.text}>Edit Profile</Text>
           </View>
@@ -103,7 +91,7 @@ const SettingsScreen = (props) => {
       </View>
       <Collapsible collapsed={collapsed} align="center">
         <Text>Name:</Text>
-        <TextInput 
+        <TextInput
           style={styles.input}
           autoCapitalize="none"
           autoCorrect={false}
@@ -111,7 +99,7 @@ const SettingsScreen = (props) => {
           onChangeText={(newValue) => setProfileName(newValue)}
         />
         <Text>Team:</Text>
-        <TextInput 
+        <TextInput
           style={styles.input}
           autoCapitalize="none"
           autoCorrect={false}
@@ -142,19 +130,18 @@ const SettingsScreen = (props) => {
         <View style={styles.grayStyle}>
           <Text style={styles.title}>Top Runs</Text>
           <TopRunsFilter state={state} />
-          
         </View>
         <View style={styles.Column}>
           <View style={styles.grayStyle}>
             <Text style={styles.smallTitle}> TOTAL DISTANCE</Text>
-            <TotalDistance state={state} Style={styles.smallTitle}/>
+            <TotalDistance state={state} Style={styles.smallTitle} />
             <TouchableOpacity style={styles.blueStyle}>
               <Text style={styles.white}>Compare</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.grayStyle}>
             <Text style={styles.smallTitle}> TOTAL TIME</Text>
-            <TotalTime state={state} style={styles.smallTitle}/>        
+            <TotalTime state={state} style={styles.smallTitle} />
             <TouchableOpacity style={styles.blueStyle}>
               <Text style={styles.white}>Compare</Text>
             </TouchableOpacity>
@@ -183,7 +170,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: "#8fd14f",
     borderWidth: 5,
-    
   },
   blueStyle: {
     backgroundColor: "#12cdd4",
@@ -233,7 +219,6 @@ const styles = StyleSheet.create({
   },
   Column: {
     flexDirection: "column",
-    
   },
   row: {
     flexDirection: "row",
@@ -251,7 +236,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: "#8fd14f",
     borderWidth: 5,
-    width: 3/7*windowWidth
+    width: (3 / 7) * windowWidth,
   },
 });
 

@@ -15,7 +15,7 @@ const TopRunsFilter = ({ state }) => {
       return workout.rank === rank;
     });
   };
-  const topRun = filterWorkoutsByRank(1)
+  const topRun = filterWorkoutsByRank(1);
   const filterWorkoutsByDistance = (distance) => {
     return topRun.filter((topRun) => {
       return topRun.distance === distance;
@@ -26,97 +26,95 @@ const TopRunsFilter = ({ state }) => {
       return workout.date === date;
     });
   };
-  console.log(filterWorkoutsByRank(1));
+  //console.log(filterWorkoutsByRank(1));
   return (
     <View>
-      
       <FlatList
         data={filterWorkoutsByDistance("100 meters")}
         keyExtractor={(index) => index.id}
         renderItem={({ item }) => {
           return (
-           <View>
-             <Text style={styles.smallTitle}>
-               {item.distance}: {item.time}
-             </Text>
-             <Text style={styles.smallTitle}>
-             {item.date.getMonth() + 1}/{item.date.getDate()}/
-             {item.date.getFullYear()}
-             </Text>
-           </View>  
-          )
+            <View>
+              <Text style={styles.smallTitle}>
+                {item.distance}: {item.time}
+              </Text>
+              <Text style={styles.smallTitle}>
+                {item.date.getMonth() + 1}/{item.date.getDate()}/
+                {item.date.getFullYear()}
+              </Text>
+            </View>
+          );
         }}
-      /> 
+      />
       <FlatList
         data={filterWorkoutsByDistance("200 meters")}
         keyExtractor={(index) => index.id}
         renderItem={({ item }) => {
           return (
-           <View>
-             <Text style={styles.smallTitle}>
-               {item.distance}: {item.time}
-             </Text>
-             <Text style={styles.smallTitle}>
-             {item.date.getMonth() + 1}/{item.date.getDate()}/
-             {item.date.getFullYear()}
-             </Text>
-           </View>  
-          )
+            <View>
+              <Text style={styles.smallTitle}>
+                {item.distance}: {item.time}
+              </Text>
+              <Text style={styles.smallTitle}>
+                {item.date.getMonth() + 1}/{item.date.getDate()}/
+                {item.date.getFullYear()}
+              </Text>
+            </View>
+          );
         }}
-      /> 
+      />
       <FlatList
         data={filterWorkoutsByDistance("400 meters")}
         keyExtractor={(index) => index.id}
         renderItem={({ item }) => {
           return (
-           <View>
-             <Text style={styles.smallTitle}>
-               {item.distance}: {item.time}
-             </Text>
-             <Text style={styles.smallTitle}>
-             {item.date.getMonth() + 1}/{item.date.getDate()}/
-             {item.date.getFullYear()}
-             </Text>
-           </View>  
-          )
+            <View>
+              <Text style={styles.smallTitle}>
+                {item.distance}: {item.time}
+              </Text>
+              <Text style={styles.smallTitle}>
+                {item.date.getMonth() + 1}/{item.date.getDate()}/
+                {item.date.getFullYear()}
+              </Text>
+            </View>
+          );
         }}
-      /> 
+      />
       <FlatList
         data={filterWorkoutsByDistance("800 meters")}
         keyExtractor={(index) => index.id}
         renderItem={({ item }) => {
           return (
-           <View>
-             <Text style={styles.smallTitle}>
-               {item.distance}: {item.time}
-             </Text>
-             <Text style={styles.smallTitle}>
-             {item.date.getMonth() + 1}/{item.date.getDate()}/
-             {item.date.getFullYear()}
-             </Text>
-           </View>  
-          )
+            <View>
+              <Text style={styles.smallTitle}>
+                {item.distance}: {item.time}
+              </Text>
+              <Text style={styles.smallTitle}>
+                {item.date.getMonth() + 1}/{item.date.getDate()}/
+                {item.date.getFullYear()}
+              </Text>
+            </View>
+          );
         }}
-      /> 
+      />
       <FlatList
         data={filterWorkoutsByDistance("1600 meters")}
         keyExtractor={(index) => index.id}
         renderItem={({ item }) => {
           return (
-           <View>
-             <Text style={styles.smallTitle}>
-               {item.distance}: {item.time}
-             </Text>
-             <Text style={styles.smallTitle}>
-             {item.date.getMonth() + 1}/{item.date.getDate()}/
-             {item.date.getFullYear()}
-             </Text>
-           </View>  
-          )
+            <View>
+              <Text style={styles.smallTitle}>
+                {item.distance}: {item.time}
+              </Text>
+              <Text style={styles.smallTitle}>
+                {item.date.getMonth() + 1}/{item.date.getDate()}/
+                {item.date.getFullYear()}
+              </Text>
+            </View>
+          );
         }}
-      /> 
+      />
     </View>
-    
   );
 };
 

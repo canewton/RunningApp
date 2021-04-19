@@ -9,25 +9,16 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import WorkoutList from "./WorkoutList";
 import WorkoutListScreen from "../screens/WorkoutListScreen";
-import {Context as WorkoutContext} from "../context/WorkoutContext"
-const TotalTime = props => {
-    var totalTime = 0;
-    for(var i=0; i<props.state.length; i++){
-        totalTime = totalTime + props.state[i].time_data[7]
-        
-        
-    
-    }
-    console.log(props.state)
-    console.log(totalTime)
+import { Context as WorkoutContext } from "../context/WorkoutContext";
+const TotalTime = (props) => {
+  var totalTime = 0;
+  for (var i = 0; i < props.state.length; i++) {
+    totalTime = totalTime + props.state[i].time_data[7];
+  }
+  //console.log(props.state)
+  //console.log(totalTime)
 
-    return(
-        <Text style={props.style}>
-            {totalTime} seconds
-        </Text>
-    )
-    
-    
+  return <Text style={props.style}>{totalTime} seconds</Text>;
 };
 
 const styles = StyleSheet.create({
