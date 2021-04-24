@@ -1,23 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import { Dimensions } from "react-native";
-
-//const dataNotGraph = route.params.distance_data;
 
 const WorkoutDetailScreen = ({ route }) => {
   const { distance, time, date, distance_data, time_data } = route.params;
 
-  const datadumb = {
-    labels: time_data, //filler, shall add real stuff later,
+  const lineChartDistanceData = {
+    labels: time_data,
     datasets: [
       {
         data: distance_data,
@@ -25,59 +16,31 @@ const WorkoutDetailScreen = ({ route }) => {
         strokeWidth: 2, // optional
       },
     ],
-    // legend: ["running data(dummy)"] // optional
   };
 
-  var max_of_array = Math.max.apply(Math, distance_data);
-  var max_of_array_time = Math.max.apply(Math, time_data);
+  const velocity_data = (distanceDataArray) => {
+    const velocityArray = distanceDataArray.map((distance) =>
+      distanceDataArray.indexOf(distance) === 0
+        ? 0
+        : distance - distanceDataArray[distanceDataArray.indexOf(distance) - 1]
+    );
+    return velocityArray;
+  };
 
-  //sudo code for velocity-time graph..... status: error
-  //1. for loop to call for lenght of distance_data .... done!
-  //2. use equation on this use i  and i-1 for t1 and t2 ..... done!
-  //3. port into it's own array call velcoty_array ......error
-  //4. new graph for the viwer ..... done!
+  var maxVelocity = Math.max.apply(Math, velocity_data(distance_data));
 
-  //   const getvelocity = (distance_data, time_data) => {
-  //     var content = [];
-  //     for (let i = 0; i < distance_data.length; i++) {
-  //       const item = distance_data[i];
-  //       // if (!time_data[i] = 0) {
-
-  //       // }
-
-  //       var previoustime = time_data[i-1];
-  //       var previouspos = distance_data[i-1];
-
-  //       var a_pos = previouspos - distance_data[i];
-  //       var a_time = previoustime - distance_data[i];
-
-  //       var gamer_juice = a_pos/a_time;
-  // //yyuu
-  //       content.push(<FlatList key={item.id}>{item.gamer_juice}</FlatList>);
-  //     }
-  // //fh
-
-  //     return content;
-  //   };
-
-  //var velocity_data = getvelocity(distance_data,time_data);
-
-  const data_velocity = {
-    labels: time_data, //filler, shall add real stuff later,
+  const lineChartVelocityData = {
+    labels: time_data,
     datasets: [
       {
-        data: [0, 6, 7, 8, 10, 11, 12, 12, 10, 11, 11], //velocity_data,
+        data: velocity_data(distance_data), //velocity_data,
         color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`, // optional
         strokeWidth: 2, // optional
       },
     ],
-    // legend: ["running data(dummy)"] // optional
   };
 
   const screenWidth = Dimensions.get("window").width;
-
-  //sgsfbdsb
-  // var max_of_array = Math.max.apply(Math, [49,49,49,49,50,50,51,51,52,52,53,53]);
 
   return (
     <ScrollView>
@@ -86,7 +49,7 @@ const WorkoutDetailScreen = ({ route }) => {
       </View>
       <View>
         <LineChart
-          data={datadumb}
+          data={lineChartDistanceData}
           width={screenWidth}
           height={256}
           verticalLabelRotation={30}
@@ -100,28 +63,15 @@ const WorkoutDetailScreen = ({ route }) => {
         <Text style={styles.text}>
           Sprint Time: <Text style={styles.darkGreenText}>{time}</Text>
         </Text>
-
-        {/* <View style={styles.header}>
-        <Text style={styles.title}>position-time</Text>
-      </View> */}
-
-        {/* <Text style={styles.text}>
-          Your top speed was:{" "}
-          <Text style={styles.greenText}>{max_of_array}</Text>{" "}
-        </Text> */}
       </View>
 
-      {/* <Text style={styles.text}>
-        Duration of your run:{" "}
-        <Text style={styles.darkGreenText}>{max_of_array_time}</Text>{" "}
-      </Text> */}
       <View>
         <View style={styles.header}>
           <Text style={styles.title}>Velocity Graph</Text>
         </View>
 
         <LineChart
-          data={data_velocity}
+          data={lineChartVelocityData}
           width={screenWidth}
           height={256}
           verticalLabelRotation={30}
@@ -131,8 +81,8 @@ const WorkoutDetailScreen = ({ route }) => {
         />
       </View>
       <Text style={styles.text}>
-        Your top speed was: <Text style={styles.greenText}>12.0 m/s</Text>
-        {/* <Text style={styles.greenText}>{max_of_array}</Text> */}{" "}
+        Your top speed was:{" "}
+        <Text style={styles.greenText}>{maxVelocity.toFixed(2)} m/s</Text>
       </Text>
     </ScrollView>
   );

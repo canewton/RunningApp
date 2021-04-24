@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 import AchievementHeader from "../components/AchievmentHeader";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import DaysInAWeekGoals from "../AchievementGoals/DaysInAWeekGoal";
+import HundredInFifteen from "../AchievementGoals/HundredInFifteen";
+import RunMiles from "../AchievementGoals/runMiles";
+import TenKTotal from "../AchievementGoals/TenKTotal";
+import RunFourDistances from "../AchievementGoals/runFourDistances";
+import BeatYourBest from "../AchievementGoals/BeatYourBest";
+import FourSeasons from "../AchievementGoals/FourSeasons";
+
 import {
   LineChart,
   BarChart,
@@ -65,7 +72,15 @@ const AchievementsScreen = () => {
         </View>
       </View>
       <Text style={styles.title}> Goals</Text>
-      <DaysInAWeekGoals amountOfDays={3} workouts={state} />
+
+      {/* <DaysInAWeekGoals amountOfDays={3} workouts={state} /> */}
+      <HundredInFifteen workouts={state} />
+      <RunMiles workouts={state} />
+      <TenKTotal workouts={state} />
+      <RunFourDistances workouts={state} />
+      <BeatYourBest workouts={state} />
+      <FourSeasons workouts={state} />
+
       <AchievementHeader
         title="To Do"
         goals={[
@@ -104,6 +119,7 @@ const AchievementsScreen = () => {
             progress: "To bronze: 1/3 completed",
             Done: false,
           },
+
           {
             goalName: "Run 100 meters in 15 seconds",
             progress: "To gold: 1/6 completed",
@@ -158,31 +174,3 @@ const styles = StyleSheet.create({
 });
 
 export default AchievementsScreen;
-
-/*
-overall qs:
-will we need to be able to click on them to see more info?? 
-our list and key extractor + their location is very scuffed
-what do we display on the opening page? how?
-where do we compare the data to the requirments (i assume here?)
-+LUCA DESIGN??
-
-
-
-still todo
-progress bar
-requirments styling
-comparing data
-individual functions
-
-ERROR:
-collapsable goals??
-
-done
-will format text of the passed in requirment 
-
-list possible acheivemnts and their requirments in  achivements screen
-that will pass in info on individual acheivements and 
-their medal requirments - component will format it and screen will display it
-
-*/

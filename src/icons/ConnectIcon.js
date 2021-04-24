@@ -10,7 +10,7 @@ const Icon = createIconSetFromIcoMoon(
   "icomoon.ttf"
 );
 
-export default function App() {
+const ConnectIcon = ({ size, color }) => {
   // Load the icon font before using it
   const [fontsLoaded] = useFonts({
     IcoMoon: require("../resources/fonts/icomoon.ttf"),
@@ -21,7 +21,8 @@ export default function App() {
 
   return (
     <View>
-      <Icon name="ConnectIcon" size={100} color="#12cdd4" />
+      <Icon name="ConnectIcon" size={size} color={color} />
     </View>
   );
-}
+};
+export default ConnectIcon;

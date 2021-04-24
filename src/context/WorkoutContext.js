@@ -11,7 +11,6 @@ const workoutReducer = (state, action) => {
           distance: action.payload.distance,
           hard_data: action.payload.hard_data,
           time_data: action.payload.time_data,
-          //added hard data list
         },
       ];
   }
@@ -19,7 +18,6 @@ const workoutReducer = (state, action) => {
 
 const addWorkout = (dispatch) => {
   return (date, distance, data, callback, hard_data, time_data) => {
-    //added hard_data list? doesn't work
     dispatch({
       type: "add_workout",
       payload: { date, distance, data, id, hard_data, time_data },
@@ -432,7 +430,7 @@ export const { Context, Provider } = createDataContext(
       distance: "100 meters",
       time: "00:09.23",
       id: "21",
-      rank: 2,
+      rank: 1,
       distance_data: [
         49.31,
         49.36,
@@ -454,7 +452,7 @@ export const { Context, Provider } = createDataContext(
       distance: "100 meters",
       time: "00:09.89",
       id: "19",
-      rank: 1,
+      rank: 2,
       distance_data: [0, 6, 13, 21, 30, 43, 54, 65, 79, 89, 100],
       time_data: [1, 0, 0, 0, 0, 0, 0, 9.89],
     },
