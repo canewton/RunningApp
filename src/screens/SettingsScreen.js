@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Dimensions,
   TextInput,
+  FlatList,
 } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 import { Ionicons } from "@expo/vector-icons";
@@ -16,7 +17,6 @@ import TopRunsFilter from "../components/TopRunsFilter";
 import Collapsible from "react-native-collapsible";
 import TotalDistance from "../components/TotalDistance";
 import TotalTime from "../components/TotalTime";
-import IconSelection from "../components/IconSelection";
 import { colors, icons } from "../icons/ProfileIcons";
 import { Feather } from "@expo/vector-icons";
 
@@ -43,11 +43,12 @@ const windowWidth = Dimensions.get("window").width;
 const SettingsScreen = (props) => {
   //green color: #8fd14f
   //blue color: #12cdd4
-  const [icon, setIcon] = useState(icons(30, "white")[0]);
+  
   const { state } = useContext(WorkoutContext);
   const [profileName, setProfileName] = useState("First Last");
   const [teamName, setTeamName] = useState("Ballard");
   const [collapsed, setCollapsed] = useState(true);
+  const [iconNumber, setIconNumber]= useState(0)
   const toggleExpanded = () => {
     setCollapsed(!collapsed);
   };
@@ -65,7 +66,7 @@ const SettingsScreen = (props) => {
         <Image source={require("../../assets/icon.png")} style={styles.image} />
       </View> */}
       <View style={{ alignItems: "center", marginLeft: 10 }}>
-        <Ionicons name={icon} size={200} color="#caccce" />
+        {icons(200, "caccce")[iconNumber].icon}
       </View>
       <View style={styles.textStyle}>
         <TouchableOpacity onPress={toggleExpanded2}>
@@ -75,11 +76,34 @@ const SettingsScreen = (props) => {
         </TouchableOpacity>
 
         <Collapsible collapsed={collapsed2} align="center">
-          <IconSelection
-            initialValues={{
-              iconName: icon.props.name,
-            }}
-          />
+        <View>
+     <Text>Choose your Icon:</Text>
+       <FlatList
+         data={icons(30, "black")}
+         keyExtractor={(index) => index.id + ""}
+         numColumns={5}
+         scrollEnabled={false}
+         renderItem={({ item }) => {
+           return (
+             <TouchableOpacity
+               //if this icon is pressed, set the state to this icon so that
+               //it can be used to change the values of classes context later
+               onPress={() => {
+                 setIconNumber(item.id-1);
+               }}
+            >
+               <View
+                 
+                 
+               >
+                 {/* render the icon */}
+                 {item.icon}
+               </View>
+             </TouchableOpacity>
+           );
+         }}
+       />
+     </View>
         </Collapsible>
 
         <Text style={styles.textBig}>{profileName}</Text>

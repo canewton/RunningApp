@@ -188,4 +188,4 @@ const icons = (iconSize, iconColor) => [
   },
 ];
 
-export { colors, icons };
+export { icons };
