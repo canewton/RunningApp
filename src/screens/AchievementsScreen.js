@@ -174,3 +174,8 @@ const styles = StyleSheet.create({
 });
 
 export default AchievementsScreen;
+
+//put in all of the goals into context 
+//update the acheivmetnt component to compare progress and medals
+//when gold is met move acheivment component under done
+//update medal variables and progress bar to show on screen
