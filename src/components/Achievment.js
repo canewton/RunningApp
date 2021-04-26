@@ -11,14 +11,14 @@ import { useNavigation } from "@react-navigation/native";
 
 const Achievment = ({ achievement }) => {
   const navigation = useNavigation();
-  //console.log(state);
-  //console.log(achievement);
+  
   return (
     <TouchableOpacity
       onPress={() =>
         navigation.navigate("Achievement Details", {
           goalName: achievement.goalName,
           progress: achievement.progress,
+          //nead to change this with the context^^
         })
       }
       style={styles.Achievmentdetails}

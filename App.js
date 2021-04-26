@@ -13,6 +13,7 @@ import { Provider as WorkoutProvider } from "./src/context/WorkoutContext";
 import HomeScreen from "./src/screens/HomeScreen";
 import WorkoutRankingsScreen from "./src/screens/WorkoutRankingsScreen";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { Provider as AchievementProvider } from "./src/context/AchievementsContext";
 
 //create a stack navigator for navigating between screens
 const Stack = createStackNavigator();
@@ -92,10 +93,12 @@ export default () => {
     //This makes useContext(WorkoutProvider) work later on
     //Also, wrap the stack with a navigation container, needed for navigating
     //between screens to work. Make the theme the custom theme defined above
-    <WorkoutProvider>
-      <NavigationContainer theme={Theme}>
-        <RunningAppStack />
-      </NavigationContainer>
-    </WorkoutProvider>
+    <AchievementProvider>
+      <WorkoutProvider>
+        <NavigationContainer theme={Theme}>
+          <RunningAppStack />
+        </NavigationContainer>
+      </WorkoutProvider>
+    </AchievementProvider>
   );
 };
