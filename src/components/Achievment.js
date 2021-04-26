@@ -15,12 +15,36 @@ const Achievment = ({ title }) => {
   const navigation = useNavigation();
   const achievements = useContext(AchievementsContext);
 
-  var progress = achievements.state[{title}].progress;
-  var gold = achievements.state[{title}].progress; 
-  var done = false;
+  var progress = achievements.state.find(
+    (achievement) => achievement.name === title
+  ).progress;
+
+  var gold = achievements.state.find(
+    (achievement) => achievement.name === title
+  ).goal_gold;
+  
+  var silver = achievements.state.find(
+    (achievement) => achievement.name === title
+  ).goal_silver;
+  
+  var bronze = achievements.state.find(
+    (achievement) => achievement.name === title
+  ).goal_bronze;
+
+  var doneG = false;
+  var doneS = false;
+  var doneB = false;
+  var completed = false;
 
   if(gold<= progress){
-    done = true;
+    doneG = true;
+    completed = true;
+  }
+  if(silver<= progress){
+    doneS = true;
+  }
+  if(bronze<= progress){
+    doneB = true;
   }
   
   return (
@@ -36,8 +60,6 @@ const Achievment = ({ title }) => {
     >
       <View>
         <Text style={styles.Subtext}> {title} </Text>
-        <Text style={styles.Subtext}> {done} </Text>
-
         {/* <Text style={styles.Subtext}>{achievement.progress}</Text> */}
       </View>
     </TouchableOpacity>

@@ -56,6 +56,13 @@ export const { Context, Provider } = createDataContext(
       goal_silver: 2,
       goal_gold: 3,
     },
+    {
+      name: "Run _ different distances",
+      progress: 0,
+      goal_bronze: 2,
+      goal_silver: 3,
+      goal_gold: 4,
+    },
   ]
 )
   

@@ -13,15 +13,13 @@ import { Context as WorkoutContext } from "../context/WorkoutContext";
 
 const AchievementHeader = ({ title, goals,}) => {
   const { state } = useContext(WorkoutContext);
-  //create a state variable that defines if the collapsible list is collapsed or not
   const [collapsed, setCollapsed] = useState(true);
-
   const navigation = useNavigation();
-
-  //a function that collapses or expands the collapsible list
   const toggleExpanded = () => {
     setCollapsed(!collapsed);
   };
+
+
   return (
     <View>
       <TouchableOpacity onPress={toggleExpanded}>
@@ -30,19 +28,16 @@ const AchievementHeader = ({ title, goals,}) => {
         </View>
       </TouchableOpacity>
 
-      {/*Make a list that collapses and expands. Make the list start out as expanded.*/}
+     
       <Collapsible collapsed={collapsed} align="center">
         <View style={styles.workout}>
-          {/*Pass the workout data into a flatlist component.
-          The flatlist will display every workout that is passed to it.
-          Disable scrolling for the flatlist since it is in a collapsible list*/}
+          
           <FlatList
             data={goals}
             keyExtractor={(goals) => goals.goalName}
             renderItem={({ item }) => {
-              return (
-                <Achievment achievement={item} state={state} />
-              );
+              <Achievment title="Run for _ meters in total"/>,
+              <Achievment title="Run _ miles in one day"/>
             }}
           />
         </View>

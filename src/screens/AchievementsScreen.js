@@ -9,7 +9,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 //import HundredInFifteen from "../AchievementGoals/HundredInFifteen";
 import { RunMiles } from "../AchievementGoals/RunMiles";
 import { TenKTotal } from "../AchievementGoals/TenKTotal";
-//import RunFourDistances from "../AchievementGoals/RunFourDistances";
+import { RunFourDistances } from "../AchievementGoals/RunFourDistances";
 //import BeatYourBest from "../AchievementGoals/BeatYourBest";
 //import FourSeasons from "../AchievementGoals/FourSeasons";
 import { Context as AchievementsContext } from "../context/AchievementsContext";
@@ -37,6 +37,10 @@ const AchievementsScreen = () => {
     achievements.editAchievement(
       RunMiles(workouts.state),
       "Run _ miles in one day"
+    );
+    achievements.editAchievement(
+      RunFourDistances(workouts.state),
+      "Run _ different distances"
     );
     console.log(achievements.state[0]);
   }, [workouts.state]);
@@ -94,19 +98,11 @@ const AchievementsScreen = () => {
       </View>
       <Text style={styles.title}> Goals</Text>
 
-      {/* <DaysInAWeekGoals amountOfDays={3} workouts={state} /> */}
-      {/* <HundredInFifteen workouts={state}/>
-      <RunMiles workouts={state}/>
-      <TenKTotal workouts={state}/>
-      <RunFourDistances workouts={state}/>
-      <BeatYourBest workouts={state}/>
-      <FourSeasons workouts={state}/> */}
-
+      
       <AchievementHeader
         title="To Do"
         goals={
           [
-            // this is where you put the component
           ]
         }
       />
@@ -114,6 +110,8 @@ const AchievementsScreen = () => {
     </View>
   );
 };
+
+
 
 const styles = StyleSheet.create({
   icons: {
@@ -150,7 +148,7 @@ const styles = StyleSheet.create({
 });
 
 export default AchievementsScreen;
-//put in all of the goals into context
+//put in all of the goals into context 
 //update the acheivmetnt component to compare progress and medals
 //when gold is met move acheivment component under done
 //update medal variables and progress bar to show on screen
@@ -206,3 +204,6 @@ goals={[
   //fix all this
 ]}
 */
+
+
+// make an array of all the achievment components if (loop through list) .done = true move to another array [IS THIS POSSIBLE]
