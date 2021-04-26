@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { Context as WorkoutContext } from "../context/WorkoutContext";
 import AchievementHeader from "../components/AchievmentHeader";
+import Achievment from "../components/Achievment";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 //import DaysInAWeekGoals from "../AchievementGoals/DaysInAWeekGoal";
@@ -76,7 +77,7 @@ const AchievementsScreen = () => {
           marginVertical: 10,
         }}
       />
-
+      <Achievment title="Run for _ meters in total"/>
       <View style={styles.icons}>
         <View style={styles.trophyAndCountContainer}>
           <Ionicons name="md-trophy-sharp" size={30} color="#CD7F32" />

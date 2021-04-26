@@ -29,4 +29,4 @@ const RunMiles = (workouts) => {
   return miles;
 };
 
-export { RunMiles };
+export {RunMiles};

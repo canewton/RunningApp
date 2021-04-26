@@ -1,4 +1,4 @@
-import React, { useState, useEffect,} from "react";
+import React, { useState, useContext, useEffect,} from "react";
 import {
   StyleSheet,
   Text,
@@ -8,25 +8,37 @@ import {
 } from "react-native";
 import Collapsible from "react-native-collapsible";
 import { useNavigation } from "@react-navigation/native";
+import { Context as AchievementsContext } from "../context/AchievementsContext";
 
-const Achievment = ({ achievement }) => {
+
+const Achievment = ({ title }) => {
   const navigation = useNavigation();
+  const achievements = useContext(AchievementsContext);
+
+  var progress = achievements.state[{title}].progress;
+  var gold = achievements.state[{title}].progress; 
+  var done = false;
+
+  if(gold<= progress){
+    done = true;
+  }
   
   return (
     <TouchableOpacity
-      onPress={() =>
-        navigation.navigate("Achievement Details", {
-          goalName: achievement.goalName,
-          progress: achievement.progress,
-          //nead to change this with the context^^
-        })
-      }
-      style={styles.Achievmentdetails}
+      // onPress={() =>
+      //   navigation.navigate("Achievement Details", {
+      //     goalName: achievement.goalName,
+      //     progress: achievement.progress,
+      //     //nead to change this with the context^^
+      //   })
+      // }
+      // style={styles.Achievmentdetails}
     >
       <View>
-        <Text style={styles.Subtext}>{achievement.goalName}</Text>
+        <Text style={styles.Subtext}> {title} </Text>
+        <Text style={styles.Subtext}> {done} </Text>
 
-        <Text style={styles.Subtext}>{achievement.progress}</Text>
+        {/* <Text style={styles.Subtext}>{achievement.progress}</Text> */}
       </View>
     </TouchableOpacity>
   );
