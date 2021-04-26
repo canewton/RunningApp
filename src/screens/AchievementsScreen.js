@@ -40,12 +40,8 @@ const AchievementsScreen = () => {
     console.log(achievements.state[0]);
   }, [workouts.state]);
 
-
   //green color: #8fd14f
   //blue color: #12cdd4
-
-
-
 
   const windowWidth = Dimensions.get("window").width;
 
@@ -97,7 +93,6 @@ const AchievementsScreen = () => {
       </View>
       <Text style={styles.title}> Goals</Text>
 
-
       {/* <DaysInAWeekGoals amountOfDays={3} workouts={state} /> */}
       {/* <HundredInFifteen workouts={state}/>
       <RunMiles workouts={state}/>
@@ -107,9 +102,12 @@ const AchievementsScreen = () => {
       <FourSeasons workouts={state}/> */}
 
       <AchievementHeader
-        title="To Do" goals={[
-          // this is where you put the component
-        ]}
+        title="To Do"
+        goals={
+          [
+            // this is where you put the component
+          ]
+        }
       />
       <AchievementHeader title="Completed" goals={[]} />
     </View>
@@ -151,7 +149,7 @@ const styles = StyleSheet.create({
 });
 
 export default AchievementsScreen;
-//put in all of the goals into context 
+//put in all of the goals into context
 //update the acheivmetnt component to compare progress and medals
 //when gold is met move acheivment component under done
 //update medal variables and progress bar to show on screen
